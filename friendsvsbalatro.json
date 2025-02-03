@@ -1,0 +1,13 @@
+{
+	"id": "friends_vs_balatro",
+	"name": "Friends Vs. Balatro",
+	"author": ["Raevyn"],
+	"description": "The deck-building shooter meets the addicting poker roguelike.",
+	"prefix": "fvb",
+	"main_file": "main.lua",
+	"priority": 0,
+	"badge_colour": "2A2051",
+	"badge_text_colour": "E0569B",
+	"version": "0.0.1~",
+	"dependencies": []
+}
