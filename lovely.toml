@@ -1,0 +1,11 @@
+[manifest]
+version = "1.0.0"
+priority = 15
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "-- TARGET: add your own CardAreas for joker evaluation"
+position = "before"
+match_indent = true
+payload = "t[#t+1] = G.weapons"
