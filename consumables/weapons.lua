@@ -84,7 +84,12 @@ local function Weapon(info)
         loc_vars = function(self, info_queue, card)
             local curr_ammo = ""
             if card.ability.extra.reloading then
-                curr_ammo = "Reloading"
+                local rel = card.ability.extra.reload_countdown
+                if card.ability.extra.reload_countdown > 1 and (not rel == 0) then
+                    curr_ammo = rel + 1 .. " hands until reload"
+                else
+                    curr_ammo = rel + 1 .. " hand until reload"
+                end
             else
                 curr_ammo = card.ability.extra.curr_ammo .. "/" .. card.ability.extra.max_ammo
             end
