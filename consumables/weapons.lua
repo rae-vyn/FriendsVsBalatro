@@ -65,12 +65,14 @@ SMODS.Consumable({
                     message = "Missed!"
                 }
             end
+            sendDebugMessage("Ammo left: " .. card.ability.extra.curr_ammo)
 			return {
 				mult = chosen_mult,
 				card = card,
 			}
 		elseif card.ability.extra.reloading and context.after then
-            if card.ability.extra.reload_countdown >= 0 then
+            sendDebugMessage("Until Reload: " .. card.ability.extra.reload_countdown)
+            if card.ability.extra.reload_countdown > 0 then
                 card.ability.extra.reload_countdown = card.ability.extra.reload_countdown - 1
                 return {
                     message = "Reloading..."
@@ -78,6 +80,7 @@ SMODS.Consumable({
             end
             card.ability.extra.reloading = false
             card.ability.extra.curr_ammo = card.ability.extra.max_ammo
+            card.ability.extra.reload_countdown = 3
             return {
                 message = "Reloaded!"
             }
