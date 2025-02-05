@@ -40,7 +40,6 @@ function calcWeapon(self, card, context)
             card = card,
         }
     elseif card.ability.extra.reloading and context.after then
-        sendDebugMessage("Until Reload: " .. card.ability.extra.reload_countdown)
         if card.ability.extra.reload_countdown > 0 then
             card.ability.extra.reload_countdown = card.ability.extra.reload_countdown - 1
             return {
