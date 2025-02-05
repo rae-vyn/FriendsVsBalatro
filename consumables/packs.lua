@@ -10,12 +10,13 @@ SMODS.Booster({
     },
     config = {
         extra = 5,
-        choose = 5
+        choose = 2
     },
     kind = "Weapon",
     create_card = function(self, card, i)
         return {
-            set = "Weapon"
+            set = "Weapon",
+            area = G.weapons
         }
     end
 })

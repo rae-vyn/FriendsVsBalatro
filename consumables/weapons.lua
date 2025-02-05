@@ -68,8 +68,8 @@ local function Weapon(info)
                 curr_ammo = info.curr_ammo or info.max_ammo,
                 max_ammo = info.max_ammo,
                 reloading = false,
-                max_reload = info.max_reload,
-                reload_countdown = info.reload_countdown or info.max_reload
+                max_reload = info.reload_time,
+                reload_countdown = info.reload_countdown or info.reload_time
             }
         },
         loc_txt = {
@@ -93,6 +93,12 @@ local function Weapon(info)
             }
         end,
         calculate = info.calculate or calcWeapon,
+        use = function(self, card, area, copier)
+            G.weapon:emplace(self)
+        end,
+        keep_on_use = function(self, card)
+            return true
+        end
     })
 end
 
