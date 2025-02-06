@@ -61,3 +61,19 @@ SMODS.Joker({
     end
 })
 
+SMODS.Joker({
+    key = "big_mag",
+    atlas = "placeholder",
+    config = {extra = {mult = 0.3}},
+    loc_vars = function(self, info_queue, card)
+        return { vars = { 1 + card.ability.extra.mult}}
+    end,
+    blueprint_compat = false,
+    calculate = function(self, card, context)
+        if context.selling_self then
+            local weapon = G.weapons.cards[0]
+            weapon.ability.extra.max_ammo = weapon.ability.extra.max_ammo + ceil(weapon.ability.extra.max_ammo * card.ability.extra.mult)
+            weapon:juice_up()
+        end
+    end
+})

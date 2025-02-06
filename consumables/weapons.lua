@@ -24,7 +24,7 @@ function calcWeapon(self, card, context)
         for i = 1, (card.ability.extra.max_damage-card.ability.extra.min_damage) do
             damage_range[#damage_range+1] = i
         end
-        local chosen_mult = 13 + pseudorandom_element(damage_range, pseudoseed("boira")) -- Roll Damage
+        local chosen_mult = card.ability.extra.min_damage + pseudorandom_element(damage_range, pseudoseed("boira")) -- Roll Damage
         card.ability.extra.curr_ammo = card.ability.extra.curr_ammo - 1 -- Take away ammo
         if card.ability.extra.curr_ammo <= 0 then
             card.ability.extra.reloading = true
@@ -72,6 +72,7 @@ local function Weapon(info)
                 reload_countdown = info.reload_countdown or info.reload_time
             }
         },
+        pools = {"FVB"},
         loc_txt = {
             name = info.name,
             text = {
@@ -98,13 +99,14 @@ local function Weapon(info)
             }
         end,
         calculate = info.calculate or calcWeapon,
-        use = function(self, card, area, copier)
-            G.weapon:emplace(self)
-        end,
         keep_on_use = function(self, card)
+            return true
+        end,
+        can_use = function(self, card)
             return true
         end
     })
+    -- table.insert(FVB.cards, "c_fvb_" .. info.key)
 end
 
 Weapon({
