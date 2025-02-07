@@ -1,5 +1,13 @@
 SMODS.Atlas({key = "placeholder", px = 71, py = 95, path = "placeholder.png"})
 
+local BUFF_KEYS = {
+    "small_head",
+    "health_up",
+    "steel_bullets",
+    "big_mag",
+    "akimbo"
+}
+
 SMODS.Joker({
     key = "small_head",
     atlas = "placeholder",
@@ -66,14 +74,31 @@ SMODS.Joker({
     atlas = "placeholder",
     config = {extra = {mult = 0.3}},
     loc_vars = function(self, info_queue, card)
-        return { vars = { 1 + card.ability.extra.mult}}
+        return { vars = { card.ability.extra.mult * 100}}
     end,
     blueprint_compat = false,
     calculate = function(self, card, context)
         if context.selling_self then
-            local weapon = G.weapons.cards[0]
-            weapon.ability.extra.max_ammo = weapon.ability.extra.max_ammo + ceil(weapon.ability.extra.max_ammo * card.ability.extra.mult)
+            local weapon = G.weapons.cards[1]
+            weapon.ability.extra.max_ammo = weapon.ability.extra.max_ammo + math.ceil(weapon.ability.extra.max_ammo * card.ability.extra.mult)
+            weapon.ability.curr_ammo = weapon.ability.extra.max_ammo
             weapon:juice_up()
         end
     end
 })
+
+SMODS.Joker({
+    key = "akimbo",
+    atlas = "placeholder",
+    calculate = function (self, card, context)
+        if context.selling_self and #G.weapons.cards == 1 then
+            G.weapons:change_size(1)
+            SMODS.add_card({key = G.weapons.cards[1].config.center_key})
+            G.weapons.cards[2].ability = G.weapons.cards[1].ability
+        end
+    end
+})
+
+for _, v in ipairs(BUFF_KEYS) do
+    table.insert(FVB.cards, "j_fvb_" .. v)
+end

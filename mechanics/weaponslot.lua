@@ -1,7 +1,7 @@
 local start_run_ref = Game.start_run
 function Game:start_run(args)
     self.GAME.starting_params.weapon_slots = 1 -- limiting how many cards can be in this area
-    self.weapons = CardArea(0, 0, G.CARD_W, G.CARD_H, {
+    self.weapons = CardArea(0, 0, G.CARD_W * 1.1, G.CARD_H, {
         card_limit = self.GAME.starting_params.weapon_slots,
         type = "joker", -- set this to joker to properly handle use/sell buttons
         highlight_limit = 1
@@ -34,11 +34,11 @@ function Card:highlight(is_higlighted)
         if self.highlighted and self.area and self.area.config.type ~= 'shop' then
             local x_off = (self.ability.consumeable and -0.1 or 0)
             self.children.use_button = UIBox{
-                definition = G.UIDEF.use_and_sell_buttons(self), 
+                definition = G.UIDEF.use_and_sell_buttons(self),
                 config = {align=
                         ((self.area == G.jokers) or (self.area == G.consumeables) or (self.area == G.cine_quests)) and "cr" or
                         "bmi" -- need to check if the area is yours too, to show use/sell buttons in the right place
-                    , offset = 
+                    , offset =
                         ((self.area == G.jokers) or (self.area == G.consumeables) or (self.area == G.cine_quests)) and {x=x_off - 0.4,y=0} or
                         {x=0,y=0.65}, -- same here
                     parent =self}

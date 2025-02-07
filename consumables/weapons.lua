@@ -72,7 +72,7 @@ local function Weapon(info)
                 reload_countdown = info.reload_countdown or info.reload_time
             }
         },
-        pools = {"FVB"},
+        pools = {"fvb_cards", "Weapon"},
         loc_txt = {
             name = info.name,
             text = {
@@ -99,14 +99,32 @@ local function Weapon(info)
             }
         end,
         calculate = info.calculate or calcWeapon,
+        use = function(self, card, area, copier)
+            if area == G.weapons then
+                SMODS.add_card({
+                    key = "c_fvb_boira"
+                })
+                card:start_dissolve()
+                return
+            end
+            if area == G.pack_cards and #G.weapons.cards > 0 then
+                for _, weapon in ipairs(G.weapons.cards) do
+                    weapon:start_dissolve()
+                end
+                return
+            end
+        end,
         keep_on_use = function(self, card)
             return true
         end,
         can_use = function(self, card)
             return true
+        end,
+        inject = function(self)
+            SMODS.Consumable.inject(self)
         end
     })
-    -- table.insert(FVB.cards, "c_fvb_" .. info.key)
+    table.insert(FVB.cards, "c_fvb_" .. info.key)
 end
 
 Weapon({

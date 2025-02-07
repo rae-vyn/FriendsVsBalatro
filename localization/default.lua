@@ -21,6 +21,32 @@ return {
                     "{C:white,X:mult}X#1#{} Mult",
                     "per card played"
                 }
+            },
+            j_fvb_big_mag = {
+                name = "Big Mag",
+                text = {
+                    "Sell to increase",
+                    "{C:attention}max ammo",
+                    "on current {C:weapon}Weapon",
+                    "by {C:green}#1#%"
+                }
+            },
+            j_fvb_akimbo = {
+                name = "Akimbo",
+                text = {
+                    "Sell to duplicate",
+                    "the {C:weapon}Weapon",
+                    "you currently have",
+                    "{C:inactive}(Doesn't stack)"
+                }
+            }
+        },
+        Weapon = {
+            w_fvb_boira = {
+                name = "Boira",
+                text = {
+                    "{C:blue}+600{} Chips"
+                }
             }
         }
     }

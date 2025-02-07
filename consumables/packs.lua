@@ -1,20 +1,21 @@
---[[
 SMODS.ObjectType({
-    key = "FVB",
-    default = "j_fvb_steel_bullets",
-    cards = {
-        ["j_fvb_steel_bullets"] = true,--[[
-        ["j_fvb_small_head"] = true,
-        ["j_fvb_health_up"] = true,
-        ["j_fvb_big_mag"] = true,
-    },
+    key = "fvb_cards",
+    default = "c_fvb_boira",
+    cards = {},
     inject = function(self)
-        for _, v in ipairs(FVB.cards) do
+        SMODS.ObjectType.inject(self)
+        G.P_CENTER_POOLS.FVB = {}
+        for i, v in ipairs(FVB.cards) do
             self.cards[v] = true
         end
-    end
+    end,
+    inject_card = function(self, center)
+        SMODS.ConsumableType.inject_card(self, center)
+        SMODS.insert_pool(G.P_CENTER_POOLS.FVB, center)
+    end,
+
 })
-]]
+
 SMODS.Booster({
     key = "basic_pack",
     loc_txt = {
@@ -32,7 +33,7 @@ SMODS.Booster({
     kind = "Weapon",
     create_card = function(self, card, i)
         return {
-            set = "Weapon",
+            set = "fvb_cards",
             skip_materialize = true,
         }
     end
