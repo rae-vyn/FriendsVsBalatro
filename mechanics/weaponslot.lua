@@ -12,6 +12,15 @@ function Game:start_run(args)
     start_run_ref(self, args)
 
     set_screen_positions()
+
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            if G.jokers then
+                SMODS.add_card({key = "c_fvb_boira"})
+                return true
+            end
+        end,
+    }))
 end
 
 local set_screen_positions_ref = set_screen_positions

@@ -30,6 +30,7 @@ SMODS.Booster({
         extra = 5,
         choose = 2
     },
+    weight = 5,
     kind = "Weapon",
     create_card = function(self, card, i)
         return {

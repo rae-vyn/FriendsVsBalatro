@@ -8,18 +8,18 @@ target = '=[SMODS _ "src/utils.lua"]'
 pattern = "-- TARGET: add your own CardAreas for joker evaluation"
 position = "before"
 match_indent = true
-payload = "t[#t+1] = G.weapons"
+payload = "table.insert(t, 1, G.weapons)"
 
 # Emplace alignments in their own area
 [[patches]]
 [patches.pattern]
 target = "functions/button_callbacks.lua"
 pattern = '''
-elseif card.ability.set == 'Booster' then 
+elseif card.ability.set == 'Booster' then
 '''
 position = "before"
 payload = '''
-elseif card.ability.set == 'Weapon' then 
+elseif card.ability.set == 'Weapon' then
     card:add_to_deck()
     G.weapons:emplace(card)
     play_sound('card1', 0.8, 0.6)

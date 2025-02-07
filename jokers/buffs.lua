@@ -79,10 +79,11 @@ SMODS.Joker({
     blueprint_compat = false,
     calculate = function(self, card, context)
         if context.selling_self then
-            local weapon = G.weapons.cards[1]
-            weapon.ability.extra.max_ammo = weapon.ability.extra.max_ammo + math.ceil(weapon.ability.extra.max_ammo * card.ability.extra.mult)
-            weapon.ability.curr_ammo = weapon.ability.extra.max_ammo
-            weapon:juice_up()
+            for _, weapon in ipairs(G.weapons.cards) do
+                weapon.ability.extra.max_ammo = weapon.ability.extra.max_ammo + math.ceil(weapon.ability.extra.max_ammo * card.ability.extra.mult)
+                weapon.ability.extra.curr_ammo = weapon.ability.extra.max_ammo
+                weapon:juice_up()
+            end
         end
     end
 })
@@ -94,7 +95,7 @@ SMODS.Joker({
         if context.selling_self and #G.weapons.cards == 1 then
             G.weapons:change_size(1)
             SMODS.add_card({key = G.weapons.cards[1].config.center_key})
-            G.weapons.cards[2].ability = G.weapons.cards[1].ability
+            G.weapons.cards[2].ability = table.copy(G.weapons.cards[1].ability)
         end
     end
 })
