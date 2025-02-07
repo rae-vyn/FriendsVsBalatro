@@ -1,5 +1,5 @@
 SMODS.Atlas({key = "placeholder", px = 71, py = 95, path = "placeholder.png"})
-
+SMODS.Atlas({key = "weapons", px = 71, py = 95, path = "Weapons.png"})
 SMODS.ConsumableType({
     key = 'Weapon',
     primary_colour = HEX("2A2051"),
@@ -59,7 +59,8 @@ local function Weapon(info)
     SMODS.Consumable({
         key = info.key,
         set = "Weapon",
-        atlas = info.atlas or 'placeholder',
+        atlas = info.atlas or 'weapons',
+        pos = info.pos or nil,
         config = {
             extra = {
                 min_damage = info.min_damage,
@@ -130,6 +131,7 @@ end
 Weapon({
     key = "boomstick",
     name = "Boomstick",
+    pos = {x = 0, y = 0},
     tagline = "Close-range clutch!",
     min_damage = 13,
     max_damage = 13*6,
@@ -141,6 +143,7 @@ Weapon({
 Weapon({
     key = "albatross",
     name = "Albatross 21",
+    pos = {x = 1, y = 0},
     tagline = "Newton says hello!",
     min_damage = 70,
     max_damage = 100,
@@ -152,6 +155,7 @@ Weapon({
 Weapon({
     key = "boira",
     name = "Boira 9",
+    atlas = 'placeholder',
     tagline = "The classic.",
     min_damage = 13,
     max_damage = 19,
@@ -163,6 +167,7 @@ Weapon({
 Weapon({
     key = "brasshopper",
     name = "Brasshopper",
+    pos = {x = 2, y = 0},
     tagline = "A bit of the Raver flavour.",
     min_damage = 8,
     max_damage = 12,
@@ -174,17 +179,7 @@ Weapon({
 Weapon({
     key = "laika",
     name = "Laika",
-    tagline = "You had it coming.",
-    min_damage = 39,
-    max_damage = 45,
-    miss_chance = 35,
-    max_ammo = 6,
-    reload_time = 2,
-})
-
-Weapon({
-    key = "laika",
-    name = "Laika",
+    pos = {x = 0, y = 1},
     tagline = "You had it coming.",
     min_damage = 39,
     max_damage = 45,
@@ -196,6 +191,7 @@ Weapon({
 Weapon({
     key = "fk",
     name = "FK-82",
+    pos = {x = 1, y = 1},
     tagline = "Friends of high caliber.",
     min_damage = 16,
     max_damage = 19,
@@ -207,6 +203,7 @@ Weapon({
 Weapon({
     key = "gld_boira",
     name = "Golden Boira",
+    pos = {x = 2, y = 1},
     tagline = "The gold standard.",
     min_damage = 15,
     max_damage = 21,
@@ -218,6 +215,7 @@ Weapon({
 Weapon({
     key = "punchr",
     name = "Punch-R",
+    pos = {x = 0, y = 2},
     tagline = "Lars' specialty.",
     min_damage = 40,
     max_damage = 60,
@@ -229,6 +227,7 @@ Weapon({
 Weapon({
     key = "katana",
     name = "Katana",
+    pos = {x = 1, y = 2},
     tagline = "A gift from Sable.",
     min_damage = 45,
     max_damage = 55,
