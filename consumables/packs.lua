@@ -1,3 +1,9 @@
+SMODS.Atlas({
+    key = "pack_placeholder",
+    px = 71,
+    py = 95,
+    path = "pack_placeholder.png"
+})
 SMODS.ObjectType({
     key = "fvb_cards",
     default = "c_fvb_boira",
@@ -18,6 +24,7 @@ SMODS.ObjectType({
 
 SMODS.Booster({
     key = "basic_pack",
+    atlas = "pack_placeholder",
     loc_txt = {
         name = "Basic Pack",
         group_name = "Basic Pack",
@@ -30,7 +37,7 @@ SMODS.Booster({
         extra = 5,
         choose = 2
     },
-    weight = 5,
+    weight = 1,
     kind = "Weapon",
     create_card = function(self, card, i)
         return {
