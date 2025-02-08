@@ -31,7 +31,7 @@ function calcWeapon(self, card, context)
         end
         if pseudorandom('boira') < card.ability.extra.miss_chance/100 then
             return {
-                message = "Missed!"
+                message = "Missed!",
             }
         end
         sendDebugMessage("Ammo left: " .. card.ability.extra.curr_ammo)

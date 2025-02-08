@@ -19,10 +19,6 @@ SMODS.ConsumableType({
 })
 
 function use_buff(self, card, area, copier)
-    if G.STATE == G.STATES.SMODS_BOOSTER_OPENED then
-        print("bye!")
-        return
-    end
     if card.ability.extra.chips then -- Add chips to cards
         for _, _card in ipairs(G.hand.cards) do
             _card.ability.perma_bonus = (_card.ability.perma_bonus or 0) + card.ability.extra.chips
