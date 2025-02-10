@@ -32,6 +32,7 @@ function calcWeapon(self, card, context)
         if pseudorandom('boira') < card.ability.extra.miss_chance/100 then
             return {
                 message = "Missed!",
+                message_card = context.other_card
             }
         end
         sendDebugMessage("Ammo left: " .. card.ability.extra.curr_ammo)
@@ -87,7 +88,7 @@ local function Weapon(info)
             local curr_ammo = ""
             if card.ability.extra.reloading then
                 local rel = card.ability.extra.reload_countdown
-                if card.ability.extra.reload_countdown > 1 and (not rel == 0) then
+                if card.ability.extra.reload_countdown > 1 then
                     curr_ammo = rel + 1 .. " hands until reload"
                 else
                     curr_ammo = rel + 1 .. " hand until reload"
@@ -115,11 +116,8 @@ local function Weapon(info)
                 return
             end
         end,
-        keep_on_use = function(self, card)
-            return true
-        end,
         can_use = function(self, card)
-            return true
+            return false
         end,
         inject = function(self)
             SMODS.Consumable.inject(self)

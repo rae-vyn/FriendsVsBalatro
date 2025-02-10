@@ -39,7 +39,7 @@ SMODS.Booster({
     },
     weight = 1,
     kind = "Weapon",
-    select_card = 'consumeable',
+    select_card = {Buff = "consumeables", Weapon = "weapons"},
     create_card = function(self, card, i)
         return {
             set = "fvb_cards",

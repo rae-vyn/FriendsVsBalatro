@@ -10,7 +10,15 @@ position = "before"
 match_indent = true
 payload = "table.insert(t, 1, G.weapons)"
 
-# Emplace alignments in their own area
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "if area and #G[area].cards < G[area].config.card_limit then"
+position = "at"
+match_indent = true
+payload = "if area and (#G[area].cards < G[area].config.card_limit) or G[area] == G.weapons then"
+
+# Emplace weapons in their own area
 [[patches]]
 [patches.pattern]
 target = "functions/button_callbacks.lua"

@@ -41,7 +41,7 @@ function use_buff(self, card, area, copier)
 end
 
 function can_use_buff(self, card)
-    return true
+    return not (G.STATE == G.STATES.SMODS_BOOSTER_OPENED)
 end
 
 function Buff(info)
@@ -55,7 +55,7 @@ function Buff(info)
                 chips = info.chips or nil,
                 damage_mult = info.damage_mult or nil,
                 ammo_mult = info.ammo_mult or nil,
-                type = info.type,
+                in_pack = info.in_pack or false,
             }
         },
         loc_txt = {
@@ -64,9 +64,6 @@ function Buff(info)
         },
         calculate = info.calculate or nil,
         use = info.use or use_buff,
-        keep_on_use = function(self, card)
-            return true
-        end,
         can_use = info.can_use or can_use_buff
     })
     table.insert(FVB.cards, 'c_fvb_' .. info.key)
@@ -106,6 +103,7 @@ Buff({
 Buff({
     key = "steel_bullets",
     name = "Steel Bullets",
+    in_pack = true,
     text = {
         "Increase {C:weapon}Weapon's",
         "{C:mult}damage{} by {C:white,X:mult}50%{}"
@@ -116,6 +114,7 @@ Buff({
 Buff({
     key = "big_mag",
     name = "Big Mag",
+    in_pack = true,
     text = {
         "Increase {C:weapon}Weapon's",
         "{C:inactive}ammo{} by {C:green}50%{}"
@@ -126,6 +125,7 @@ Buff({
 Buff({
     key = "akimbo",
     name = "Akimbo",
+    in_pack = true,
     text = {
         "Duplicate the {C:weapon}Weapon",
         "you currently have",
@@ -135,7 +135,6 @@ Buff({
         G.weapons:change_size(1)
         SMODS.add_card({key = G.weapons.cards[1].config.center_key})
         G.weapons.cards[2].ability = table.copy(G.weapons.cards[1].ability)
-        card:start_dissolve()
     end
 })
 
@@ -151,6 +150,5 @@ Buff({
             _card.ability.perma_bonus = (_card.ability.perma_bonus or 0) + 10 * #G.hand.cards
             _card:juice_up()
         end
-        card:start_dissolve()
     end
 })

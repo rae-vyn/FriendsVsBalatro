@@ -62,7 +62,7 @@ end
 
 local emplace_ref = CardArea.emplace
 function CardArea:emplace(card, location, stay_flipped)
-    if self == G.consumeables and (card.ability.set == "Weapon" or card.config.center.key:find("^j_fvb_weapon_") ~= nil) then
+    if self == G.consumeables and card.ability.set == "Weapon" then
         G.weapons:emplace(card, location, stay_flipped)
         return
     end
