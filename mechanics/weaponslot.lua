@@ -45,10 +45,10 @@ function Card:highlight(is_higlighted)
             self.children.use_button = UIBox{
                 definition = G.UIDEF.use_and_sell_buttons(self),
                 config = {align=
-                        ((self.area == G.jokers) or (self.area == G.consumeables) or (self.area == G.cine_quests)) and "cr" or
+                        ((self.area == G.jokers) or (self.area == G.consumeables) or (self.area == G.weapons)) and "cr" or
                         "bmi" -- need to check if the area is yours too, to show use/sell buttons in the right place
                     , offset =
-                        ((self.area == G.jokers) or (self.area == G.consumeables) or (self.area == G.cine_quests)) and {x=x_off - 0.4,y=0} or
+                        ((self.area == G.jokers) or (self.area == G.consumeables) or (self.area == G.weapons)) and {x=x_off - 0.4,y=0} or
                         {x=0,y=0.65}, -- same here
                     parent =self}
             }
