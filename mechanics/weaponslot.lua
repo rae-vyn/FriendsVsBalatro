@@ -37,7 +37,6 @@ end
 local card_highlight_ref = Card.highlight
 function Card:highlight(is_higlighted)
     card_highlight_ref(self, is_higlighted)
-
     -- checking if the card is Cine is my mod stuff, you can do what you want here
     if (self.ability.set == "Weapon") or (self.area and self.area == G.pack_cards) then
         if self.highlighted and self.area and self.area.config.type ~= 'shop' then

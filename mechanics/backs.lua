@@ -1,5 +1,5 @@
-return {
-    key = "b_fvb_friends_deck",
+SMODS.Back({
+    key = "friends_deck",
     loc_txt = {
         name = "Friends Deck",
         text = {
@@ -11,10 +11,12 @@ return {
         G.E_MANAGER:add_event(Event({
             func = function()
                 SMODS.add_card({
-                    key = "j_fvb_donnie_b",
+                    set = "Joker",
+                    rarity = "fvb_personality",
                     stickers = { 'eternal' }
                 })
+                return true
             end
         }))
     end
-}
+})
