@@ -35,7 +35,7 @@ SMODS.Booster({
     },
     config = {
         extra = 5,
-        choose = 2
+        choose = 5
     },
     weight = 1,
     kind = "Weapon",
