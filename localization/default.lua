@@ -16,7 +16,7 @@ return {
                     "on round start"
                 }
             },
-            j_fvb_spike_remmington = {
+            j_fvb_spike_remington = {
                 name = "Spike Remington",
                 text = {
                     "Currently held {C:weapon}Weapon",
