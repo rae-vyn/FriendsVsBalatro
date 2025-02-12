@@ -12,8 +12,39 @@ Requires [Steamodded](https://github.com/Steamodded/smods) to run.
 Download this repository and extract it into your `Mods` folder.
 
 ## Current Progress
-- [x] Weapons
+- [ ] Weapons
+    - [x] Seperate weapon slot
+    - [ ] Weapon switching
 - [ ] Cards
-- [ ] Personality Cards
+    - [ ] Buffs (6/35)
+    - [ ] Debuffs
+    - [ ] Helpers
+    - [ ] Wild
+    - [ ] Trap
+- [ ] Personality Cards [5/21]<details><summary>Click to Expand</summary>
+    - [ ] Moose Salto
+    - [x] Duck Anderson
+    - [ ] DJ Newton
+    - [x] Spike Remington
+    - [x] Stevie Gull
+    - [x] Donnie B.
+    - [ ] Myk Raver
+    - [ ] Little Lars
+    - [x] Sable Santana
+    - [ ] Haru
+    - [ ] Klustr Jr.
+    - [ ] Ribberto Mulligan
+    - [ ] Margarita Kala
+    - [ ] Dale Donovan
+    - [ ] FKF_Dingo
+    - [ ] Siaro
+    - [ ] Jawhara Farms
+    - [ ] Laika
+    - [ ] Dooper
+    - [ ] KTQTPI
+    - [ ] Bach Roadstein
+    </details>
+
 - [ ] Challenges
 - [ ] Decks
+    - [x] Friend Deck: Start with an Eternal Personality card
