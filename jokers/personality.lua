@@ -112,3 +112,19 @@ SMODS.Joker({
         end
     end
 })
+
+SMODS.Joker({
+    key = "duck_anderson",
+    atlas = "personalities",
+    pos = {x = 1, y = 0},
+    rarity = "fvb_personality",
+    blueprint_compat = false,
+    calculate = function (self, card, context)
+        if context.setting_blind and not context.blueprint then
+            SMODS.add_card({
+                key = "c_fvb_green_herb",
+            })
+            card:juice_up()
+        end
+    end
+})

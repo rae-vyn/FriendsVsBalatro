@@ -37,11 +37,14 @@ function use_buff(self, card, area, copier)
             weapon:juice_up()
         end
     end
-    card:start_dissolve()
 end
 
 function can_use_buff(self, card)
-    return not (G.STATE == G.STATES.SMODS_BOOSTER_OPENED)
+    if card.ability.extra.type == 1 then
+        return G.STAGE == G.STAGES.RUN
+    else
+        return true
+    end
 end
 
 function Buff(info)
@@ -56,6 +59,7 @@ function Buff(info)
                 damage_mult = info.damage_mult or nil,
                 ammo_mult = info.ammo_mult or nil,
                 in_pack = info.in_pack or false,
+                type = info.type or 1, -- 1 can only be used in round
             }
         },
         loc_txt = {
@@ -64,7 +68,10 @@ function Buff(info)
         },
         calculate = info.calculate or nil,
         use = info.use or use_buff,
-        can_use = info.can_use or can_use_buff
+        can_use = info.can_use or can_use_buff,
+        keep_on_use = function (self, card)
+            return false
+        end
     })
     table.insert(FVB.cards, 'c_fvb_' .. info.key)
 end
@@ -96,7 +103,6 @@ Buff({
         chips_UI:juice_up()
 
         play_sound('chips2')
-        card:start_dissolve()
     end
 })
 
@@ -109,6 +115,7 @@ Buff({
         "{C:mult}damage{} by {C:white,X:mult}50%{}"
     },
     damage_mult = 1.5,
+    type = 0,
 })
 
 Buff({
@@ -119,7 +126,8 @@ Buff({
         "Increase {C:weapon}Weapon's",
         "{C:inactive}ammo{} by {C:green}50%{}"
     },
-    ammo_mult = 1.5
+    ammo_mult = 1.5,
+    type = 0,
 })
 
 Buff({
@@ -135,15 +143,17 @@ Buff({
         G.weapons:change_size(1)
         SMODS.add_card({key = G.weapons.cards[1].config.center_key})
         G.weapons.cards[2].ability = table.copy(G.weapons.cards[1].ability)
-    end
+    end,
+    type = 0,
 })
 
 Buff({
     key = "health_up",
     name = "Health Up",
     text = {
-        "{C:blue}+10{} Chips",
-        "per card in hand"
+        "Adds {C:blue}+50{} Chips",
+        "per card in hand",
+        "to each card"
     },
     use = function(self, card, area, copier)
         for _, _card in ipairs(G.hand.cards) do

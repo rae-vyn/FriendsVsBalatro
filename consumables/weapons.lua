@@ -121,6 +121,11 @@ local function Weapon(info)
         end,
         inject = function(self)
             SMODS.Consumable.inject(self)
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            for _, weapon in ipairs(G.weapons.cards) do
+                weapon:start_dissolve()
+            end
         end
     })
     table.insert(FVB.cards, "c_fvb_" .. info.key)

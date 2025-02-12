@@ -30,6 +30,13 @@ return {
                     "Reloads {C:weapon}Katana{},", "{C:white,X:mult}X1.5{} damage",
                     "on round start"
                 }
+            },
+            j_fvb_duck_anderson = {
+                name = "Duck Anderson",
+                text = {
+                    "Gives a {C:attention}Green Herb",
+                    "card at the beginning of round"
+                }
             }
         }
     }
