@@ -16,6 +16,7 @@ SMODS.Consumable({
     key = "green_herb",
     set = "HotCard",
     atlas = 'placeholder',
+    unlocked = true,
     loc_txt = {
         name = "Green Herb",
         text = {"Gives {C:blue}+20{} Chips", "to each card in hand"}

@@ -8,6 +8,7 @@ This project is still in beta. New cards and mechanics are being added rapidly, 
 ## Installation
 
 Requires [Steamodded](https://github.com/Steamodded/smods) to run.
+Also requires Lovely version v0.7.1 or greater.
 
 Download this repository and extract it into your `Mods` folder.
 

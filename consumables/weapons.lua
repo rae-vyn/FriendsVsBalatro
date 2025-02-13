@@ -62,6 +62,7 @@ local function Weapon(info)
         set = "Weapon",
         atlas = info.atlas or 'weapons',
         pos = info.pos or nil,
+        unlocked = true,
         config = {
             extra = {
                 min_damage = info.min_damage,

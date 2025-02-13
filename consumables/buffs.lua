@@ -71,7 +71,8 @@ function Buff(info)
         can_use = info.can_use or can_use_buff,
         keep_on_use = function (self, card)
             return false
-        end
+        end,
+        unlocked = true,
     })
     table.insert(FVB.cards, 'c_fvb_' .. info.key)
 end
