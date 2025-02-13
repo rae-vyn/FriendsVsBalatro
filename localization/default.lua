@@ -37,6 +37,31 @@ return {
                     "Gives a {C:attention}Green Herb",
                     "card at the beginning of round"
                 }
+            },
+            j_fvb_dj_newton = {
+                name = "DJ Newton",
+                text = {
+                    "{C:green}Miss Chance{}",
+                    "reduced by {C:green}-5",
+                    "every round"
+                }
+            },
+            j_fvb_moose_salto = {
+                name = "Moose Salto",
+                text = {
+                    "Every {C:attention}2{} blinds", "skipped sets {C:white,X:mult}XMult{}",
+                    "to the next",
+                    "{C:mult}power of 2",
+                    "{C:inactive}(Currently {C:white,X:mult}X2 ^ #1#{})"
+                }
+            },
+            j_fvb_myk_raver = {
+                name = "Myk Raver",
+                text = {
+                    "{C:attention}Doubles",
+                    "the {C:weapon}Brasshopper's",
+                    "max ammo every round"
+                }
             }
         }
     }
