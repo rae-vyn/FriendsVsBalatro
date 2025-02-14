@@ -1,5 +1,13 @@
+SMODS.Atlas({
+    key = "friends_back",
+    px = 71,
+    py = 95,
+    path = "friends_back.png"
+})
+
 SMODS.Back({
     key = "friends_deck",
+    atlas = "friends_back",
     loc_txt = {
         name = "Friends Deck",
         text = {
