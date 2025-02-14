@@ -22,7 +22,7 @@ Download this repository and extract it into your `Mods` folder.
     - [ ] Helpers
     - [ ] Wild
     - [ ] Trap
-- [ ] Personality Cards [8/21]<details><summary>Click to Expand</summary>
+- [ ] Personality Cards [10/21]<details><summary>Click to Expand</summary>
     - [x] Moose Salto
     - [x] Duck Anderson
     - [x] DJ Newton
@@ -30,9 +30,9 @@ Download this repository and extract it into your `Mods` folder.
     - [x] Stevie Gull
     - [x] Donnie B.
     - [x] Myk Raver
-    - [ ] Little Lars
+    - [x] Little Lars
     - [x] Sable Santana
-    - [ ] Haru
+    - [x] Haru
     - [ ] Klustr Jr.
     - [ ] Ribberto Mulligan
     - [ ] Margarita Kala

@@ -27,8 +27,8 @@ return {
             j_fvb_sable_santana = {
                 name = "Sable Santana",
                 text = {
-                    "Reloads {C:weapon}Katana{},", "{C:white,X:mult}X1.5{} damage",
-                    "on round start"
+                    "Reloads {C:weapon}Katana{},",
+                    "{C:white,X:mult}X1.5{} damage", "on round start"
                 }
             },
             j_fvb_duck_anderson = {
@@ -41,26 +41,42 @@ return {
             j_fvb_dj_newton = {
                 name = "DJ Newton",
                 text = {
-                    "{C:green}Miss Chance{}",
-                    "reduced by {C:green}-5",
+                    "{C:green}Miss Chance{}", "reduced by {C:green}-5",
                     "every round"
                 }
             },
             j_fvb_moose_salto = {
                 name = "Moose Salto",
                 text = {
-                    "Every {C:attention}2{} blinds", "skipped sets {C:white,X:mult}XMult{}",
-                    "to the next",
+                    "Every {C:attention}2{} blinds",
+                    "skipped sets {C:white,X:mult}XMult{}", "to the next",
                     "{C:mult}power of 2",
-                    "{C:inactive}(Currently {C:white,X:mult}X2 ^ #1#{})"
+                    "(Currently {C:white,X:mult}X2 ^ #1#{})"
                 }
             },
             j_fvb_myk_raver = {
                 name = "Myk Raver",
                 text = {
-                    "{C:attention}Doubles",
-                    "the {C:weapon}Brasshopper's",
+                    "{C:attention}Doubles", "the {C:weapon}Brasshopper's",
                     "max ammo every round"
+                }
+            },
+            j_fvb_little_lars = {
+                name = "Little Lars",
+                text = {
+                    "Reduces {C:attention}Blind size",
+                    "by {C:mult}25%{}, increases",
+                    "{C:mult}5%{} after {C:attention}Boss Blind",
+                    "(Currently {C:mult}#1#%{})"
+                }
+            },
+            j_fvb_haru = {
+                name = "Haru",
+                text = {
+                    "Gains {C:white,X:mult}X1{} Mult",
+                    "per {C:attention}Blind{} played",
+                    "Resets if Blind {C:mult}skipped",
+                    "(Currently {C:white,X:mult}X#1#{})"
                 }
             }
         }
