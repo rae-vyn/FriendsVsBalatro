@@ -69,9 +69,6 @@ function Buff(info)
         calculate = info.calculate or nil,
         use = info.use or use_buff,
         can_use = info.can_use or can_use_buff,
-        keep_on_use = function (self, card)
-            return false
-        end,
         unlocked = true,
     })
     table.insert(FVB.cards, 'c_fvb_' .. info.key)
@@ -142,8 +139,12 @@ Buff({
     },
     use = function(self, card, area, copier)
         G.weapons:change_size(1)
-        SMODS.add_card({key = G.weapons.cards[1].config.center_key})
+        local _card = copy_card(G.weapons.cards[1], nil)
+        G.weapons:emplace(_card)
         G.weapons.cards[2].ability = table.copy(G.weapons.cards[1].ability)
+    end,
+    can_use = function(self, card)
+        return #G.weapons.cards == 1
     end,
     type = 0,
 })

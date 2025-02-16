@@ -30,12 +30,14 @@ function calcWeapon(self, card, context)
             card.ability.extra.reloading = true
         end
         if pseudorandom('boira') < card.ability.extra.miss_chance/100 then
+            SMODS.calculate_context({weapon_miss = true})
             return {
                 message = "Missed!",
                 message_card = context.other_card
             }
         end
         sendDebugMessage("Ammo left: " .. card.ability.extra.curr_ammo)
+        SMODS.calculate_context({weapon_hit = true})
         return {
             mult = chosen_mult,
             card = card,
@@ -126,6 +128,13 @@ local function Weapon(info)
         add_to_deck = function(self, card, from_debuff)
             for _, weapon in ipairs(G.weapons.cards) do
                 weapon:start_dissolve()
+            end
+        end,
+        on_select = function(self, card)
+            for _, weapon in ipairs(G.weapons.cards) do
+                if weapon ~= card then
+                    weapon:start_dissolve()
+                end
             end
         end
     })

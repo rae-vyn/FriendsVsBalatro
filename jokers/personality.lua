@@ -199,8 +199,8 @@ SMODS.Joker({
 
 			play_sound("chips2")
 		end
-		if context.end_of_round and G.GAME.blind.boss and not context.blueprint then
-			card.ability.extra.blind_reduction = card.ability.blind_reduction - 0.05
+		if context.end_of_round and G.GAME.blind.boss and not context.blueprint and not context.repetition and not context.individual then
+			card.ability.extra.blind_reduction = card.ability.extra.blind_reduction - 0.05
 			return {
 				message = "Buffed!",
 			}
@@ -272,6 +272,7 @@ SMODS.Joker({
 		if context.before and next(context.poker_hands["Straight Flush"]) and not context.blueprint then
             card:juice_up()
             SMODS.add_card({
+                set = "Joker",
                 rarity = "fvb_personality"
             })
 		end
@@ -285,18 +286,40 @@ SMODS.Joker({
 	rarity = "fvb_personality",
 	blueprint_compat = false,
 	calculate = function(self, card, context)
-		if context.setting_blind and not context.blueprint then
-			--[[
-            SMODS.create_card({
-                key = "j_fvb_dither"
-            })
-            SMODS.create_card({
-                key = "j_fvb_banding"
-            })
-            ]]
-			return {
-				message = "TBD",
-			}
+		if context.joker_main and not context.blueprint then
+			if next(context.poker_hands["Flush"]) then
+                local suit = context.scoring_hand[1].base.suit
+                print(suit)
+                if suit == "Hearts" then
+                    return {
+                        xmult = 20
+                    }
+                end
+                if suit == "Diamonds" then
+                    return {
+                        dollars = 20
+                    }
+                end
+                if suit == "Clubs" then
+                    return {
+                        chips = 2000
+                    }
+                end
+                if suit == "Spades" then
+                    G.GAME.blind.chips = math.floor(G.GAME.blind.chips * 0.8)
+                    G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+
+                    local chips_UI = G.hand_text_area.blind_chips
+                    G.FUNCS.blind_chip_UI_scale(G.hand_text_area.blind_chips)
+                    G.HUD_blind:recalculate()
+                    chips_UI:juice_up()
+
+                    play_sound('chips2')
+                    return {
+                        message = "Reduced!"
+                    }
+                end
+            end
 		end
 	end,
 })
@@ -318,17 +341,23 @@ SMODS.Joker({
                 if context.other_card:get_id() == 14 then
                     card.ability.extra.mult = card.ability.extra.mult + 1
                     return {
-                        message = "Upgraded!"
+                        message = "Upgraded!",
+                        message_card = card,
+                        repetitions = 1,
+                        card = context.other_card
                     }
                 end
                 return {
-                    message = "Again!"
+                    message = "Again!",
+                    message_card = card,
+                    repetitions = 1,
+                    card = context.other_card
                 }
             end
 		end
         if context.joker_main then
             return {
-                xmult = card.ability.config.mult
+                xmult = card.ability.extra.mult
             }
         end
 	end,
@@ -338,22 +367,25 @@ SMODS.Joker({
 	key = "dingo",
 	atlas = "personalities",
 	pos = { x = 2, y = 0 },
+    config = {extra = {mult = 1}},
+    loc_vars = function (self, info_queue, card)
+        return { vars = { card.ability.extra.mult}}
+    end,
 	rarity = "fvb_personality",
 	blueprint_compat = false,
 	calculate = function(self, card, context)
-		if context.setting_blind and not context.blueprint then
-			--[[
-            SMODS.create_card({
-                key = "j_fvb_dither"
-            })
-            SMODS.create_card({
-                key = "j_fvb_banding"
-            })
-            ]]
-			return {
-				message = "TBD",
-			}
-		end
+		if context.discard then
+            card.ability.extra.mult = card.ability.extra.mult + math.floor(context.other_card:get_id()/2)
+            context.other_card:start_dissolve()
+            return {
+                remove = true
+            }
+        end
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.mult
+            }
+        end
 	end,
 })
 
@@ -391,9 +423,9 @@ SMODS.Joker({
 	rarity = "fvb_personality",
 	blueprint_compat = false,
 	calculate = function(self, card, context)
-		--[[ if context.setting_blind and not context.blueprint then
-
-		end]]
+		if context.weapon_miss and not context.blueprint then
+            card.ability.extra.mult = card.ability.extra.mult + 0.5
+        end
         if context.joker_main then
             return {
                 xmult = card.ability.extra.mult
@@ -406,22 +438,37 @@ SMODS.Joker({
 	key = "laika",
 	atlas = "personalities",
 	pos = { x = 0, y = 2 },
+    config = {extra = {mult = 1}},
+    loc_vars = function (self, info_queue, card)
+        return { vars = { card.ability.extra.mult}}
+    end,
 	rarity = "fvb_personality",
 	blueprint_compat = false,
 	calculate = function(self, card, context)
-		if context.setting_blind and not context.blueprint then
-			--[[
-            SMODS.create_card({
-                key = "j_fvb_dither"
-            })
-            SMODS.create_card({
-                key = "j_fvb_banding"
-            })
-            ]]
-			return {
-				message = "TBD",
-			}
+		if context.weapon_hit and not context.blueprint then
+			for _, weapon in ipairs(G.weapons.cards) do
+				if weapon.config.center_key == "c_fvb_laika" then
+					card.ability.extra.mult = card.ability.extra.mult + 1
+				end
+			end
 		end
+        if context.setting_blind and not context.blueprint then
+            for _, weapon in ipairs(G.weapons.cards) do
+				if weapon.config.center_key == "c_fvb_laika" then
+					if weapon.config.center_key == "c_fvb_laika" then
+                        weapon.ability.extra.reloading = false
+                        weapon.ability.extra.max_ammo = 2
+                        weapon.ability.extra.curr_ammo = weapon.ability.extra.max_ammo
+                        weapon.ability.extra.reload_countdown = weapon.ability.extra.max_reload
+                    end
+				end
+			end
+        end
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.mult
+            }
+        end
 	end,
 })
 
@@ -429,22 +476,29 @@ SMODS.Joker({
 	key = "dooper",
 	atlas = "personalities",
 	pos = { x = 4, y = 0 },
+    config = {extra = {mult = 1}},
+    loc_vars = function (self, info_queue, card)
+        return { vars = { card.ability.extra.mult}}
+    end,
 	rarity = "fvb_personality",
 	blueprint_compat = false,
 	calculate = function(self, card, context)
-		if context.setting_blind and not context.blueprint then
-			--[[
-            SMODS.create_card({
-                key = "j_fvb_dither"
-            })
-            SMODS.create_card({
-                key = "j_fvb_banding"
-            })
-            ]]
-			return {
-				message = "TBD",
-			}
+		if context.individual and context.cardarea == G.play and not context.blueprint then
+			if context.oher_card.base.suit == "Hearts" then
+                card.ability.extra.mult = card.ability.extra.mult + 5
+            end
 		end
+        if context.joker_main then
+            if G.GAME.current_round.hands_left == 0 then
+                return {
+                    xmult = card.ability.extra.mult
+                }
+            else
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+        end
 	end,
 })
 
@@ -455,18 +509,9 @@ SMODS.Joker({
 	rarity = "fvb_personality",
 	blueprint_compat = false,
 	calculate = function(self, card, context)
-		if context.setting_blind and not context.blueprint then
-			--[[
-            SMODS.create_card({
-                key = "j_fvb_dither"
-            })
-            SMODS.create_card({
-                key = "j_fvb_banding"
-            })
-            ]]
-			return {
-				message = "TBD",
-			}
+		if context.individual and not context.blueprint then
+			context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 0) + 5
+            context.other_card:juice_up()
 		end
 	end,
 })
@@ -478,18 +523,13 @@ SMODS.Joker({
 	rarity = "fvb_personality",
 	blueprint_compat = false,
 	calculate = function(self, card, context)
-		if context.setting_blind and not context.blueprint then
-			--[[
-            SMODS.create_card({
-                key = "j_fvb_dither"
-            })
-            SMODS.create_card({
-                key = "j_fvb_banding"
-            })
-            ]]
-			return {
-				message = "TBD",
-			}
+		if context.before and not context.blueprint then
+            if G.GAME.chips / G.GAME.blind.chips >= 0.75 then
+                G.GAME.chips = G.GAME.blind.chips
+                return {
+                    message = "Won!"
+                }
+            end
 		end
 	end,
 })

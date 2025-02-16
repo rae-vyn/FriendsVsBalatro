@@ -9,5 +9,7 @@
 	"badge_colour": "2A2051",
 	"badge_text_colour": "E0569B",
 	"version": "0.0.1~",
-	"dependencies": []
+	"dependencies": [
+        "Steamodded (>=1.0.0~ALPHA-1415b)"
+    ]
 }

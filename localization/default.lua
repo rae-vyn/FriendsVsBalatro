@@ -99,9 +99,8 @@ return {
             j_fvb_margarita = {
                 name = "Margarita Kala",
                 text = {
-                    "Playing a {C:attention}Three of A Kind",
-                    "of the {C:mult}same suit",
-                    "triggers an effect"
+                    "Playing a {C:attention}Flush",
+                    "triggers an {C:weapon}effect"
                 }
             },
             j_fvb_dale = {
@@ -141,8 +140,7 @@ return {
                 name = "Laika",
                 text = {
                     "{C:weapon}Laika{} always has two bullets",
-                    "Gains {C:white,X:mult}X1{} Mult",
-                    "per shot {C:mult}hit{}",
+                    "Gains {C:white,X:mult}X1{} Mult per shot {C:mult}hit{}",
                     "(Currently: {C:white,X:mult}X#1#{})"
                 }
             },
@@ -153,7 +151,7 @@ return {
                     "per {C:red}Heart{} played,",
                     "Turns into {C:white,X:mult}XMult{}",
                     "on the last hand",
-                    "(Currently: {C:white,X:mult}X#1#{})"
+                    "(Currently: {C:white,X:mult}+/X#1#{})"
                 }
             },
             j_fvb_ktqtpi = {
