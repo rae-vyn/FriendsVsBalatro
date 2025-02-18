@@ -13,9 +13,9 @@ Also requires Lovely version v0.7.1 or greater.
 Download this repository and extract it into your `Mods` folder.
 
 ## Current Progress
-- [ ] Weapons
+- [x] Weapons
     - [x] Seperate weapon slot
-    - [ ] Weapon switching
+    - [x] Weapon switching
 - [ ] Cards
     - [ ] Buffs (6/35)
     - [ ] Debuffs
@@ -45,7 +45,10 @@ Download this repository and extract it into your `Mods` folder.
     - [x] KTQTPI
     - [x] Bach Roadstein
     </details>
-
+- [x] Other Items
+    - [x] Poison Seal: 1 in 2 chance for X2 Mult, 1 in 10 chance for X0.5 Mult
 - [ ] Challenges
 - [ ] Decks
     - [x] Friend Deck: Start with an Eternal Personality card
+    - [x] Baba Deck: Start with a deck of Gold Hearts
+    - [x] Siaro Deck: Start with a deck of cards with the Poison seal
