@@ -2,6 +2,7 @@
 assert(SMODS.load_file('util/overrides.lua'))()
 assert(SMODS.load_file('mechanics/weaponslot.lua'))()
 assert(SMODS.load_file('mechanics/backs.lua'))()
+assert(SMODS.load_file('mechanics/seals.lua'))()
 assert(SMODS.load_file('consumables/weapons.lua'))()
 assert(SMODS.load_file('consumables/packs.lua'))()
 assert(SMODS.load_file('consumables/buffs.lua'))()

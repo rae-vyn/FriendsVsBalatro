@@ -1,5 +1,5 @@
 {
-    "workspace.library": ["C:\\Users\\raevyn\\AppData\\Roaming\\Balatro\\Mods\\smods\\lsp_def"],
+    "workspace.library": ["..\\smods\\lsp_def"],
     "diagnostics.disable": [
       "undefined-global",
       "lowercase-global",

@@ -58,3 +58,24 @@ SMODS.Back({
         }))
     end
 })
+
+SMODS.Back({
+    key = "siaro_deck",
+    loc_txt = {
+        name = "Siaro Deck",
+        text = {
+            "Start with a deck",
+            "Of {C:green}Poisoned{} cards"
+        }
+    },
+    apply = function(self, back)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                for _, card in ipairs(G.playing_cards) do
+                    card:set_seal('fvb_poison', true, true)
+                end
+                return true
+            end
+        }))
+    end
+})

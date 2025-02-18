@@ -166,7 +166,6 @@ SMODS.Joker({
 	blueprint_compat = false,
 	calculate = function(self, card, context)
 		if context.setting_blind and not context.blueprint then
-			-- Set GB reload
 			for _, weapon in ipairs(G.weapons.cards) do
 				if weapon.config.center_key == "c_fvb_brasshopper" then
 					weapon.ability.extra.max_ammo = weapon.ability.extra.max_ammo * 2
@@ -239,7 +238,7 @@ SMODS.Joker({
 	end,
 })
 
-SMODS.Joker({
+SMODS.Joker({ --TODO: make dither and banding
 	key = "klustr",
 	atlas = "personalities",
 	pos = { x = 4, y = 1 },
@@ -396,18 +395,8 @@ SMODS.Joker({
 	rarity = "fvb_personality",
 	blueprint_compat = false,
 	calculate = function(self, card, context)
-		if context.setting_blind and not context.blueprint then
-			--[[
-            SMODS.create_card({
-                key = "j_fvb_dither"
-            })
-            SMODS.create_card({
-                key = "j_fvb_banding"
-            })
-            ]]
-			return {
-				message = "TBD",
-			}
+		if context.individual and context.cardarea == G.play then
+			context.other_card:set_seal('fvb_poison', true, true)
 		end
 	end,
 })
