@@ -22,7 +22,7 @@ Download this repository and extract it into your `Mods` folder.
     - [ ] Helpers
     - [ ] Wild
     - [ ] Trap
-- [X] Personality Cards [21/21]<details><summary>Click to Expand</summary>
+- [X] Personality Cards [21/21]
     - [x] Moose Salto
     - [x] Duck Anderson
     - [x] DJ Newton
@@ -44,7 +44,6 @@ Download this repository and extract it into your `Mods` folder.
     - [x] Dooper
     - [x] KTQTPI
     - [x] Bach Roadstein
-    </details>
 - [x] Other Items
     - [x] Poison Seal: 1 in 2 chance for X2 Mult, 1 in 10 chance for X0.5 Mult
 - [ ] Challenges
