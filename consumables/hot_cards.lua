@@ -34,3 +34,47 @@ SMODS.Consumable({
         return G.STAGE == G.STAGES.RUN
     end
 })
+SMODS.Consumable({
+    key = "dither",
+    set = "HotCard",
+    atlas = 'placeholder',
+    unlocked = true,
+    loc_txt = {
+        name = "Dither",
+        text = {"Gives {C:blue}+100{} Chips", "to each card in hand"}
+    },
+    calculate = function(self, card, context)
+        if context.end_of_round then card:start_dissolve() end
+    end,
+    use = function(self, card, area, copier)
+        for _, _card in ipairs(G.hand.cards) do
+            _card.ability.perma_bonus = (_card.ability.perma_bonus or 0) + 100
+            _card:juice_up()
+        end
+    end,
+    can_use = function (self, card)
+        return G.STAGE == G.STAGES.RUN
+    end
+})
+SMODS.Consumable({
+    key = "banding",
+    set = "HotCard",
+    atlas = 'placeholder',
+    unlocked = true,
+    loc_txt = {
+        name = "Banding",
+        text = {"Turns each card in hand", "into a {C:mult}Mult{} Card"}
+    },
+    calculate = function(self, card, context)
+        if context.end_of_round then card:start_dissolve() end
+    end,
+    use = function(self, card, area, copier)
+        for _, _card in ipairs(G.hand.cards) do
+            _card:set_ability(G.P_CENTERS.m_mult)
+            _card:juice_up()
+        end
+    end,
+    can_use = function (self, card)
+        return G.STAGE == G.STAGES.RUN
+    end
+})
