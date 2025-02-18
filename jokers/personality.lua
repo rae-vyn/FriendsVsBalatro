@@ -21,6 +21,11 @@ SMODS.Joker({
     end,
     rarity = "fvb_personality",
     blueprint_compat = true,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
             not context.blueprint then
@@ -42,6 +47,11 @@ SMODS.Joker({
     config = {extra = {damage = 15}},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             -- Set GB reload
@@ -68,6 +78,11 @@ SMODS.Joker({
     pos = {x = 1, y = 3},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
             not context.blueprint then
@@ -91,6 +106,11 @@ SMODS.Joker({
     pos = {x = 5, y = 2},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             -- Set GB reload
@@ -117,6 +137,11 @@ SMODS.Joker({
     pos = {x = 0, y = 1},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             SMODS.add_card({key = "c_fvb_green_herb"})
@@ -131,6 +156,11 @@ SMODS.Joker({
     pos = {x = 5, y = 0},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             for _, weapon in ipairs(G.weapons.cards) do
@@ -156,6 +186,11 @@ SMODS.Joker({
     end,
     rarity = "fvb_personality",
     blueprint_compat = true,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.skip_blind and card.ability.extra.skip_count == 1 then
             card.ability.extra.skip_count = 0
@@ -177,6 +212,11 @@ SMODS.Joker({
     pos = {x = 4, y = 2},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             for _, weapon in ipairs(G.weapons.cards) do
@@ -200,6 +240,11 @@ SMODS.Joker({
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.first_hand_drawn and not context.blueprint then
             G.GAME.blind.chips = math.floor(G.GAME.blind.chips * 0.75)
@@ -230,6 +275,11 @@ SMODS.Joker({
     end,
     rarity = "fvb_personality",
     blueprint_compat = true,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.skip_blind then
             card.ability.extra.xmult = 1
@@ -245,12 +295,17 @@ SMODS.Joker({
     end
 })
 
-SMODS.Joker({ -- TODO: make dither and banding
+SMODS.Joker({
     key = "klustr",
     atlas = "personalities",
     pos = {x = 4, y = 1},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             SMODS.add_card({key = "c_fvb_dither"})
@@ -266,6 +321,11 @@ SMODS.Joker({
     pos = {x = 5, y = 1},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.before and next(context.poker_hands["Straight Flush"]) and
             not context.blueprint then
@@ -281,6 +341,11 @@ SMODS.Joker({
     pos = {x = 2, y = 2},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.joker_main and not context.blueprint then
             if next(context.poker_hands["Flush"]) then
@@ -315,6 +380,11 @@ SMODS.Joker({
         return {vars = {card.ability.extra.mult}}
     end,
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.repetition and
             not context.repetition_only then
@@ -353,6 +423,11 @@ SMODS.Joker({
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.discard then
             card.ability.extra.mult = card.ability.extra.mult + 
@@ -372,6 +447,11 @@ SMODS.Joker({
     pos = {x = 0, y = 3},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             context.other_card:set_seal('fvb_poison', true, true)
@@ -390,6 +470,11 @@ SMODS.Joker({
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.weapon_miss and not context.blueprint then
             card.ability.extra.mult = card.ability.extra.mult + 0.5
@@ -410,6 +495,11 @@ SMODS.Joker({
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.weapon_hit and not context.blueprint then
             for _, weapon in ipairs(G.weapons.cards) do
@@ -449,6 +539,11 @@ SMODS.Joker({
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
             not context.blueprint then
@@ -472,6 +567,11 @@ SMODS.Joker({
     pos = {x = 3, y = 1},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.individual and not context.blueprint then
             context.other_card.ability.perma_bonus =
@@ -487,6 +587,11 @@ SMODS.Joker({
     pos = {x = 0, y = 0},
     rarity = "fvb_personality",
     blueprint_compat = false,
+	check_for_unlock = function (self, args)
+		if args.fvf_char == self.config.center_key then
+			return true
+		end
+	end,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
             if G.GAME.chips / G.GAME.blind.chips >= 0.75 then

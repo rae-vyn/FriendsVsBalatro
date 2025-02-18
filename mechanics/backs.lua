@@ -22,14 +22,16 @@ SMODS.Back({
             "{C:purple,E:1,T:eternal}Eternal{} {C:personality}Personality{} card"
         }
     },
+    unlocked = true,
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
             func = function()
-                SMODS.add_card({
+                local card = SMODS.add_card({
                     set = "Joker",
                     rarity = "fvb_personality",
                     stickers = { 'eternal' }
                 })
+                check_for_unlock({fvb_char = card.config.center_key})
                 return true
             end
         }))
@@ -46,6 +48,7 @@ SMODS.Back({
             "Of {C:attention}Gold{} {C:mult}Hearts"
         }
     },
+    unlocked = true,
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -68,6 +71,7 @@ SMODS.Back({
             "Of {C:green}Poisoned{} cards"
         }
     },
+    unlocked = true,
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
             func = function()
