@@ -22,7 +22,7 @@ Download this repository and extract it into your `Mods` folder.
     - [ ] Helpers
     - [ ] Wild
     - [ ] Trap
-- [ ] Personality Cards [10/21]<details><summary>Click to Expand</summary>
+- [X] Personality Cards [21/21]<details><summary>Click to Expand</summary>
     - [x] Moose Salto
     - [x] Duck Anderson
     - [x] DJ Newton
@@ -33,17 +33,17 @@ Download this repository and extract it into your `Mods` folder.
     - [x] Little Lars
     - [x] Sable Santana
     - [x] Haru
-    - [ ] Klustr Jr.
-    - [ ] Ribberto Mulligan
-    - [ ] Margarita Kala
-    - [ ] Dale Donovan
-    - [ ] FKF_Dingo
-    - [ ] Siaro
-    - [ ] Jawhara Farms
-    - [ ] Laika
-    - [ ] Dooper
-    - [ ] KTQTPI
-    - [ ] Bach Roadstein
+    - [x] Klustr Jr.
+    - [x] Ribberto Mulligan
+    - [x] Margarita Kala
+    - [x] Dale Donovan
+    - [x] FKF_Dingo
+    - [x] Siaro
+    - [x] Jawhara Farms
+    - [x] Laika
+    - [x] Dooper
+    - [x] KTQTPI
+    - [x] Bach Roadstein
     </details>
 
 - [ ] Challenges
