@@ -1,12 +1,17 @@
 return {
-    key = "c_fvb_akimbo",
-    use = function(self, card, area, copier)
-        G.weapons:change_size(1)
-        local _card = copy_card(G.weapons.cards[1], nil)
-        G.weapons:emplace(_card)
-        G.weapons.cards[2].ability = table.copy(G.weapons.cards[1].ability)
-    end,
-    keep_on_use = function(self, card)
-        return true
+    key = "b_fvb_schema_deck",
+    calculate = function (self, back, context)
+        if context.ending_shop then
+            self.config.extra.ante_counter = self.config.extra.ante_counter - 1
+            if self.config.extra.ante_counter == 0 then -- give blueprint
+                self.config.extra.ante_counter = 3
+                local card = SMODS.add_card({
+                    set = "Joker",
+                    key = "j_blueprint"
+                })
+                play_sound("tarot1", 1, 0.5)
+                card:juice_up()
+            end
+        end
     end
 }
