@@ -101,7 +101,7 @@ SMODS.Back({
 	unlocked = true,
 	apply = function(self, back) end,
 	calculate = function(self, back, context)
-		if context.ending_shop and G.GAME.last_blind then
+		if context.end_of_round and G.GAME.last_blind and G.GAME.last_blind.boss then
 			self.config.extra.ante_counter = self.config.extra.ante_counter - 1
 			if self.config.extra.ante_counter == 0 then -- give blueprint
 				self.config.extra.ante_counter = 3
@@ -113,5 +113,29 @@ SMODS.Back({
 				card:juice_up()
 			end
 		end
+	end,
+})
+
+SMODS.Back({
+	key = "champs_deck",
+	loc_txt = {
+		name = "Champ's Deck",
+		text = {
+			"Start with a deck",
+			"Of {C:gold,T:m_lucky}Lucky{} cards",
+		},
+	},
+	atlas = "card_backs",
+	pos = { x = 6, y = 6 },
+	unlocked = true,
+	apply = function(self, back)
+		G.E_MANAGER:add_event(Event({
+			func = function()
+				for _, card in ipairs(G.playing_cards) do
+					card:set_ability(G.P_CENTERS.m_lucky, true, true)
+				end
+				return true
+			end,
+		}))
 	end,
 })
