@@ -1,4 +1,4 @@
-SMODS.Atlas({key = "placeholder", px = 71, py = 95, path = "placeholder.png"})
+SMODS.Atlas({key = "othercards", px = 71, py = 95, path = "othercards.png"})
 
 SMODS.ConsumableType({
     key = 'Buff',
@@ -77,6 +77,8 @@ end
 Buff({
     key = "medkit",
     name = "Medkit",
+    atlas = "othercards",
+    pos = {x = 10, y = 1},
     text = {
         "Add {C:blue}+50{} Chips",
         "to every card in hand"
@@ -87,6 +89,8 @@ Buff({
 Buff({
     key = "small_head",
     name = "Small Head",
+    atlas = "othercards",
+    pos = {x = 1, y = 0},
     text = {
         "Reduce {C:attention}Blind{} size",
         "by {C:mult}50%{}",
@@ -108,6 +112,8 @@ Buff({
     key = "steel_bullets",
     name = "Steel Bullets",
     in_pack = true,
+    atlas = "othercards",
+    pos = {x = 2, y = 1},
     text = {
         "Increase {C:weapon}Weapon's",
         "{C:mult}damage{} by {C:white,X:mult}50%{}"
@@ -119,6 +125,8 @@ Buff({
 Buff({
     key = "big_mag",
     name = "Big Mag",
+    atlas = "othercards",
+    pos = {x = 4, y = 1},
     in_pack = true,
     text = {
         "Increase {C:weapon}Weapon's",
@@ -132,6 +140,8 @@ Buff({
     key = "akimbo",
     name = "Akimbo",
     in_pack = true,
+    atlas = "othercards",
+    pos = {x = 8, y = 2},
     text = {
         "Duplicate the {C:weapon}Weapon",
         "you currently have",
@@ -152,8 +162,10 @@ Buff({
 Buff({
     key = "health_up",
     name = "Health Up",
+    atlas = "othercards",
+    pos = {x = 3, y = 0},
     text = {
-        "Adds {C:blue}+50{} Chips",
+        "Adds {C:blue}+10{} Chips",
         "per card in hand",
         "to each card"
     },

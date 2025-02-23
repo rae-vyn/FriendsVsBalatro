@@ -1,8 +1,8 @@
 SMODS.Atlas({
-    key = "pack_placeholder",
+    key = "basicpack",
     px = 71,
     py = 95,
-    path = "pack_placeholder.png"
+    path = "basicpack.png"
 })
 SMODS.ObjectType({
     key = "fvb_cards",
@@ -24,7 +24,7 @@ SMODS.ObjectType({
 
 SMODS.Booster({
     key = "basic_pack",
-    atlas = "pack_placeholder",
+    atlas = "basicpack",
     loc_txt = {
         name = "Basic Pack",
         group_name = "Basic Pack",

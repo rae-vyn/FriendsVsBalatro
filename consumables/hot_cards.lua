@@ -15,7 +15,8 @@ SMODS.ConsumableType({
 SMODS.Consumable({
     key = "green_herb",
     set = "HotCard",
-    atlas = 'placeholder',
+    atlas = "othercards",
+    pos = {x = 4, y = 5},
     unlocked = true,
     loc_txt = {
         name = "Green Herb",
@@ -37,7 +38,8 @@ SMODS.Consumable({
 SMODS.Consumable({
     key = "dither",
     set = "HotCard",
-    atlas = 'placeholder',
+    atlas = "othercards",
+    pos = {x = 2, y = 9},
     unlocked = true,
     loc_txt = {
         name = "Dither",
@@ -59,7 +61,8 @@ SMODS.Consumable({
 SMODS.Consumable({
     key = "banding",
     set = "HotCard",
-    atlas = 'placeholder',
+    atlas = "othercards",
+    pos = {x = 3, y = 9},
     unlocked = true,
     loc_txt = {
         name = "Banding",

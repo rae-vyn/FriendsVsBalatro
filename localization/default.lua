@@ -167,7 +167,7 @@ return {
                 text = {
                     "Automatically {C:attetion}win blind",
                     "if hand is played with",
-                    "{C:attention}25%{} of the",
+                    "{C:attention}75%{} of the",
                     "required chips scored"
                 }
             },
