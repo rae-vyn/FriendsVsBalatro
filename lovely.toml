@@ -48,3 +48,15 @@ FVB = {}
 FVB.cards = {}
 '''
 match_indent = true
+
+# Add Pool and Global Object
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''if (v.type == 'Base' or v.type == 'Enhanced') and G.GAME.used_vouchers["v_illusion"] and pseudorandom(pseudoseed('illusion')) > 0.8 then '''
+position = "before"
+payload = '''
+-- For Abyssal deck
+SMODS.calculate_context({modify_shop_joker = true, card = card})
+'''
+match_indent = true

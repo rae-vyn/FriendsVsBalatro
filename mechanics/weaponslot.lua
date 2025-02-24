@@ -1,6 +1,7 @@
 local start_run_ref = Game.start_run
 function Game:start_run(args)
     self.GAME.starting_params.weapon_slots = 1 -- limiting how many cards can be in this area
+
     self.weapons = CardArea(0, 0, G.CARD_W * 1.1, G.CARD_H, {
         card_limit = self.GAME.starting_params.weapon_slots,
         type = "joker", -- set this to joker to properly handle use/sell buttons
@@ -12,10 +13,9 @@ function Game:start_run(args)
     start_run_ref(self, args)
 
     set_screen_positions()
-
     G.E_MANAGER:add_event(Event({
         func = function()
-            if G.jokers then
+            if G.weapons then
                 SMODS.add_card({key = "c_fvb_boira"})
                 return true
             end

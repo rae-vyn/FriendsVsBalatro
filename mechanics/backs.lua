@@ -13,7 +13,7 @@ SMODS.Back({
 		name = "Friends Deck",
 		text = {
 			"Start with a random",
-			"{C:purple,E:1,T:eternal}Eternal{} {C:personality}Personality{} card",
+			"{C:purple,E:1,T:m_eternal}Eternal{} {C:personality}Personality{} card",
 		},
 	},
 	unlocked = true,
@@ -137,5 +137,46 @@ SMODS.Back({
 				return true
 			end,
 		}))
+	end,
+})
+
+SMODS.Back({
+	key = "abyssal_deck",
+	loc_txt = {
+		name = "Abyssal Deck",
+		text = {
+			"Every {C:attention}Joker",
+			"in the shop is {C:purple,E:1,T:e_negative}Negative{}",
+			"{C:red}-1{} hand size every other Ante"
+		}
+	},
+	config = {
+		ante_counter = 2
+	},
+	atlas = "card_backs",
+	pos = { x = 0, y = 2},
+	calculate = function(self, card, context)
+		if context.modify_shop_joker then
+			G.E_MANAGER:add_event(Event({
+				func = function()
+					if context.card.ability.set == "Joker" then
+						context.card:set_edition({negative = true}, true)
+					end
+					G.deck.cards[1]:juice_up()
+					return true
+				end,
+			}))
+		end
+		if context.end_of_round and not context.individual then
+			if card.config.extra.ante_counter ~= 0 then
+				card.config.extra.ante_counter = card.config.extra.ante_counter - 1
+			else
+				card.config.extra.ante_counter = 2
+				G.hand:change_size(-1)
+				return {
+					message = "-1 Hand Size"
+				}
+			end
+		end
 	end,
 })
