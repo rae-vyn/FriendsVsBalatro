@@ -37,7 +37,7 @@ SMODS.Back({
 	atlas = "card_backs",
 	pos = { x = 0, y = 0 },
 	loc_txt = {
-		name = "Baba Deck",
+		name = "Baba's Deck",
 		text = {
 			"Start with a deck",
 			"Of {C:attention}Gold{} {C:mult}Hearts",
@@ -60,7 +60,7 @@ SMODS.Back({
 SMODS.Back({
 	key = "siaro_deck",
 	loc_txt = {
-		name = "Siaro Deck",
+		name = "Siaro's Deck",
 		text = {
 			"Start with a deck",
 			"Of {C:green}Poisoned{} cards",
