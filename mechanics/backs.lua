@@ -101,16 +101,23 @@ SMODS.Back({
 	unlocked = true,
 	apply = function(self, back) end,
 	calculate = function(self, back, context)
-		if context.end_of_round and G.GAME.last_blind and G.GAME.last_blind.boss then
+		if context.end_of_round and not context.individual and
+            not context.repetition and context.cardarea == G.hand
+			and G.GAME.blind:get_type() == "Boss" then
 			self.config.extra.ante_counter = self.config.extra.ante_counter - 1
 			if self.config.extra.ante_counter == 0 then -- give blueprint
 				self.config.extra.ante_counter = 3
-				local card = SMODS.add_card({
-					set = "Joker",
-					key = "j_blueprint",
-				})
-				play_sound("tarot1", 1, 0.5)
-				card:juice_up()
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local card = SMODS.add_card({
+                            set = "Joker",
+                            key = "j_blueprint",
+                        })
+                        play_sound("tarot1", 1, 0.5)
+                        G.deck.cards[1]:juice_up()
+                        return true
+                    end
+                }))
 			end
 		end
 	end,
@@ -171,15 +178,14 @@ SMODS.Back({
         end
         if context.end_of_round and not context.individual and
             not context.repetition and context.cardarea == G.hand
-			and G.GAME.blind:get_type() == "Boss" then
-			print("boss blind")
+			and G.GAME.blind:get_type() == "Boss" then -- exactly once, on boss blind end of round
             if card.effect.config.extra.ante_counter ~= 0 then
                 card.effect.config.extra.ante_counter =
                     card.effect.config.extra.ante_counter - 1
             else
                 card.effect.config.extra.ante_counter = 2
                 G.hand:change_size(-1)
-                return {message = "-1 Hand Size"}
+                return {message = "-1 Hand Size", message_card = G.deck.cards[1]}
             end
         end
     end
