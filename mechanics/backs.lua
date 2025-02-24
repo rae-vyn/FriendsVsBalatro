@@ -151,7 +151,7 @@ SMODS.Back({
 		}
 	},
 	config = {
-		effect = {
+		extra = {
 			ante_counter = 2
 		}
 	},
@@ -170,7 +170,7 @@ SMODS.Back({
             }))
         end
         if context.end_of_round and not context.individual and
-            not context.repetition and context.cardarea == G.hand 
+            not context.repetition and context.cardarea == G.hand
 			and G.GAME.blind:get_type() == "Boss" then
 			print("boss blind")
             if card.effect.config.extra.ante_counter ~= 0 then
