@@ -193,3 +193,37 @@ Buff({
         G.hand:change_size(-2)
     end
 })
+
+Buff({
+    key = "more_accuracy",
+    name = "More Accuracy",
+    atlas = "othercards",
+    pos = {x = 0, y = 1},
+    text = {"Gives held {C:weapon}Weapon(s)", "{C:green}-10%{} miss chance"},
+    use = function(self, card, area, copier)
+        for _, weapon in ipairs(G.weapons.cards) do
+            weapon.ability.extra.miss_chance = weapon.ability.extra.miss_chance - 10
+            if weapon.ability.extra.miss_chance <= 0 then
+                weapon.ability.extra.miss_chance = 0
+            end
+            weapon:juice_up()
+        end
+    end
+})
+
+Buff({
+    key = "quick_reload",
+    name = "Quick Reload",
+    atlas = "othercards",
+    pos = {x = 6, y = 1},
+    text = {"Gives held {C:weapon}Weapon(s)", "{C:attention}-1{} reload time", "{C:inactive}(Down to 1)"},
+    use = function(self, card, area, copier)
+        for _, weapon in ipairs(G.weapons.cards) do
+            weapon.ability.extra.max_reload = weapon.ability.extra.max_reload - 1
+            if weapon.ability.extra.max_reload <= 1 then
+                weapon.ability.extra.max_reload = 1
+            end
+            weapon:juice_up()
+        end
+    end
+})
