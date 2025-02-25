@@ -4,7 +4,7 @@ return {
         name = "Abyssal Deck",
         text = {
             "Every {C:attention}Joker",
-            "in the shop is {C:purple,E:1,T:e_negative}Negative{}",
+            "in the shop is {C:dark_edition,T:e_negative}Negative{}",
             "{C:red}-1{} hand size every other Ante"
         }
     },
@@ -21,7 +21,7 @@ return {
             }))
         end
         if context.end_of_round and not context.individual and
-            not context.repetition and context.cardarea == G.hand 
+            not context.repetition and context.cardarea == G.hand
 			and G.GAME.blind:get_type() == "Boss" then
 			print("boss blind")
             if card.effect.config.extra.ante_counter ~= 0 then

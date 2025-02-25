@@ -153,7 +153,7 @@ SMODS.Back({
 		name = "Abyssal Deck",
 		text = {
 			"Every {C:attention}Joker",
-			"in the shop is {C:purple,E:1,T:e_negative}Negative{}",
+			"in the shop is {C:dark_edition,T:e_negative}Negative{}",
 			"{C:red}-1{} hand size every other Ante"
 		}
 	},
