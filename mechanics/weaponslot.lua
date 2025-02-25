@@ -1,26 +1,39 @@
 local start_run_ref = Game.start_run
 function Game:start_run(args)
     self.GAME.starting_params.weapon_slots = 1 -- limiting how many cards can be in this area
+    local saveTable = args.savetext or nil
 
+    local selected_back = saveTable and saveTable.BACK.name or (args.challenge and args.challenge.deck and args.challenge.deck.type) or (self.GAME.viewed_back and self.GAME.viewed_back.name) or self.GAME.selected_back and self.GAME.selected_back.name or 'Red Deck'
+    selected_back = get_deck_from_name(selected_back)
+    self.GAME.selected_back = Back(selected_back)
+    -- end base game stuff
+    local deck_name = self.GAME.selected_back.name
+    local is_fvb = string.find(deck_name, 'b_fvb')
+    if not is_fvb then
+        start_run_ref(self, args)
+        return
+    end
+    
     self.weapons = CardArea(0, 0, G.CARD_W * 1.1, G.CARD_H, {
         card_limit = self.GAME.starting_params.weapon_slots,
         type = "joker", -- set this to joker to properly handle use/sell buttons
         highlight_limit = 1
     })
     -- this need to be before the start_run_ref call
-    -- or cards in your area won't be loaded
-
+    -- or cards in your area won't be loadedmmmmm
     start_run_ref(self, args)
+
 
     set_screen_positions()
     G.E_MANAGER:add_event(Event({
         func = function()
             if G.weapons then
                 SMODS.add_card({key = "c_fvb_boira"})
-                return true
             end
+            return true
         end,
     }))
+    G.consumeables:change_size(5)
 end
 
 local set_screen_positions_ref = set_screen_positions
