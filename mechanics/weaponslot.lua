@@ -9,11 +9,12 @@ function Game:start_run(args)
     -- end base game stuff
     local deck_name = self.GAME.selected_back.name
     local is_fvb = string.find(deck_name, 'b_fvb')
+    self.is_fvb = is_fvb
     if not is_fvb then
         start_run_ref(self, args)
         return
     end
-    
+
     self.weapons = CardArea(0, 0, G.CARD_W * 1.1, G.CARD_H, {
         card_limit = self.GAME.starting_params.weapon_slots,
         type = "joker", -- set this to joker to properly handle use/sell buttons

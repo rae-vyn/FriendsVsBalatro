@@ -4,6 +4,7 @@ SMODS.Atlas({
     py = 95,
     path = "basicpack.png"
 })
+
 SMODS.ObjectType({
     key = "fvb_cards",
     default = "c_fvb_boira",
@@ -41,6 +42,12 @@ SMODS.Booster({
     kind = "Weapon",
     select_card = {Buff = "consumeables", Weapon = "weapons"},
     create_card = function(self, card, i)
+        if not G.is_fvb then
+            return {
+                set = "Spectral",
+                skip_materialize = true
+            }
+        end
         return {
             set = "fvb_cards",
             skip_materialize = true,
