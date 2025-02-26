@@ -8,3 +8,10 @@ SMODS.Joker:take_ownership('fvb_bach', {
         end
     end
 })
+
+SMODS.Consumable:take_ownership('fvb_small_head', {
+    can_use = function(self, card) return G.GAME.blind.chips > to_big(0) end
+})
+SMODS.Consumable:take_ownership('fvb_move_faster', {
+    can_use = function(self, card) return G.GAME.blind.chips > to_big(0) end
+})
