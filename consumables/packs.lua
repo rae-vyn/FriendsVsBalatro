@@ -82,6 +82,7 @@ SMODS.Booster({
         info_queue[#info_queue+1] = G.P_CENTERS.e_polychrome
     end,
     weight = 3,
+    cost = 6,
     kind = "Weapon",
     select_card = {Buff = "consumeables", Weapon = "weapons"},
     create_card = function(self, card, i)
