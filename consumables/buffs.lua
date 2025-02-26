@@ -79,7 +79,8 @@ Buff({
     atlas = "othercards",
     pos = {x = 10, y = 1},
     text = {"Add {C:blue}+50{} Chips", "to every card in hand"},
-    chips = 50
+    chips = 50,
+	can_use = function(self, card) return (#G.hand.cards > 0) end
 })
 
 Buff({
@@ -98,7 +99,8 @@ Buff({
         chips_UI:juice_up()
 
         play_sound("chips2")
-    end
+    end,
+	can_use = function(self, card) return G.GAME.blind.chips > 0 end
 })
 
 Buff({
@@ -160,7 +162,8 @@ Buff({
                                             #G.hand.cards
             _card:juice_up()
         end
-    end
+    end,
+	can_use = function(self, card) return (#G.hand.cards > 0) end
 })
 
 Buff({
@@ -179,7 +182,8 @@ Buff({
         chips_UI:juice_up()
 
         play_sound("chips2")
-    end
+    end,
+	can_use = function(self, card) return G.GAME.blind.chips > 0 end
 })
 
 Buff({
@@ -193,7 +197,8 @@ Buff({
     use = function(self, card, area, copier)
         G.GAME.chips = G.GAME.blind.chips
         G.hand:change_size(-2)
-    end
+    end,
+	can_use = function(self, card) return G.GAME.blind.chips > G.GAME.chips end
 })
 
 Buff({
