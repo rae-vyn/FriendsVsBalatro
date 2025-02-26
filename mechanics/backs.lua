@@ -63,7 +63,7 @@ SMODS.Back({
 		name = "Siaro's Deck",
 		text = {
 			"Start with a deck",
-			"Of {C:green}Poisoned{} cards",
+			"Of {C:green}Poison{} cards",
 		},
 	},
 	atlas = "card_backs",

@@ -4,6 +4,7 @@ function Game:init_item_prototypes()
 
 	G.C.SECONDARY_SET.Weapon = HEX("E0569B")
 	G.C.SECONDARY_SET.Personality = HEX("E7680D")
+	G.C.SECONDARY_SET.Buff = HEX("009B84")
 end
 
 function table.copy(t)
@@ -23,5 +24,6 @@ function loc_colour(_c, _default)
     loc_colour_ref(_c, _default) -- toss the return value, we don't need it
     G.ARGS.LOC_COLOURS['weapon'] = HEX("E0569B")
     G.ARGS.LOC_COLOURS['personality'] = HEX("E7680D")
+	G.ARGS.LOC_COLOURS['buff'] = HEX("009B84")
     return G.ARGS.LOC_COLOURS[_c] or _default or G.C.UI.TEXT_DARK -- recalculate result
 end

@@ -30,14 +30,14 @@ function calcWeapon(self, card, context)
             card.ability.extra.reloading = true
         end
         if pseudorandom('boira') < card.ability.extra.miss_chance/100 then
-            SMODS.calculate_context({weapon_miss = true})
+            SMODS.calculate_context({weapon_miss = true, other_card = context.other_card})
             return {
                 message = "Missed!",
                 message_card = context.other_card
             }
         end
         sendDebugMessage("Ammo left: " .. card.ability.extra.curr_ammo)
-        SMODS.calculate_context({weapon_hit = true})
+        SMODS.calculate_context({weapon_hit = true, other_card = context.other_card})
         return {
             mult = chosen_mult,
             card = card,
