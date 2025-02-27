@@ -73,9 +73,10 @@ return {
             j_fvb_haru = {
                 name = "Haru",
                 text = {
-                    "Gains {C:white,X:mult}X1{} Mult",
-                    "per {C:attention}Blind{} played",
-                    "Resets if Blind {C:mult}skipped",
+                    "Gains {C:white,X:mult}X#2#{} Mult",
+                    "when {C:attention}Blind{} started",
+                    "Gain amount resets if",
+                    "a Blind is {C:mult}skipped",
                     "(Currently {C:white,X:mult}X#1#{})"
                 }
             },
