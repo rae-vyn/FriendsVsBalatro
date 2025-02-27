@@ -173,5 +173,10 @@ return {
                 }
             },
         }
+    },
+    misc = {
+        v_text = {
+            ch_c_onlyqueens = {"All face cards in deck are {C:attention}Queens{}"}
+        }
     }
 }
