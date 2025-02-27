@@ -1,5 +1,5 @@
-SMODS.Atlas({key = "placeholder", px = 71, py = 95, path = "placeholder.png"})
 SMODS.Atlas({key = "weapons", px = 71, py = 95, path = "Weapons.png"})
+SMODS.Atlas({key = "boira", px = 71, py = 95, path = "Boira.png"})
 SMODS.ConsumableType({
     key = 'Weapon',
     primary_colour = HEX("2A2051"),
@@ -168,10 +168,10 @@ Weapon({
 Weapon({
     key = "boira",
     name = "Boira 9",
-    atlas = 'placeholder',
+    atlas = 'boira',
     tagline = "The classic.",
-    min_damage = 13,
-    max_damage = 19,
+    min_damage = 5,
+    max_damage = 13,
     miss_chance = 25,
     max_ammo = 12,
     reload_time = 3,

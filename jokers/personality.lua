@@ -252,9 +252,9 @@ SMODS.Joker({
     key = "haru",
     atlas = "personalities",
     pos = {x = 1, y = 1},
-    config = {extra = {xmult = 1}},
+    config = {extra = {xmult = 1, xmult_gain = 1}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.xmult}}
+        return {vars = {card.ability.extra.xmult, card.ability.extra.xmult_gain}}
     end,
     rarity = "fvb_personality",
     blueprint_compat = true,
@@ -263,14 +263,18 @@ SMODS.Joker({
     end,
     calculate = function(self, card, context)
         if context.skip_blind then
-            card.ability.extra.xmult = 1
+            card.ability.extra.xmult_gain = 1
             return {message = "Reset!"}
+        end
+        if context.setting_blind and not context.blueprint then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_gain
+			return {message = "Upgraded!"}
         end
         if context.joker_main then
             return {xmult = card.ability.extra.xmult}
         end
         if context.end_of_round and context.cardarea == G.jokers then
-            card.ability.extra.xmult = card.ability.extra.xmult + 1
+            card.ability.extra.xmult_gain = card.ability.extra.xmult_gain + 1
             return {message = "Accelerating!"}
         end
     end
@@ -287,9 +291,12 @@ SMODS.Joker({
     end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
+            if not #G.consumables.cards < G.consumables.config.card_limit - 2 then
+                return
+            end
             SMODS.add_card({key = "c_fvb_dither"})
             SMODS.add_card({key = "c_fvb_banding"})
-            return {message = "TBD"}
+            card:juice_up()
         end
     end
 })
@@ -306,6 +313,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.before and next(context.poker_hands["Straight Flush"]) and
             not context.blueprint then
+            if not #G.jokers.cards < G.jokers.config.card_limit then
+                return
+            end
             card:juice_up()
             SMODS.add_card({set = "Joker", rarity = "fvb_personality"})
         end

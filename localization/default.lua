@@ -41,7 +41,7 @@ return {
             j_fvb_dj_newton = {
                 name = "DJ Newton",
                 text = {
-                    "{C:green}Miss Chance{}", "reduced by {C:green}-5",
+                    "{C:green}Miss Chance{}", "reduced by {C:green}-5%",
                     "every round"
                 }
             },
@@ -73,9 +73,10 @@ return {
             j_fvb_haru = {
                 name = "Haru",
                 text = {
-                    "Gains {C:white,X:mult}X1{} Mult",
-                    "per {C:attention}Blind{} played",
-                    "Resets if Blind {C:mult}skipped",
+                    "Gains {C:white,X:mult}X#2#{} Mult",
+                    "when {C:attention}Blind{} started",
+                    "Gain amount resets if",
+                    "a Blind is {C:mult}skipped",
                     "(Currently {C:white,X:mult}X#1#{})"
                 }
             },
@@ -106,9 +107,9 @@ return {
             j_fvb_dale = {
                 name = "Dale Donovan",
                 text = {
-                    "Retrigger the {C:mult}last scored card",
-                    "gains {C:white,X:mult}X0.5{} Mult",
-                    "if that card is an {C:attention}Ace",
+                    "Retrigger {C:attention}last{} scored card",
+                    "gains {C:white,X:mult}X0.5{} Mult if",
+                    "that card is an {C:attention}Ace",
                     "(Currently {C:white,X:mult}X#1#{})"
                 }
             },
@@ -171,6 +172,11 @@ return {
                     "required chips scored"
                 }
             },
+        }
+    },
+    misc = {
+        v_text = {
+            ch_c_onlyqueens = {"All face cards in deck are {C:attention}Queens{}"}
         }
     }
 }
