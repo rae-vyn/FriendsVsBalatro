@@ -41,7 +41,7 @@ return {
             j_fvb_dj_newton = {
                 name = "DJ Newton",
                 text = {
-                    "{C:green}Miss Chance{}", "reduced by {C:green}-5",
+                    "{C:green}Miss Chance{}", "reduced by {C:green}-5%",
                     "every round"
                 }
             },
@@ -106,9 +106,9 @@ return {
             j_fvb_dale = {
                 name = "Dale Donovan",
                 text = {
-                    "Retrigger the {C:mult}last scored card",
-                    "gains {C:white,X:mult}X0.5{} Mult",
-                    "if that card is an {C:attention}Ace",
+                    "Retrigger {C:attention}last{} scored card",
+                    "gains {C:white,X:mult}X0.5{} Mult if",
+                    "that card is an {C:attention}Ace",
                     "(Currently {C:white,X:mult}X#1#{})"
                 }
             },
