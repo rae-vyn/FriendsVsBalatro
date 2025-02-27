@@ -1,15 +1,11 @@
 return {
-    key = "c_fvb_energy_drink",
+    key = "j_fvb_jawhara",
     calculate = function(self, card, context)
-		if context.skip_blind then
-			G.E_MANAGER:add_event(Event({
-				trigger = "immediate",
-				func = function ()
-					ease_dollars(5)
-					card:start_dissolve()
-					return true
-				end
-			}))
-		end
-	end,
+        if context.weapon_missed and not context.blueprint then
+            card.ability.extra.mult = card.ability.extra.mult + 0.5
+        end
+        if context.joker_main then
+            return {xmult = card.ability.extra.mult}
+        end
+    end
 }

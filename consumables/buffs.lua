@@ -344,7 +344,7 @@ Buff({
     },
     calculate = function(self, card, context)
         if context.weapon_missed then
-            context.other_card:set_ability(G.P_CENTERS.m)
+            context.other_card:set_ability(G.P_CENTERS.m_steel)
             card:juice_up()
         end
     end,
