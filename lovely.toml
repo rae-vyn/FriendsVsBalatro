@@ -60,3 +60,17 @@ payload = '''
 SMODS.calculate_context({modify_shop_joker = true, card = card})
 '''
 match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "globals.lua"
+pattern = '''
+RENTAL = HEX('b18f43'),
+'''
+position = "after"
+payload = '''
+FVB_PR = HEX("2A2051"),
+FVB_SC = HEX("E0569B"),
+'''
+match_indent = true
+times = 1
