@@ -70,3 +70,20 @@ function loc_colour(_c, _default)
 	G.ARGS.LOC_COLOURS['fvb_sc'] = HEX("E0569B")
     return G.ARGS.LOC_COLOURS[_c] or _default or G.C.UI.TEXT_DARK -- recalculate result
 end
+
+function eventify(fun)
+    G.E_MANAGER:add_event(Event({
+        trigger = "immediate",
+        func = function()
+            fun()
+            return true
+        end
+    }))
+end
+
+SMODS.Keybind({
+    key_pressed = "delete",
+    action = function (self)
+        SMODS.restart_game()
+    end
+})

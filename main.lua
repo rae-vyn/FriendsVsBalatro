@@ -13,3 +13,8 @@ assert(SMODS.load_file('jokers/personality.lua'))()
 if next(SMODS.find_mod('Talisman')) then
     assert(SMODS.load_file('util/talisman_compat.lua'))()
 end
+
+if next(SMODS.find_mod("JokerDisplay")) then
+    print('hi jokerdisplay!')
+    assert(SMODS.load_file('util/jokerdisplay_compat.lua'))()
+end

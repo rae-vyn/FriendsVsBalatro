@@ -101,23 +101,27 @@ SMODS.Back({
 	unlocked = true,
 	apply = function(self, back) end,
 	calculate = function(self, back, context)
-		if context.end_of_round and not context.individual and
-            not context.repetition and context.cardarea == G.hand
-			and G.GAME.blind:get_type() == "Boss" then
+		if
+			context.end_of_round
+			and not context.individual
+			and not context.repetition
+			and context.cardarea == G.hand
+			and G.GAME.blind:get_type() == "Boss"
+		then
 			self.config.extra.ante_counter = self.config.extra.ante_counter - 1
 			if self.config.extra.ante_counter == 0 then -- give blueprint
 				self.config.extra.ante_counter = 3
-                G.E_MANAGER:add_event(Event({
-                    func = function()
-                        local card = SMODS.add_card({
-                            set = "Joker",
-                            key = "j_blueprint",
-                        })
-                        play_sound("tarot1", 1, 0.5)
-                        G.deck.cards[1]:juice_up()
-                        return true
-                    end
-                }))
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						local card = SMODS.add_card({
+							set = "Joker",
+							key = "j_blueprint",
+						})
+						play_sound("tarot1", 1, 0.5)
+						G.deck.cards[1]:juice_up()
+						return true
+					end,
+				}))
 			end
 		end
 	end,
@@ -154,39 +158,44 @@ SMODS.Back({
 		text = {
 			"Every {C:attention}Joker",
 			"in the shop is {C:dark_edition,T:e_negative}Negative{}",
-			"{C:red}-1{} hand size every other Ante"
-		}
+			"{C:red}-1{} hand size every other Ante",
+		},
 	},
 	config = {
 		extra = {
-			ante_counter = 2
-		}
+			ante_counter = 2,
+		},
 	},
 	atlas = "card_backs",
-	pos = { x = 0, y = 2},
+	pos = { x = 0, y = 2 },
 	calculate = function(self, card, context)
-        if context.modify_shop_joker then
-            G.E_MANAGER:add_event(Event({
-                func = function()
-                    if context.card.ability.set == "Joker" then
-                        context.card:set_edition({negative = true}, true)
-                    end
-                    G.deck.cards[1]:juice_up()
-                    return true
-                end
-            }))
-        end
-        if context.end_of_round and not context.individual and
-            not context.repetition and context.cardarea == G.hand
-			and G.GAME.blind:get_type() == "Boss" then -- exactly once, on boss blind end of round
-            if card.effect.config.extra.ante_counter ~= 0 then
-                card.effect.config.extra.ante_counter =
-                    card.effect.config.extra.ante_counter - 1
-            else
-                card.effect.config.extra.ante_counter = 2
-                G.hand:change_size(-1)
-                return {message = "-1 Hand Size", message_card = G.deck.cards[1]}
-            end
-        end
-    end
+		if context.modify_shop_joker then
+			G.E_MANAGER:add_event(Event({
+				func = function()
+					if context.card.ability.set == "Joker" then
+						eventify(function()
+							context.card:set_edition({ negative = true }, true)
+							G.deck.cards[1]:juice_up()
+						end)
+					end
+					return true
+				end,
+			}))
+		end
+		if
+			context.end_of_round
+			and not context.individual
+			and not context.repetition
+			and context.cardarea == G.hand
+			and G.GAME.blind:get_type() == "Boss"
+		then -- exactly once, on boss blind end of round
+			if card.effect.config.extra.ante_counter ~= 0 then
+				card.effect.config.extra.ante_counter = card.effect.config.extra.ante_counter - 1
+			else
+				card.effect.config.extra.ante_counter = 2
+				G.hand:change_size(-1)
+				return { message = "-1 Hand Size", message_card = G.deck.cards[1] }
+			end
+		end
+	end,
 })

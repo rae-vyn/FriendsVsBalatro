@@ -511,7 +511,7 @@ SMODS.Joker({
     key = "dooper",
     atlas = "personalities",
     pos = {x = 4, y = 0},
-    config = {extra = {mult = 1}},
+    config = {extra = {mult = 0}},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.mult}}
     end,
@@ -528,7 +528,7 @@ SMODS.Joker({
             end
         end
         if context.joker_main then
-            if G.GAME.current_round.hands_left == 0 then
+            if G.GAME.current_round.hands_left == 0 and card.ability.extra.mult > 0 then
                 return {xmult = card.ability.extra.mult}
             else
                 return {mult = card.ability.extra.mult}
