@@ -21,6 +21,49 @@ jd["j_fvb_moose_salto"] = {
 	end,
 }
 
+jd["j_fvb_dale"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "mult"}
+            }
+        }
+    }
+}
+
+jd["j_fvb_dingo"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "mult"}
+            }
+        }
+    }
+}
+
+jd["j_fvb_laika"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "mult"}
+            }
+        }
+    }
+}
+jd["j_fvb_jawhara"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "mult"}
+            }
+        }
+    }
+}
+
 jd["j_fvb_haru"] = {
 	text = {
 		{
