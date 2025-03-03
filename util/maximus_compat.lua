@@ -1,3 +1,7 @@
+if G.mxms_horoscope then
+    G.mxms_horoscope.T.w = G.mxms_horoscope.T.w * 0.5
+    G.mxms_horoscope.T.h = G.mxms_horoscope.T.h * 0.5
+end
 
 local emplace_ref = CardArea.emplace
 function CardArea:emplace(card, location, stay_flipped)
