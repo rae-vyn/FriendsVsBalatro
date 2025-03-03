@@ -305,7 +305,7 @@ Buff({
 	name = "Energy Drink",
 	atlas = "othercards",
 	pos = { x = 6, y = 2 },
-	text = { "Skipping a blind", "gives {C:yellow}$5{}, {C:red}self destructs" },
+	text = { "Skipping a blind", "gives {C:money}$5{}, {C:red}self destructs" },
 	calculate = function(self, card, context)
 		if context.skip_blind then
 			G.E_MANAGER:add_event(Event({

@@ -7,6 +7,7 @@ assert(SMODS.load_file('mechanics/challenges.lua'))()
 assert(SMODS.load_file('consumables/weapons.lua'))()
 assert(SMODS.load_file('consumables/packs.lua'))()
 assert(SMODS.load_file('consumables/buffs.lua'))()
+assert(SMODS.load_file('consumables/debuffs.lua'))()
 assert(SMODS.load_file('consumables/hot_cards.lua'))()
 assert(SMODS.load_file('jokers/personality.lua'))()
 
@@ -17,4 +18,8 @@ end
 if next(SMODS.find_mod("JokerDisplay")) then
     print('hi jokerdisplay!')
     assert(SMODS.load_file('util/jokerdisplay_compat.lua'))()
+end
+
+if next(SMODS.find_mod('Maximus')) then
+    assert(SMODS.load_file('util/maximus_compat.lua'))()
 end

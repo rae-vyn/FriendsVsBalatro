@@ -1,7 +1,7 @@
 SMODS.ConsumableType({
     key = 'HotCard',
-    primary_colour = HEX("D92156"),
-    secondary_colour = HEX("D92156"),
+    primary_colour = HEX("697b7f"),
+    secondary_colour = HEX("697b7f"),
     default = 'c_fvb_green_herb',
     loc_txt = {
         name = "Hot Card",

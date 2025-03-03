@@ -47,7 +47,7 @@ SMODS.Booster({
     },
     weight = 3,
     kind = "Weapon",
-    select_card = {Buff = "consumeables", Weapon = "weapons"},
+    select_card = {Buff = "consumeables", Weapon = "weapons", Debuff = "debuffs"},
     create_card = function(self, card, i)
         if not G.is_fvb then
             return {
@@ -84,7 +84,7 @@ SMODS.Booster({
     weight = 3,
     cost = 6,
     kind = "Weapon",
-    select_card = {Buff = "consumeables", Weapon = "weapons"},
+    select_card = {Buff = "consumeables", Weapon = "weapons", Debuff = "debuffs"},
     create_card = function(self, card, i)
         if not G.is_fvb then
             return {

@@ -13,6 +13,14 @@ payload = "table.insert(t, 1, G.weapons)"
 [[patches]]
 [patches.pattern]
 target = '=[SMODS _ "src/utils.lua"]'
+pattern = "-- TARGET: add your own CardAreas for joker evaluation"
+position = "before"
+match_indent = true
+payload = "table.insert(t, 1, G.debuffs)"
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
 pattern = "if area and #G[area].cards < G[area].config.card_limit then"
 position = "at"
 match_indent = true
@@ -28,6 +36,25 @@ elseif card.ability.set == 'Booster' then
 position = "before"
 payload = '''
 elseif card.ability.set == 'Weapon' then
+    card:add_to_deck()
+    G.weapons:emplace(card)
+    play_sound('card1', 0.8, 0.6)
+    play_sound('generic1')
+    dont_dissolve = true
+    delay_fac = 0.2
+'''
+match_indent = true
+
+# Emplace debuffs in their own area
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''
+elseif card.ability.set == 'Booster' then
+'''
+position = "before"
+payload = '''
+elseif card.ability.set == 'Debuff' then
     card:add_to_deck()
     G.weapons:emplace(card)
     play_sound('card1', 0.8, 0.6)

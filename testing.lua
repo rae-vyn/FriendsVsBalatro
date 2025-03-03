@@ -1,31 +1,13 @@
 return {
-    key = "c_fvb_tin_man",
+    key = "c_fvb_big_head",
     calculate = function(self, card, context)
-		if context.weapon_missed then
-			return {
-                func = function()
-                    G.E_MANAGER:add_event(Event({
-                        trigger = 'after',
-                        delay = 0.15,
-                        func = function()
-                            context.other_card:flip()
-                            context.other_card:set_ability(G.P_CENTERS.m_steel)
-                            return true
-                        end
-                    }))
-                    delay(0.2)
-                    G.E_MANAGER:add_event(Event({
-                        trigger = 'after',
-                        delay = 0.15,
-                        func = function()
-                            context.other_card:flip()
-                            context.other_card:juice_up()
-                            return true
-                        end
-                    }))
-                    delay(0.5)
-                end
-            }
-		end
-	end
+        if context.setting_blind then info.effect(card) end
+        if context.end_of_round and not context.individual and
+            not context.repetition and context.cardarea == G.consumeables then
+            card.ability.extra.timer = card.ability.extra.timer - 1
+            if card.ability.extra.timer == 0 then
+                info.reward(card)
+            end
+        end
+    end
 }
