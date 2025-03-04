@@ -35,13 +35,25 @@ function Game:start_run(args)
     set_screen_positions()
     G.E_MANAGER:add_event(Event({
         func = function()
-            if G.weapons then
+            if G.weapons and #G.weapons.cards == 0 then
                 SMODS.add_card({key = "c_fvb_boira"})
             end
             return true
         end,
     }))
-    G.consumeables:change_size(5)
+
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            if #G.debuffs.cards > 0 then
+                G.debuffs.cards[1].T.w = G.debuffs.cards[1].T.w * 0.5
+                G.debuffs.cards[1].T.h = G.debuffs.cards[1].T.h * 0.5
+            end
+            return true
+        end,
+    }))
+    if G.consumeables.config.card_limit == 2 then
+        G.consumeables:change_size(5)
+    end
 end
 
 local set_screen_positions_ref = set_screen_positions
@@ -113,6 +125,8 @@ function CardArea:emplace(card, location, stay_flipped)
     end
     if self == G.consumeables and card.ability.set == "Debuff" then
         G.debuffs:emplace(card, location, stay_flipped)
+        card.T.w = card.T.w * 0.5
+        card.T.h = card.T.h * 0.5
         return
     end
 

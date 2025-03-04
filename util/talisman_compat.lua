@@ -15,3 +15,6 @@ SMODS.Consumable:take_ownership('fvb_small_head', {
 SMODS.Consumable:take_ownership('fvb_move_faster', {
     can_use = function(self, card) return to_big(G.GAME.blind.chips) > to_big(0) end
 })
+SMODS.Consumable:take_ownership('fvb_double_jump', {
+    can_use = function(self, card) return to_big(G.GAME.blind.chips) > to_big(G.GAME.chips) end
+})

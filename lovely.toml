@@ -16,7 +16,7 @@ target = '=[SMODS _ "src/utils.lua"]'
 pattern = "-- TARGET: add your own CardAreas for joker evaluation"
 position = "before"
 match_indent = true
-payload = "table.insert(t, 1, G.debuffs)"
+payload = "t[#t+1] = G.debuffs"
 
 [[patches]]
 [patches.pattern]
@@ -112,6 +112,26 @@ position = "after"
 payload = '''
 FVB_PR = HEX("2A2051"),
 FVB_SC = HEX("E0569B"),
+'''
+match_indent = true
+times = 1
+
+
+[[patches]]
+[patches.pattern]
+target = "globals.lua"
+pattern = '''
+if next(SMODS.find_card('j_mxms_microwave')) and pseudorandom('eggsplode' .. G.GAME.round_resets.ante, 1, 20) == 1 then
+'''
+position = "after"
+payload = '''
+return {
+    message = "Saved!"
+    colour = G.C.MONEY
+    func = function() 
+        ease_dollars(self.sell_cost)
+    end
+}
 '''
 match_indent = true
 times = 1
