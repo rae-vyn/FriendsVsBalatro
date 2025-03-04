@@ -113,10 +113,9 @@ function CardArea:emplace(card, location, stay_flipped)
     end
     if self == G.consumeables and card.ability.set == "Debuff" then
         G.debuffs:emplace(card, location, stay_flipped)
-        card.T.w = card.T.w * 0.5
-        card.T.h = card.T.h * 0.5
         return
     end
+
 
     emplace_ref(self, card, location, stay_flipped)
 end

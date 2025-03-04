@@ -26,6 +26,20 @@ position = "at"
 match_indent = true
 payload = "if area and (#G[area].cards < G[area].config.card_limit) or G[area] == G.weapons then"
 
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+self.mxms_horoscope_W,
+self.mxms_horoscope_H,
+'''
+position = "at"
+match_indent = true
+payload = '''
+self.mxms_horoscope_W * 0.5,
+self.mxms_horoscope_H * 0.5,
+'''
+
 # Emplace weapons in their own area
 [[patches]]
 [patches.pattern]

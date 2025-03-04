@@ -28,7 +28,6 @@ end
 local main_menu_ref = Game.main_menu
 Game.main_menu = function(change_context)
 	local ret = main_menu_ref(change_context)
-	G.title_top.cards[1]:start_dissolve()
 	-- adds a James to the main menu
 	add_card_to_title("j_fvb_donnie_b")
 	add_card_to_title("j_fvb_moose_salto")

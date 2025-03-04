@@ -40,7 +40,11 @@ function Debuff(info)
         end,
         use = info.use,
         can_use = info.can_use,
-        unlocked = true
+        unlocked = true,
+        on_select = function (self, card)
+            card.T.w = card.T.w * 0.5
+            card.T.h = card.T.h * 0.5
+        end
     })
     table.insert(FVB.cards, "c_fvb_" .. info.key)
 end
