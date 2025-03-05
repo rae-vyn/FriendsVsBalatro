@@ -314,7 +314,7 @@ SMODS.Joker({
     end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
-            if not #G.consumables.cards < G.consumables.config.card_limit - 2 then
+            if not #G.consumeables.cards < G.consumeables.config.card_limit - 2 then
                 return
             end
             SMODS.add_card({key = "c_fvb_dither"})
@@ -358,9 +358,9 @@ SMODS.Joker({
         if context.joker_main and not context.blueprint then
             if next(context.poker_hands["Flush"]) then
                 local suit = context.scoring_hand[1].base.suit
-                if suit == "Hearts" then return {xmult = 20} end
+                if suit == "Hearts" then return {xmult = 10} end
                 if suit == "Diamonds" then return {dollars = 20} end
-                if suit == "Clubs" then return {chips = 2000} end
+                if suit == "Clubs" then return {chips = 500} end
                 if suit == "Spades" then
                     G.GAME.blind.chips = math.floor(G.GAME.blind.chips * 0.8)
                     G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)

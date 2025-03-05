@@ -49,7 +49,7 @@ function Debuff(info)
     table.insert(FVB.cards, "c_fvb_" .. info.key)
 end
 
-Debuff({
+Debuff({ -- Big Head
     key = "big_head",
     name = "Big Head",
     atlas = "othercards",
@@ -81,7 +81,7 @@ Debuff({
     can_use = function(self, card) return false end
 })
 
-Debuff({
+Debuff({ -- Health Down
     key = "heath_down",
     name = "Health Down",
     atlas = "othercards",
@@ -118,7 +118,7 @@ Debuff({
     can_use = function(self, card) return false end
 })
 
-Debuff({
+Debuff({ -- Move Slower
     key = "move_slower",
     name = "Move Slower",
     text = {
@@ -149,7 +149,7 @@ Debuff({
     end
 })
 
-Debuff({
+Debuff({ -- No Jump
     key = "no_jump",
     name = "No Jump",
     text = {
@@ -200,7 +200,7 @@ Debuff({
     end
 })
 
-Debuff({
+Debuff({ -- Less Accuracy
     key = "less_accuracy",
     name = "Less Accuracy",
     text = {
@@ -231,7 +231,7 @@ Debuff({
     end
 })
 
-Debuff({
+Debuff({ -- Rubber Bullets
     key = "rubber_bullets",
     name = "Rubber Bullets",
     text = {
@@ -262,5 +262,80 @@ Debuff({
             end
         end)
         eventify(function() card:start_dissolve() end)
+    end
+})
+
+Debuff({
+    key = "small_mag",
+    name = "Small Mag",
+    atlas = "othercards",
+    pos = {x = 3, y = 1},
+    rounds = 6,
+    text = {
+        "{C:mult}75%{} max ammo amount",
+        "After {C:mult}#1#{} rounds set ammo max to {C:red}30{}",
+        "{C:inactive}(Self destructs after)"
+    },
+    effect = function(card)
+        for _, weapon in ipairs(G.weapons.cards) do
+            weapon.ability.extra.max_ammo = math.floor(weapon.ability.extra.max_ammo * 0.75)
+        end
+    end,
+    reward = function(card)
+        for _, weapon in ipairs(G.weapons.cards) do
+            weapon.ability.extra.max_ammo = 30
+        end
+    end
+})
+
+Debuff({
+    key = "slow_reload",
+    name = "Slow Reload",
+    atlas = "othercards",
+    pos = {x = 5, y = 1},
+    rounds = 6,
+    text = {
+        "{C:mult}+1{} reload time",
+        "After {C:mult}#1#{} rounds set reload time to {C:blue}2{}",
+        "{C:inactive}(Self destructs after)"
+    },
+    effect = function(card)
+        for _, weapon in ipairs(G.weapons.cards) do
+            weapon.ability.extra.max_reload = weapon.ability.extra.max_reload + 1
+        end
+    end,
+    reward = function(card)
+        for _, weapon in ipairs(G.weapons.cards) do
+            weapon.ability.extra.max_reload = 2
+        end
+    end
+})
+
+Debuff({
+    key = "invisible_hand",
+    name = "Invisible Hand",
+    atlas = "othercards",
+    pos = {x = 1, y = 2},
+    rounds = 3,
+    passive = true,
+    text = {
+        "{C:mult}Flips over all cards in hand",
+        "After {C:mult}#1#{} rounds give {C:money}$30{}",
+        "{C:inactive}(Self destructs after)"
+    },
+    effect = function(card, context)
+        if context.hand_drawn then
+            for _, card in ipairs(G.hand.cards) do
+                if card.facing ~= "back" then
+                    card:flip()
+                end
+            end
+        end
+    end,
+    reward = function(card)
+        eventify(function()
+            ease_dollars(30)
+            eventify(function() card:start_dissolve() end)
+        end)
     end
 })
