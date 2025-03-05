@@ -314,7 +314,7 @@ SMODS.Joker({
     end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
-            if not #G.consumeables.cards < G.consumeables.config.card_limit - 2 then
+            if not (#G.consumeables.cards < G.consumeables.config.card_limit - 2) then
                 return
             end
             SMODS.add_card({key = "c_fvb_dither"})
