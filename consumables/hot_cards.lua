@@ -73,9 +73,13 @@ SMODS.Consumable({
     end,
     use = function(self, card, area, copier)
         for _, _card in ipairs(G.hand.cards) do
-            if pesudorandom('banding') < 0.5 then
-                _card:set_ability(G.P_CENTERS.m_mult)
-                _card:juice_up()
+            if pseudorandom('banding') < 0.5 then
+                eventify(function()
+                    eventify(function() _card:flip() delay(0.5) end)
+                    eventify(function() _card:set_ability(G.P_CENTERS.m_mult) end)
+                    eventify(function() _card:juice_up() end)
+                    eventify(function() delay(0.5) _card:flip() end)
+                end)
             end
         end
     end,
