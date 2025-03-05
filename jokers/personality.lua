@@ -62,11 +62,11 @@ SMODS.Joker({
                         weapon.ability.extra.max_ammo
                     weapon.ability.extra.reload_countdown =
                         weapon.ability.extra.max_reload
+                    weapon.ability.extra.min_damage =
+                        weapon.ability.extra.min_damage + 5
+                    weapon.ability.extra.max_damage =
+                        weapon.ability.extra.max_damage + 5
                 end
-                weapon.ability.extra.min_damage =
-                    weapon.ability.extra.min_damage + 5
-                weapon.ability.extra.max_damage =
-                    weapon.ability.extra.max_damage + 5
             end
         end
     end
