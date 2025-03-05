@@ -4,7 +4,7 @@ return {
             j_fvb_donnie_b = {
                 name = "Donnie B",
                 text = {
-                    "Gains {C:chips}+200{} Chips",
+                    "Gains {C:chips}+#2#{} Chips",
                     "per {C:attention}Queen{} scored",
                     "(Currently {C:chips}+#1#{})"
                 }
@@ -12,7 +12,7 @@ return {
             j_fvb_stevie_gull = {
                 name = "Stevie Gull",
                 text = {
-                    "Reloads {C:weapon}Golden Boira{},", "{C:mult}+5{} damage",
+                    "Reloads {C:weapon}Golden Boira{},", "{C:mult}+#1#{} damage",
                     "on round start"
                 }
             },
@@ -20,7 +20,7 @@ return {
                 name = "Spike Remington",
                 text = {
                     "Currently held {C:weapon}Weapon",
-                    "gains {C:mult}+20{} Damage",
+                    "gains {C:mult}+#1#{} Damage",
                     "per {C:attention}Ace{} played"
                 }
             },
@@ -28,20 +28,20 @@ return {
                 name = "Sable Santana",
                 text = {
                     "Reloads {C:weapon}Katana{},",
-                    "{C:white,X:mult}X1.5{} damage", "on round start"
+                    "{C:white,X:mult}X#1#{} damage", "on round start"
                 }
             },
             j_fvb_duck_anderson = {
                 name = "Duck Anderson",
                 text = {
-                    "Gives a {C:attention}Green Herb",
+                    "Gives a {C:buff}Green Herb",
                     "card at the beginning of round"
                 }
             },
             j_fvb_dj_newton = {
                 name = "DJ Newton",
                 text = {
-                    "{C:green}Miss Chance{}", "reduced by {C:green}-5%",
+                    "{C:green}Miss Chance{}", "reduced by {C:green}#1#%",
                     "every round"
                 }
             },
@@ -65,9 +65,8 @@ return {
                 name = "Little Lars",
                 text = {
                     "Reduces {C:attention}Blind size",
-                    "by {C:mult}25%{}, increases",
-                    "{C:mult}5%{} after {C:attention}Boss Blind",
-                    "(Currently {C:mult}#1#%{})"
+                    "by {C:mult}#1#%{}, increases",
+                    "{C:mult}#2#%{} after {C:attention}Boss Blind",
                 }
             },
             j_fvb_haru = {
@@ -75,8 +74,7 @@ return {
                 text = {
                     "Gains {C:white,X:mult}X#2#{} Mult",
                     "when {C:attention}Blind{} started",
-                    "Gain amount resets if",
-                    "a Blind is {C:mult}skipped",
+                    "Gain amount resets if", "a Blind is {C:mult}skipped",
                     "(Currently {C:white,X:mult}X#1#{})"
                 }
             },
@@ -84,15 +82,13 @@ return {
                 name = "Klustr Jr.",
                 text = {
                     "Gives {C:personality,E:1}Dither and Banding",
-                    "on round start",
-                    "(Must have room)"
+                    "on round start", "(Must have room)"
                 }
             },
             j_fvb_ribberto = {
                 name = "Ribberto Mulligan",
                 text = {
-                    "When a {C:attention}Straight Flush",
-                    "is played, create",
+                    "When a {C:attention}Straight Flush", "is played, create",
                     "a random {C:personality,E:1}Personality{} card",
                     "(Must have room)"
                 }
@@ -117,22 +113,20 @@ return {
                 name = "FKF_Dingo",
                 text = {
                     "{C:mult}Destroy{} every discarded card,",
-                    "gains {C:attention}half{} their",
-                    "rank as {C:white,X:mult}XMult",
+                    "gains {C:white,X:mult}X#2#{} per card",
                     "(Currently: {C:white,X:mult}X#1#{})"
                 }
             },
             j_fvb_siaro = {
                 name = "Siaro",
                 text = {
-                    "Every played card gains the",
-                    "{C:green}Poisoned{} seal"
+                    "Every played card gains the", "{C:green}Poisoned{} seal"
                 }
             },
             j_fvb_jawhara = {
                 name = "Jawhara Farms",
                 text = {
-                    "Gains {C:white,X:mult}X0.5{} Mult",
+                    "Gains {C:white,X:mult}X#2#{} Mult",
                     "per shot {C:mult}missed{}",
                     "(Currently: {C:white,X:mult}X#1#{})"
                 }
@@ -141,42 +135,40 @@ return {
                 name = "Laika",
                 text = {
                     "{C:weapon}Laika{} always has two bullets",
-                    "Gains {C:white,X:mult}X1{} Mult per shot {C:mult}hit{}",
+                    "Gains {C:white,X:mult}X#2#{} Mult per shot {C:mult}hit{}",
                     "(Currently: {C:white,X:mult}X#1#{})"
                 }
             },
             j_fvb_dooper = {
                 name = "Dooper",
                 text = {
-                    "Gains {C:mult}+5{} Mult",
-                    "per {C:red}Heart{} played,",
-                    "Turns into {C:white,X:mult}XMult{}",
-                    "on the last hand",
+                    "Gains {C:mult}+#2#{} Mult", "per {C:red}Heart{} played,",
+                    "Turns into {C:white,X:mult}XMult{}", "on the last hand",
                     "(Currently: {C:white,X:mult}+/X#1#{})"
                 }
             },
             j_fvb_ktqtpi = {
                 name = "KTQTPI",
                 text = {
-                    "Each card played",
-                    "gains {C:chips}+5{} Chips",
-                    "per card in hand",
+                    "Each card played", "gains {C:chips}#1#{} Chips",
+                    "per card in hand"
                 }
             },
             j_fvb_bach = {
                 name = "Bach Roadstein",
                 text = {
                     "Automatically {C:attetion}win blind",
-                    "if hand is played with",
-                    "{C:attention}75%{} of the",
+                    "if hand is played with", "{C:attention}#1#%{} of the",
                     "required chips scored"
                 }
-            },
+            }
         }
     },
     misc = {
         v_text = {
-            ch_c_onlyqueens = {"All face cards in deck are {C:attention}Queens{}"}
+            ch_c_onlyqueens = {
+                "All face cards in deck are {C:attention}Queens{}"
+            }
         }
     }
 }

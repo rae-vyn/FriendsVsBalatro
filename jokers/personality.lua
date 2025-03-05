@@ -15,9 +15,9 @@ SMODS.Joker({
     key = "donnie_b",
     atlas = "personalities",
     pos = {x = 3, y = 0},
-    config = {extra = {chips = 0}},
+    config = {extra = {chips = 0, chips_gain = 20}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.chips}}
+        return {vars = {card.ability.extra.chips, card.ability.extra.chips_gain}}
     end,
     rarity = "fvb_personality",
     blueprint_compat = true,
@@ -28,7 +28,7 @@ SMODS.Joker({
         if context.individual and context.cardarea == G.play and
             not context.blueprint then
             if context.other_card:get_id() == 12 then
-                card.ability.extra.chips = card.ability.extra.chips + 200
+                card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_gain
                 return {message = "Upgraded!", message_card = card}
             end
         end
@@ -42,7 +42,11 @@ SMODS.Joker({
     key = "stevie_gull",
     atlas = "personalities",
     pos = {x = 2, y = 3},
-    config = {extra = {damage = 15}},
+    config = {extra = {damage_gain = 5}},
+    loc_vars = function (self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_golden_boira
+        return {vars = {card.ability.extra.damage_gain}}
+    end,
     rarity = "fvb_personality",
     blueprint_compat = false,
     check_for_unlock = function(self, args)
@@ -72,6 +76,10 @@ SMODS.Joker({
     key = "spike_remington",
     atlas = "personalities",
     pos = {x = 1, y = 3},
+    config = {extra = {damage_gain = 20}},
+    loc_vars = function (self, info_queue, card)
+        return {vars = {card.ability.extra.damage_gain}}
+    end,
     rarity = "fvb_personality",
     blueprint_compat = false,
     check_for_unlock = function(self, args)
@@ -98,6 +106,11 @@ SMODS.Joker({
     key = "sable_santana",
     atlas = "personalities",
     pos = {x = 5, y = 2},
+    config = {extra = {damage_gain = 1.5}},
+    loc_vars = function (self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_katana
+        return {vars = {card.ability.extra.damage_gain}}
+    end,
     rarity = "fvb_personality",
     blueprint_compat = false,
     check_for_unlock = function(self, args)
@@ -129,6 +142,9 @@ SMODS.Joker({
     pos = {x = 0, y = 1},
     rarity = "fvb_personality",
     blueprint_compat = false,
+    loc_vars = function (self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_green_herb
+    end,
     check_for_unlock = function(self, args)
         if args.fvf_char == self.config.center_key then return true end
     end,
@@ -146,6 +162,10 @@ SMODS.Joker({
     pos = {x = 5, y = 0},
     rarity = "fvb_personality",
     blueprint_compat = false,
+    config = {extra = {miss_reduction = 5}},
+    loc_vars = function (self, info_queue, card)
+        return {vars = {card.ability.extra.miss_reduction}}
+    end,
     check_for_unlock = function(self, args)
         if args.fvf_char == self.config.center_key then return true end
     end,
@@ -153,8 +173,8 @@ SMODS.Joker({
         if context.setting_blind and not context.blueprint then
             for _, weapon in ipairs(G.weapons.cards) do
                 weapon.ability.extra.miss_chance =
-                    weapon.ability.extra.miss_chance - 5
-                if weapon.ability.extra.miss_chance == 0 then
+                    weapon.ability.extra.miss_chance - card.ability.extra.miss_reduction
+                if weapon.ability.extra.miss_chance <= 0 then
                     weapon.ability.extra.miss_chance = 0
                 end
                 weapon:juice_up()
@@ -197,6 +217,9 @@ SMODS.Joker({
     atlas = "personalities",
     pos = {x = 4, y = 2},
     rarity = "fvb_personality",
+    loc_vars = function (self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_brasshopper
+    end,
     blueprint_compat = false,
     check_for_unlock = function(self, args)
         if args.fvf_char == self.config.center_key then return true end
@@ -217,10 +240,10 @@ SMODS.Joker({
     key = "little_lars",
     atlas = "personalities",
     pos = {x = 1, y = 2},
-    config = {extra = {blind_reduction = 0.75}},
+    config = {extra = {blind_reduction = 0.75, decrease_amount = 0.05}},
     loc_vars = function(self, info_queue, card)
         local formatted = (1 - card.ability.extra.blind_reduction) * 100
-        return {vars = {formatted}}
+        return {vars = {formatted, card.ability.extra.decrease_amount * 100}}
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
@@ -241,8 +264,8 @@ SMODS.Joker({
         end
         if context.end_of_round and G.GAME.blind.boss and not context.blueprint and
             not context.repetition and not context.individual then
-            card.ability.extra.blind_reduction = card.ability.extra
-                                                     .blind_reduction - 0.05
+            card.ability.extra.blind_reduction = 
+                card.ability.extra.blind_reduction - card.ability.extra.decrease_amount
             return {message = "Buffed!"}
         end
     end
@@ -360,9 +383,9 @@ SMODS.Joker({
     atlas = "personalities",
     pos = {x = 1, y = 0},
     rarity = "fvb_personality",
-    config = {extra = {mult = 1}},
+    config = {extra = {mult = 1, mult_gain = 1}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.mult}}
+        return {vars = {card.ability.extra.mult, card.ability.extra.mult_gain}}
     end,
     blueprint_compat = false,
     check_for_unlock = function(self, args)
@@ -374,7 +397,7 @@ SMODS.Joker({
             local target = context.scoring_hand[#context.scoring_hand]
             if context.other_card == target then
                 if context.other_card:get_id() == 14 then
-                    card.ability.extra.mult = card.ability.extra.mult + 1
+                    card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
                     return {
                         message = "Upgraded!",
                         message_card = card,
@@ -400,9 +423,9 @@ SMODS.Joker({
     key = "dingo",
     atlas = "personalities",
     pos = {x = 2, y = 0},
-    config = {extra = {mult = 1}},
+    config = {extra = {mult = 1, mult_gain = 2}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.mult}}
+        return {vars = {card.ability.extra.mult, card.ability.extra.mult_gain}}
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
@@ -413,8 +436,7 @@ SMODS.Joker({
         if context.discard then
             if not SMODS.has_no_rank(context.other_card) then
                 card.ability.extra.mult =
-                    card.ability.extra.mult +
-                        math.floor(context.other_card:get_id() / 2)
+                    card.ability.extra.mult + card.ability.extra.mult_gain
                 context.other_card:start_dissolve()
             end
             return {remove = true}
@@ -446,9 +468,9 @@ SMODS.Joker({
     key = "jawhara",
     atlas = "personalities",
     pos = {x = 2, y = 1},
-    config = {extra = {mult = 1}},
+    config = {extra = {mult = 1, mult_gain = 0.5}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.mult}}
+        return {vars = {card.ability.extra.mult, card.ability.extra.mult_gain}}
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
@@ -457,7 +479,7 @@ SMODS.Joker({
     end,
     calculate = function(self, card, context)
         if context.weapon_missed and not context.blueprint then
-            card.ability.extra.mult = card.ability.extra.mult + 0.5
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
         end
         if context.joker_main then
             return {xmult = card.ability.extra.mult}
@@ -469,9 +491,9 @@ SMODS.Joker({
     key = "laika",
     atlas = "personalities",
     pos = {x = 0, y = 2},
-    config = {extra = {mult = 1}},
+    config = {extra = {mult = 1, mult_gain = 0.5}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.mult}}
+        return {vars = {card.ability.extra.mult, card.ability.extra.mult_gain}}
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
@@ -511,9 +533,9 @@ SMODS.Joker({
     key = "dooper",
     atlas = "personalities",
     pos = {x = 4, y = 0},
-    config = {extra = {mult = 0}},
+    config = {extra = {mult = 0, mult_gain = 5}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.mult}}
+        return {vars = {card.ability.extra.mult, card.ability.extra.mult_gain}}
     end,
     rarity = "fvb_personality",
     blueprint_compat = false,
@@ -542,6 +564,10 @@ SMODS.Joker({
     atlas = "personalities",
     pos = {x = 3, y = 1},
     rarity = "fvb_personality",
+    config = {extra = {chip_gain = 5}},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.chip_gain}}
+    end,
     blueprint_compat = false,
     check_for_unlock = function(self, args)
         if args.fvf_char == self.config.center_key then return true end
@@ -549,7 +575,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.individual and not context.blueprint then
             context.other_card.ability.perma_bonus =
-                (context.other_card.ability.perma_bonus or 0) + 5
+                (context.other_card.ability.perma_bonus or 0) + card.ability.extra.chip_gain
             context.other_card:juice_up()
         end
     end
@@ -560,13 +586,17 @@ SMODS.Joker({
     atlas = "personalities",
     pos = {x = 0, y = 0},
     rarity = "fvb_personality",
+    config = {extra = {score_req = 0.75}},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.score_req * 100}}
+    end,
     blueprint_compat = false,
     check_for_unlock = function(self, args)
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
-            if G.GAME.chips / G.GAME.blind.chips >= 0.75 then
+            if G.GAME.chips / G.GAME.blind.chips >= card.ability.extra.score_req then
                 G.GAME.chips = G.GAME.blind.chips
                 return {message = "Won!"}
             end

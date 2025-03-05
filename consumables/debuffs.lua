@@ -167,7 +167,7 @@ Debuff({
             card.ability.extra.more.used_discards =
                 G.GAME.current_round.discards_used
         end
-        if SMODS.find_mod("Talisman") then
+        if next(SMODS.find_mod("Talisman")) then
             if context.hand_drawn and not context.first_hand_drawn and
                 to_big(G.GAME.blind.chips) > to_big(G.GAME.chips) then
                 if card.ability.extra.more.used_discards <
