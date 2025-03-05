@@ -43,14 +43,14 @@ SMODS.Consumable({
     unlocked = true,
     loc_txt = {
         name = "Dither",
-        text = {"Gives {C:blue}+100{} Chips", "to each card in hand"}
+        text = {"Gives {C:blue}+20{} Chips", "to each card in hand"}
     },
     calculate = function(self, card, context)
         if context.end_of_round then card:start_dissolve() end
     end,
     use = function(self, card, area, copier)
         for _, _card in ipairs(G.hand.cards) do
-            _card.ability.perma_bonus = (_card.ability.perma_bonus or 0) + 100
+            _card.ability.perma_bonus = (_card.ability.perma_bonus or 0) + 20
             _card:juice_up()
         end
     end,
@@ -66,15 +66,17 @@ SMODS.Consumable({
     unlocked = true,
     loc_txt = {
         name = "Banding",
-        text = {"Turns each card in hand", "into a {C:mult}Mult{} Card"}
+        text = {"{C:green}1 in 2{} chance", "to turns each card in hand", "into a {C:mult}Mult{} Card"}
     },
     calculate = function(self, card, context)
         if context.end_of_round then card:start_dissolve() end
     end,
     use = function(self, card, area, copier)
         for _, _card in ipairs(G.hand.cards) do
-            _card:set_ability(G.P_CENTERS.m_mult)
-            _card:juice_up()
+            if pesudorandom('banding') < 0.5 then
+                _card:set_ability(G.P_CENTERS.m_mult)
+                _card:juice_up()
+            end
         end
     end,
     can_use = function (self, card)
