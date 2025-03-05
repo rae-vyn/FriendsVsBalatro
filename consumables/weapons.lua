@@ -91,7 +91,7 @@ local function Weapon(info)
 				"{C:mult}+#1#-#2#{} Mult",
 				"{C:green}#3#%{} chance to miss",
 				"{C:blue}#5#{} round reload time",
-				"{C:inactive}(Current ammo: #4#)",
+				"{C:inactive}(Ammo: #4#)",
 			},
 		},
 		loc_vars = function(self, info_queue, card)
