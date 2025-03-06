@@ -423,7 +423,7 @@ SMODS.Joker({
     key = "dingo",
     atlas = "personalities",
     pos = {x = 2, y = 0},
-    config = {extra = {mult = 1, mult_gain = 2}},
+    config = {extra = {mult = 1, mult_gain = 0.8}},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.mult, card.ability.extra.mult_gain}}
     end,
