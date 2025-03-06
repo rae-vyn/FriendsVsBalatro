@@ -34,7 +34,8 @@ function Debuff(info)
                 sendDebugMessage("round ended", "Debuffs")
                 card.ability.extra.timer = card.ability.extra.timer - 1
                 if card.ability.extra.timer == 0 then
-                    return info.reward(card)
+                    eventify(function() info.reward(card) end)
+                    eventify(function() card:start_dissolve() end)
                 end
             end
         end,
@@ -75,7 +76,6 @@ Debuff({ -- Big Head
     reward = function(card)
         eventify(function()
             ease_dollars(20)
-            eventify(function() card:start_dissolve() end)
         end)
     end,
     can_use = function(self, card) return false end
@@ -112,7 +112,6 @@ Debuff({ -- Health Down
                 G.GAME.round_resets.hands = G.GAME.round_resets.hands + 1
             end)
             eventify(function() ease_hands_played(1) end)
-            eventify(function() card:start_dissolve() end)
         end)
     end,
     can_use = function(self, card) return false end
@@ -145,7 +144,6 @@ Debuff({ -- Move Slower
     end,
     reward = function(card)
         eventify(function() SMODS.create_card({set = "Buff"}) end)
-        eventify(function() card:start_dissolve() end)
     end
 })
 
@@ -196,7 +194,6 @@ Debuff({ -- No Jump
     reward = function(card)
         eventify(function() G.hand:change_size(3) end)
         eventify(function() card:juice_up() end)
-        eventify(function() card:start_dissolve() end)
     end
 })
 
@@ -227,7 +224,6 @@ Debuff({ -- Less Accuracy
                 weapon:juice_up()
             end
         end)
-        eventify(function() card:start_dissolve() end)
     end
 })
 
@@ -261,11 +257,10 @@ Debuff({ -- Rubber Bullets
                 weapon:juice_up()
             end
         end)
-        eventify(function() card:start_dissolve() end)
     end
 })
 
-Debuff({
+Debuff({ -- Small Mag
     key = "small_mag",
     name = "Small Mag",
     atlas = "othercards",
@@ -288,7 +283,7 @@ Debuff({
     end
 })
 
-Debuff({
+Debuff({ -- Slow Reload
     key = "slow_reload",
     name = "Slow Reload",
     atlas = "othercards",
@@ -311,7 +306,7 @@ Debuff({
     end
 })
 
-Debuff({
+Debuff({ -- Invisible Hand
     key = "invisible_hand",
     name = "Invisible Hand",
     atlas = "othercards",
@@ -335,7 +330,6 @@ Debuff({
     reward = function(card)
         eventify(function()
             ease_dollars(30)
-            eventify(function() card:start_dissolve() end)
         end)
     end
 })
