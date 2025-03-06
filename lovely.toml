@@ -21,10 +21,10 @@ payload = "t[#t+1] = G.debuffs"
 [[patches]]
 [patches.pattern]
 target = '=[SMODS _ "src/utils.lua"]'
-pattern = "if area and #G[area].cards < G[area].config.card_limit then"
+pattern = "if area and #G[area].cards < G[area].config.card_limit + edition_card_limit then"
 position = "at"
 match_indent = true
-payload = "if area and (#G[area].cards < G[area].config.card_limit) or G[area] == G.weapons then"
+payload = "if area and (#G[area].cards < G[area].config.card_limit + edition_card_limit) or G[area] == G.weapons then"
 
 [[patches]]
 [patches.pattern]
