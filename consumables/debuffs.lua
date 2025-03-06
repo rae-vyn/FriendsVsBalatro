@@ -143,7 +143,7 @@ Debuff({ -- Move Slower
         end)
     end,
     reward = function(card)
-        eventify(function() SMODS.create_card({set = "Buff"}) end)
+        eventify(function() SMODS.add_card({set = "Buff"}) end)
     end
 })
 
