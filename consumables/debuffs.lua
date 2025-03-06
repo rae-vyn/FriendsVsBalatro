@@ -45,7 +45,8 @@ function Debuff(info)
         on_select = function(self, card)
             card.T.w = card.T.w * 0.5
             card.T.h = card.T.h * 0.5
-        end
+        end,
+        add_to_deck = info.add_to_deck
     })
     table.insert(FVB.cards, "c_fvb_" .. info.key)
 end
@@ -330,6 +331,31 @@ Debuff({ -- Invisible Hand
     reward = function(card)
         eventify(function()
             ease_dollars(30)
+        end)
+    end
+})
+
+Debuff({
+    key = "disarm",
+    name = "Disarm",
+    atlas = "othercards",
+    pos = {x = 0, y = 3},
+    rounds = 0,
+    passive = true,
+    text = {
+        "Replaces weapon(s) with a {C:weapon}Boira",
+        "Creates a {C:spectral}Spectral{} card",
+        "{C:inactive}(Self destructs after)"
+    },
+    add_to_deck = function(self, card, from_debuff) 
+        eventify(function ()
+            SMODS.add_card({key = "c_fvb_boira"})
+        end)
+        eventify(function ()
+            SMODS.add_card({set = "Spectral"})
+        end)
+        eventify(function ()
+            card:start_dissolve()
         end)
     end
 })
