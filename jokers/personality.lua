@@ -264,7 +264,7 @@ SMODS.Joker({
         end
         if context.end_of_round and G.GAME.blind.boss and not context.blueprint and
             not context.repetition and not context.individual then
-            card.ability.extra.blind_reduction = 
+            card.ability.extra.blind_reduction =
                 card.ability.extra.blind_reduction - card.ability.extra.decrease_amount
             return {message = "Buffed!"}
         end
@@ -336,7 +336,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.before and next(context.poker_hands["Straight Flush"]) and
             not context.blueprint then
-            if not #G.jokers.cards < G.jokers.config.card_limit then
+            if not (#G.jokers.cards < G.jokers.config.card_limit) then
                 return
             end
             card:juice_up()
