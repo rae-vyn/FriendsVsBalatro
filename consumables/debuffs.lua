@@ -28,7 +28,7 @@ function Debuff(info)
                 sendDebugMessage("round started", "Debuffs")
                 if not info.passive then return info.effect(card) end
             end
-            if info.passive then return info.effect(card, context) end
+            if info.passive and not context.end_of_round then return info.effect(card, context) end
             if context.end_of_round and not context.individual and
                 not context.repetition then
                 sendDebugMessage("round ended", "Debuffs")
