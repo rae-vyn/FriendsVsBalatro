@@ -83,14 +83,14 @@ Debuff({ -- Big Head
 })
 
 Debuff({ -- Health Down
-    key = "heath_down",
+    key = "health_down",
     name = "Health Down",
     atlas = "othercards",
     pos = {x = 2, y = 0},
     rounds = 5,
     passive = true,
     text = {
-        "Removes {C:chips}-1{} Chips per card played",
+        "Removes {C:chips}-1{} Chip from each card",
         "After {C:mult}#1#{} rounds gain {C:chips}+1{} hand",
         "{C:inactive}(Self destructs after)"
     },
@@ -99,7 +99,7 @@ Debuff({ -- Health Down
             local other_card = context.other_card
             eventify(function()
                 other_card.ability.perma_bonus =
-                    (other_card.ability.perma_bonus or 0) - 1 * #G.play.cards
+                    (other_card.ability.perma_bonus or 0) - 1
             end)
             eventify(function()
                 other_card:juice_up()
@@ -335,7 +335,7 @@ Debuff({ -- Invisible Hand
     end
 })
 
-Debuff({
+Debuff({ -- Disarm
     key = "disarm",
     name = "Disarm",
     atlas = "othercards",
@@ -347,7 +347,7 @@ Debuff({
         "Creates a {C:spectral}Spectral{} card",
         "{C:inactive}(Self destructs after)"
     },
-    add_to_deck = function(self, card, from_debuff) 
+    add_to_deck = function(self, card, from_debuff)
         eventify(function ()
             SMODS.add_card({key = "c_fvb_boira"})
         end)
@@ -357,5 +357,29 @@ Debuff({
         eventify(function ()
             card:start_dissolve()
         end)
+    end
+})
+
+Debuff({ -- Poison
+    key = "poison",
+    name = "Poison",
+    atlas = "othercards",
+    pos = {x = 4, y = 2},
+    rounds = 1,
+    passive = true,
+    text = {
+        "{C:mult}Each card played gives {C:white,X:mult}X0.5{} Mult",
+        "After {C:mult}#1#{} rounds make a random joker {C:negative}Negative{}",
+        "{C:inactive}(Self destructs after)"
+    },
+    effect = function(card, context)
+        if context.individual and context.cardarea == G.play then
+            return {
+                xmult = 0.5
+            }
+        end
+    end,
+    reward = function(card)
+
     end
 })
