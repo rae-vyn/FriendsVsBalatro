@@ -279,7 +279,7 @@ Debuff({ -- Invisible Hand
     effect = function(card, context)
         if context.hand_drawn then
             for _, card in ipairs(G.hand.cards) do
-                if card.facing ~= "back" and pseudorandom("boira") < 0.25 then card:flip() end
+                if card.facing ~= "back" and pseudorandom("boira") < 0.75 then card:flip() end
             end
         end
     end,
