@@ -59,7 +59,6 @@ function Buff(info)
 				type = info.type or 1, -- 1 can only be used in round
 			},
 		},
-		loc_txt = { name = info.name, text = info.text or { "A buff." } },
 		calculate = info.calculate or nil,
 		use = info.use or use_buff,
 		can_use = info.can_use or can_use_buff,
@@ -82,10 +81,8 @@ Buff({
 
 Buff({
 	key = "small_head",
-	name = "Small Head",
 	atlas = "othercards",
 	pos = { x = 1, y = 0 },
-	text = { "Reduce {C:attention}Blind{} size", "by {C:mult}50%{}" },
 	use = function(self, card, area, copier)
 		G.GAME.blind.chips = math.floor(G.GAME.blind.chips * 0.5)
 		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
@@ -104,43 +101,33 @@ Buff({
 
 Buff({
 	key = "steel_bullets",
-	name = "Steel Bullets",
+	
 	in_pack = true,
 	atlas = "othercards",
 	pos = { x = 2, y = 1 },
-	text = {
-		"Increase {C:weapon}Weapon's",
-		"{C:mult}damage{} by {C:white,X:mult}50%{}",
-	},
+	
 	damage_mult = 1.5,
 	type = 0,
 })
 
 Buff({
 	key = "big_mag",
-	name = "Big Mag",
+	
 	atlas = "othercards",
 	pos = { x = 4, y = 1 },
 	in_pack = true,
-	text = {
-		"Increase {C:weapon}Weapon's",
-		"{C:inactive}ammo{} by {C:green}50%{}",
-	},
+	
 	ammo_mult = 1.5,
 	type = 0,
 })
 
 Buff({
 	key = "akimbo",
-	name = "Akimbo",
+	
 	in_pack = true,
 	atlas = "othercards",
 	pos = { x = 8, y = 2 },
-	text = {
-		"Duplicate the {C:weapon}Weapon",
-		"you currently have",
-		"{C:inactive}(Doesn't stack)",
-	},
+	
 	use = function(self, card, area, copier)
 		G.weapons:change_size(1)
 		local _card = copy_card(G.weapons.cards[1], nil)
@@ -155,10 +142,10 @@ Buff({
 
 Buff({
 	key = "health_up",
-	name = "Health Up",
+	
 	atlas = "othercards",
 	pos = { x = 3, y = 0 },
-	text = { "Adds {C:blue}+10{} Chips", "per card in hand", "to each card" },
+	
 	use = function(self, card, area, copier)
 		for _, _card in ipairs(G.hand.cards) do
 			_card.ability.perma_bonus = (_card.ability.perma_bonus or 0) + 10 * #G.hand.cards
@@ -172,10 +159,10 @@ Buff({
 
 Buff({
 	key = "move_faster",
-	name = "Move Faster",
+	
 	atlas = "othercards",
 	pos = { x = 5, y = 0 },
-	text = { "Reduces Blind size", "by {C:attention}10%" },
+	
 	use = function(self, card, area, copier)
 		G.GAME.blind.chips = math.floor(G.GAME.blind.chips * 0.9)
 		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
@@ -194,13 +181,10 @@ Buff({
 
 Buff({
 	key = "double_jump",
-	name = "Double Jump",
+	
 	atlas = "othercards",
 	pos = { x = 6, y = 0 },
-	text = {
-		"{C:attention}Sets scored chips to blind size",
-		"{C:mult}-2{} hand size",
-	},
+	
 	use = function(self, card, area, copier)
 		G.GAME.chips = G.GAME.blind.chips
 		G.hand:change_size(-2)
@@ -212,10 +196,10 @@ Buff({
 
 Buff({
 	key = "more_accuracy",
-	name = "More Accuracy",
+	
 	atlas = "othercards",
 	pos = { x = 0, y = 1 },
-	text = { "Gives held {C:weapon}Weapon(s)", "{C:green}-10%{} miss chance" },
+	
 	use = function(self, card, area, copier)
 		for _, weapon in ipairs(G.weapons.cards) do
 			weapon.ability.extra.miss_chance = weapon.ability.extra.miss_chance - 10
@@ -229,14 +213,10 @@ Buff({
 
 Buff({
 	key = "quick_reload",
-	name = "Quick Reload",
+	
 	atlas = "othercards",
 	pos = { x = 6, y = 1 },
-	text = {
-		"Gives held {C:weapon}Weapon(s)",
-		"{C:attention}-1{} reload time",
-		"{C:inactive}(Down to 1)",
-	},
+	
 	use = function(self, card, area, copier)
 		for _, weapon in ipairs(G.weapons.cards) do
 			weapon.ability.extra.max_reload = weapon.ability.extra.max_reload - 1
@@ -250,14 +230,10 @@ Buff({
 
 Buff({
 	key = "vampire_bullets",
-	name = "Vampire Bullets",
+	
 	atlas = "othercards",
 	pos = { x = 5, y = 2 },
-	text = {
-		"Every {C:weapon}shot hit",
-		"removes {C:blue}100{} from the blind size",
-		"while this card is held",
-	},
+	
 	calculate = function(self, card, context)
 		if context.weapon_hit then
 			return {
@@ -286,10 +262,10 @@ Buff({
 
 Buff({
 	key = "extra_cards",
-	name = "Extra Cards",
+	
 	atlas = "othercards",
 	pos = { x = 3, y = 4 },
-	text = { "Draw {C:attention}3 cards", "from your deck" },
+	
 	use = function(self, card, area, copier)
 		if G.hand then
 			G.FUNCS.draw_from_deck_to_hand(3)
@@ -302,10 +278,9 @@ Buff({
 
 Buff({
 	key = "energy_drink",
-	name = "Energy Drink",
 	atlas = "othercards",
 	pos = { x = 6, y = 2 },
-	text = { "Skipping a blind", "gives {C:money}$5{}, {C:red}self destructs" },
+	
 	calculate = function(self, card, context)
 		if context.skip_blind then
 			G.E_MANAGER:add_event(Event({
@@ -324,10 +299,10 @@ Buff({
 })
 Buff({
 	key = "helmet",
-	name = "Helmet",
+	
 	atlas = "othercards",
 	pos = { x = 7, y = 2 },
-	text = { "Reduce Blind size", "by {C:blue}-100" },
+	
 	calculate = function(self, card, context)
 		if context.weapon_hit then
 			return {
@@ -350,14 +325,10 @@ Buff({
 })
 Buff({
 	key = "poison_bullets",
-	name = "Poison Bullets",
+	
 	atlas = "othercards",
 	pos = { x = 1, y = 3 },
-	text = {
-		"Every card {C:weapon}hit",
-		"gains a {C:green,T:s_fvb_poison}Posion{} seal",
-		"while this is held",
-	},
+	
 	calculate = function(self, card, context)
 		if context.weapon_hit then
 			context.other_card:set_seal("fvb_poison", true, true)
@@ -370,14 +341,10 @@ Buff({
 })
 Buff({
 	key = "tin_man",
-	name = "Tin Man",
+	
 	atlas = "othercards",
 	pos = { x = 3, y = 3 },
-	text = {
-		"Every card {C:weapon}missed",
-		"turns into a {C:attention}Steel{} card",
-		"while this is held",
-	},
+	
 	calculate = function(self, card, context)
 		if context.weapon_missed then
 			return {
@@ -397,10 +364,10 @@ Buff({
 
 Buff({
 	key = "card_profaner",
-	name = "Card Profaner",
+	
 	atlas = "othercards",
 	pos = { x = 4, y = 4 },
-	text = { "Draw the last 3 cards", "from the {C:attention}discard pile" },
+	
 	use = function(self, card, area, copier)
 		for i = 1, 3 do
 			draw_card(G.discard, G.hand, i * 100 / 3, nil, nil, nil, 0.07)
@@ -413,10 +380,10 @@ Buff({
 
 Buff({
 	key = "card_thief",
-	name = "Card Thief",
+	
 	atlas = "othercards",
 	pos = { x = 5, y = 4 },
-	text = { "Create a random", "{C:buff}Buff{} card" },
+	
 	use = function(self, card, area, copier)
 		SMODS.add_card({ set = "Buff" })
 	end,

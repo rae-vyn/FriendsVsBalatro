@@ -53,15 +53,11 @@ end
 
 Debuff({ -- Big Head
     key = "big_head",
-    name = "Big Head",
+    
     atlas = "othercards",
     pos = {x = 0, y = 0},
     rounds = 3,
-    text = {
-        "{C:attention}X1.25{} Blind size",
-        "After {C:mult}#1#{} rounds gain {C:money}$20{}",
-        "{C:inactive}(Self destructs after)"
-    },
+
     effect = function(card)
         G.GAME.blind.chips = math.floor(G.GAME.blind.chips * 1.25)
         G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
@@ -84,16 +80,12 @@ Debuff({ -- Big Head
 
 Debuff({ -- Health Down
     key = "health_down",
-    name = "Health Down",
+    
     atlas = "othercards",
     pos = {x = 2, y = 0},
     rounds = 5,
     passive = true,
-    text = {
-        "Removes {C:chips}-1{} Chip from each card",
-        "After {C:mult}#1#{} rounds gain {C:chips}+1{} hand",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     effect = function(card, context)
         if context.individual and context.cardarea == G.play then
             local other_card = context.other_card
@@ -120,12 +112,7 @@ Debuff({ -- Health Down
 
 Debuff({ -- Move Slower
     key = "move_slower",
-    name = "Move Slower",
-    text = {
-        "{C:attention}+200{} to blind size",
-        "After {C:mult}#1#{} rounds gain a {C:buff}Buff{} card",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     atlas = "othercards",
     pos = {x = 4, y = 0},
     rounds = 5,
@@ -150,12 +137,7 @@ Debuff({ -- Move Slower
 
 Debuff({ -- No Jump
     key = "no_jump",
-    name = "No Jump",
-    text = {
-        "Beat blinds in {C:mult}one hand{} or lose",
-        "After {C:mult}#1#{} rounds gain {C:mult}+2{} hand size",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     atlas = "othercards",
     pos = {x = 7, y = 0},
     rounds = 3,
@@ -198,12 +180,7 @@ Debuff({ -- No Jump
 
 Debuff({ -- Less Accuracy
     key = "less_accuracy",
-    name = "Less Accuracy",
-    text = {
-        "{C:mult}+10%{} miss chance every round",
-        "After {C:mult}#1#{} rounds set miss chance to {C:green}25%{}",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     atlas = "othercards",
     pos = {x = 10, y = 0},
     rounds = 3,
@@ -228,12 +205,7 @@ Debuff({ -- Less Accuracy
 
 Debuff({ -- Rubber Bullets
     key = "rubber_bullets",
-    name = "Rubber Bullets",
-    text = {
-        "{C:mult}-5{} damage every round",
-        "After {C:mult}#1#{} rounds set damage to {C:mult}30-50{}",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     atlas = "othercards",
     pos = {x = 1, y = 1},
     rounds = 3,
@@ -261,15 +233,11 @@ Debuff({ -- Rubber Bullets
 
 Debuff({ -- Small Mag
     key = "small_mag",
-    name = "Small Mag",
+    
     atlas = "othercards",
     pos = {x = 3, y = 1},
     rounds = 6,
-    text = {
-        "{C:mult}75%{} max ammo amount",
-        "After {C:mult}#1#{} rounds set ammo max to {C:red}30{}",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     effect = function(card)
         for _, weapon in ipairs(G.weapons.cards) do
             weapon.ability.extra.max_ammo = math.floor(weapon.ability.extra.max_ammo * 0.75)
@@ -284,15 +252,11 @@ Debuff({ -- Small Mag
 
 Debuff({ -- Slow Reload
     key = "slow_reload",
-    name = "Slow Reload",
+    
     atlas = "othercards",
     pos = {x = 5, y = 1},
     rounds = 6,
-    text = {
-        "{C:mult}+1{} reload time",
-        "After {C:mult}#1#{} rounds set reload time to {C:blue}2{}",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     effect = function(card)
         for _, weapon in ipairs(G.weapons.cards) do
             weapon.ability.extra.max_reload = weapon.ability.extra.max_reload + 1
@@ -307,16 +271,12 @@ Debuff({ -- Slow Reload
 
 Debuff({ -- Invisible Hand
     key = "invisible_hand",
-    name = "Invisible Hand",
+    
     atlas = "othercards",
     pos = {x = 1, y = 2},
     rounds = 3,
     passive = true,
-    text = {
-        "{C:mult}Flips over all cards in hand",
-        "After {C:mult}#1#{} rounds give {C:money}$30{}",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     effect = function(card, context)
         if context.hand_drawn then
             for _, card in ipairs(G.hand.cards) do
@@ -335,16 +295,11 @@ Debuff({ -- Invisible Hand
 
 Debuff({ -- Disarm
     key = "disarm",
-    name = "Disarm",
     atlas = "othercards",
     pos = {x = 0, y = 3},
     rounds = 0,
     passive = true,
-    text = {
-        "Replaces weapon(s) with a {C:weapon}Boira",
-        "Creates a {C:spectral}Spectral{} card",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     add_to_deck = function(self, card, from_debuff)
         eventify(function ()
             SMODS.add_card({key = "c_fvb_boira"})
@@ -360,16 +315,12 @@ Debuff({ -- Disarm
 
 Debuff({ -- Poison
     key = "poison",
-    name = "Poison",
+    
     atlas = "othercards",
     pos = {x = 4, y = 2},
     rounds = 1,
     passive = true,
-    text = {
-        "Each card played gives {C:white,X:mult}X0.5{} Mult",
-        "After {C:mult}#1#{} rounds make a random joker {C:dark_edition}Negative{}",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     effect = function(card, context)
         if context.individual and context.cardarea == G.play then
             return {
@@ -384,17 +335,11 @@ Debuff({ -- Poison
 
 Debuff({ -- Swap Weapon
     key = "swap_weapon",
-    name = "Swap Weapon",
+    
     atlas = "othercards",
     pos = {x = 8, y = 5},
     rounds = 0,
     passive = true,
-    text = {
-        "Replaces weapon(s) with a",
-        "random weak {C:weapon}Weapon",
-        "Creates a {C:tarot}Hermit{} card",
-        "{C:inactive}(Self destructs after)"
-    },
     add_to_deck = function(self, card, from_debuff)
         eventify(function ()
             SMODS.add_card({set = "Weapon"})
@@ -414,16 +359,12 @@ Debuff({ -- Swap Weapon
 
 Debuff({ -- Empty Mag
     key = "empty_mag",
-    name = "Empty Mag",
+
     atlas = "othercards",
     pos = {x = 1, y = 6},
     rounds = 0,
     passive = true,
-    text = {
-        "Sets {C:weapon}Weapon{} ammo to {C:mult}0",
-        "Gives {C:money}$2{} per bullet removed",
-        "{C:inactive}(Self destructs after)"
-    },
+    
     add_to_deck = function(self, card, from_debuff)
         local bullets_removed = 0
         for _, weapon in ipairs(G.weapons.cards) do

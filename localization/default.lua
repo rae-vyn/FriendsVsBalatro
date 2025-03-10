@@ -12,8 +12,8 @@ return {
             j_fvb_stevie_gull = {
                 name = "Stevie Gull",
                 text = {
-                    "Reloads {C:weapon}Golden Boira{},", "{C:mult}+#1#{} damage",
-                    "on round start"
+                    "Reloads {C:weapon}Golden Boira{},",
+                    "{C:mult}+#1#{} damage", "on round start"
                 }
             },
             j_fvb_spike_remington = {
@@ -66,7 +66,7 @@ return {
                 text = {
                     "Reduces {C:attention}Blind size",
                     "by {C:mult}#1#%{}, increases",
-                    "{C:mult}#2#%{} after {C:attention}Boss Blind",
+                    "{C:mult}#2#%{} after {C:attention}Boss Blind"
                 }
             },
             j_fvb_haru = {
@@ -162,6 +162,227 @@ return {
                     "required chips scored"
                 }
             }
+        },
+        Buff = {
+            c_fvb_medkit = {
+                name = "Medkit",
+                text = {"Add {C:blue}+50{} Chips", "to every card in hand"}
+            },
+            c_fvb_small_head = {
+                name = "Small Head",
+                text = {"Reduce {C:attention}Blind{} size", "by {C:mult}50%{}"}
+            },
+            c_fvb_steel_bullets = {
+                name = "Steel Bullets",
+                text = {
+                    "Increase {C:weapon}Weapon's",
+                    "{C:mult}damage{} by {C:white,X:mult}50%{}"
+                }
+            },
+            c_fvb_big_mag = {
+                name = "Big Mag",
+                text = {
+                    "Increase {C:weapon}Weapon's",
+                    "{C:inactive}ammo{} by {C:green}50%{}"
+                }
+            },
+            c_fvb_akimbo = {
+                name = "Akimbo",
+                text = {
+                    "Duplicate the {C:weapon}Weapon", "you currently have",
+                    "{C:inactive}(Doesn't stack)"
+                }
+            },
+            c_fvb_health_up = {
+                name = "Health Up",
+                text = {
+                    "Adds {C:blue}+10{} Chips", "per card in hand",
+                    "to each card"
+                }
+            },
+            c_fvb_move_faster = {
+                name = "Move Faster",
+                text = {"Reduces Blind size", "by {C:attention}10%"}
+            },
+            c_fvb_double_jump = {
+                name = "Double Jump",
+                text = {
+                    "{C:attention}Sets scored chips to blind size",
+                    "{C:mult}-2{} hand size"
+                }
+            },
+            c_fvb_more_accuracy = {
+                name = "More Accuracy",
+                text = {
+                    "Gives held {C:weapon}Weapon(s)",
+                    "{C:green}-10%{} miss chance"
+                }
+            },
+            c_fvb_quick_reload = {
+                name = "Quick Reload",
+                text = {
+                    "Gives held {C:weapon}Weapon(s)",
+                    "{C:attention}-1{} reload time", "{C:inactive}(Down to 1)"
+                }
+            },
+            c_fvb_vampire_bullets = {
+                name = "Vampire Bullets",
+                text = {
+                    "Every {C:weapon}shot hit",
+                    "removes {C:blue}100{} from the blind size",
+                    "while this card is held"
+                }
+            },
+            c_fvb_extra_cards = {
+                name = "Extra Cards",
+                text = {"Draw {C:attention}3 cards", "from your deck"}
+            },
+            c_fvb_energy_drink = {
+                name = "Energy Drink",
+                text = {
+                    "Skipping a blind",
+                    "gives {C:money}$5{}, {C:red}self destructs"
+                }
+            },
+            c_fvb_helmet = {
+                name = "Helmet",
+                text = {"Reduce Blind size", "by {C:blue}-100"}
+            },
+            c_fvb_poison_bullets = {
+                name = "Poison Bullets",
+                text = {
+                    "Every card {C:weapon}hit",
+                    "gains a {C:green,T:s_fvb_poison}Posion{} seal",
+                    "while this is held"
+                }
+            },
+            c_fvb_tin_man = {
+                name = "Tin Man",
+                text = {
+                    "Every card {C:weapon}missed",
+                    "turns into a {C:attention}Steel{} card",
+                    "while this is held"
+                }
+            },
+            c_fvb_card_profaner = {
+                name = "Card Profaner",
+                text = {
+                    "Draw the last 3 cards",
+                    "from the {C:attention}discard pile"
+                }
+            },
+            c_fvb_card_theif = {
+                name = "Card Thief",
+                text = {"Create a random", "{C:buff}Buff{} card"}
+            }
+        },
+        Debuff = {
+            c_fvb_big_head = {
+                name = "Big Head",
+                text = {
+                    "{C:attention}X1.25{} Blind size",
+                    "After {C:mult}#1#{} rounds gain {C:money}$20{}",
+                    "{C:inactive}(Self destructs after)"
+                }
+            },
+            c_fvb_health_down = {
+                name = "Health Down",
+                text = {
+                    "Removes {C:chips}-1{} Chip from each card",
+                    "After {C:mult}#1#{} rounds gain {C:chips}+1{} hand",
+                    "{C:inactive}(Self destructs after)"
+                }
+            },
+            c_fvb_move_slower = {
+                name = "Move Slower",
+                text = {
+                    "{C:attention}+200{} to blind size",
+                    "After {C:mult}#1#{} rounds gain a {C:buff}Buff{} card",
+                    "{C:inactive}(Self destructs after)"
+                }
+            },
+            c_fvb_no_jump = {
+                name = "No Jump",
+                text = {
+                    "Beat blinds in {C:mult}one hand{} or lose",
+                    "After {C:mult}#1#{} rounds gain {C:mult}+2{} hand size",
+                    "{C:inactive}(Self destructs after)"
+                }
+            },
+            c_fvb_less_accuracy = {
+                name = "Less Accuracy",
+                text = {
+                    "{C:mult}+10%{} miss chance every round",
+                    "After {C:mult}#1#{} rounds set miss chance to {C:green}25%{}",
+                    "{C:inactive}(Self destructs after)"
+                }
+            },
+            c_fvb_rubber_bullets = {
+                name = "Rubber Bullets",
+                text = {
+                    "{C:mult}-5{} damage every round",
+                    "After {C:mult}#1#{} rounds set damage to {C:mult}30-50{}",
+                    "{C:inactive}(Self destructs after)"
+                }
+            },
+            c_fvb_small_mag = {
+                name = "Small Mag",
+                text = {
+                    "{C:mult}75%{} max ammo amount",
+                    "After {C:mult}#1#{} rounds set ammo max to {C:red}30{}",
+                    "{C:inactive}(Self destructs after)"
+                },
+            },
+            c_fvb_slow_reload = {
+                name = "Slow Reload",
+                text = {
+                    "{C:mult}+1{} reload time",
+                    "After {C:mult}#1#{} rounds set reload time to {C:blue}2{}",
+                    "{C:inactive}(Self destructs after)"
+                },
+            },
+            c_fvb_invisible_hand = {
+                name = "Invisible Hand",
+                text = {
+                    "{C:mult}Flips over all cards in hand",
+                    "After {C:mult}#1#{} rounds give {C:money}$30{}",
+                    "{C:inactive}(Self destructs after)"
+                },
+            },
+            c_fvb_disarm = {
+                name = "Disarm",
+                text = {
+                    "Replaces weapon(s) with a {C:weapon}Boira",
+                    "Creates a {C:spectral}Spectral{} card",
+                    "{C:inactive}(Self destructs after)"
+                },
+            },
+            c_fvb_poison = {
+                name = "Poison",
+                text = {
+                    "Each card played gives {C:white,X:mult}X0.5{} Mult",
+                    "After {C:mult}#1#{} rounds make a random joker {C:dark_edition}Negative{}",
+                    "{C:inactive}(Self destructs after)"
+                },
+            },
+            c_fvb_swap_weapon = {
+                name = "Swap Weapon",
+                text = {
+                    "Replaces weapon(s) with a",
+                    "random weak {C:weapon}Weapon",
+                    "Creates a {C:tarot}Hermit{} card",
+                    "{C:inactive}(Self destructs after)"
+                },
+            },
+            c_fvb_empty_mag = {
+                name = "Empty Mag",
+                text = {
+                    "Sets {C:weapon}Weapon{} ammo to {C:mult}0",
+                    "Gives {C:money}$2{} per bullet removed",
+                    "{C:inactive}(Self destructs after)"
+                },
+            }
+
         }
     },
     misc = {
