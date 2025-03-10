@@ -344,7 +344,7 @@ return {
             c_fvb_invisible_hand = {
                 name = "Invisible Hand",
                 text = {
-                    "{C:mult}Flips over all cards in hand",
+                    "{C:green} 1 in 4{} cards in hand get flipped",
                     "After {C:mult}#1#{} rounds give {C:money}$30{}",
                     "{C:inactive}(Self destructs after)"
                 },
@@ -361,7 +361,8 @@ return {
                 name = "Poison",
                 text = {
                     "Each card played gives {C:white,X:mult}X0.5{} Mult",
-                    "After {C:mult}#1#{} rounds make a random joker {C:dark_edition}Negative{}",
+                    "After {C:mult}#1#{} rounds make a",
+                    "random Joker {C:dark_edition}Negative{}",
                     "{C:inactive}(Self destructs after)"
                 },
             },

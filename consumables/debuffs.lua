@@ -53,7 +53,7 @@ end
 
 Debuff({ -- Big Head
     key = "big_head",
-    
+
     atlas = "othercards",
     pos = {x = 0, y = 0},
     rounds = 3,
@@ -70,22 +70,18 @@ Debuff({ -- Big Head
         play_sound("chips2")
         card:juice_up()
     end,
-    reward = function(card)
-        eventify(function()
-            ease_dollars(20)
-        end)
-    end,
+    reward = function(card) eventify(function() ease_dollars(20) end) end,
     can_use = function(self, card) return false end
 })
 
 Debuff({ -- Health Down
     key = "health_down",
-    
+
     atlas = "othercards",
     pos = {x = 2, y = 0},
     rounds = 5,
     passive = true,
-    
+
     effect = function(card, context)
         if context.individual and context.cardarea == G.play then
             local other_card = context.other_card
@@ -112,7 +108,7 @@ Debuff({ -- Health Down
 
 Debuff({ -- Move Slower
     key = "move_slower",
-    
+
     atlas = "othercards",
     pos = {x = 4, y = 0},
     rounds = 5,
@@ -137,7 +133,7 @@ Debuff({ -- Move Slower
 
 Debuff({ -- No Jump
     key = "no_jump",
-    
+
     atlas = "othercards",
     pos = {x = 7, y = 0},
     rounds = 3,
@@ -180,7 +176,7 @@ Debuff({ -- No Jump
 
 Debuff({ -- Less Accuracy
     key = "less_accuracy",
-    
+
     atlas = "othercards",
     pos = {x = 10, y = 0},
     rounds = 3,
@@ -205,7 +201,7 @@ Debuff({ -- Less Accuracy
 
 Debuff({ -- Rubber Bullets
     key = "rubber_bullets",
-    
+
     atlas = "othercards",
     pos = {x = 1, y = 1},
     rounds = 3,
@@ -233,14 +229,16 @@ Debuff({ -- Rubber Bullets
 
 Debuff({ -- Small Mag
     key = "small_mag",
-    
+
     atlas = "othercards",
     pos = {x = 3, y = 1},
     rounds = 6,
-    
+
     effect = function(card)
         for _, weapon in ipairs(G.weapons.cards) do
-            weapon.ability.extra.max_ammo = math.floor(weapon.ability.extra.max_ammo * 0.75)
+            weapon.ability.extra.max_ammo = math.floor(
+                                                weapon.ability.extra.max_ammo *
+                                                    0.75)
         end
     end,
     reward = function(card)
@@ -252,14 +250,15 @@ Debuff({ -- Small Mag
 
 Debuff({ -- Slow Reload
     key = "slow_reload",
-    
+
     atlas = "othercards",
     pos = {x = 5, y = 1},
     rounds = 6,
-    
+
     effect = function(card)
         for _, weapon in ipairs(G.weapons.cards) do
-            weapon.ability.extra.max_reload = weapon.ability.extra.max_reload + 1
+            weapon.ability.extra.max_reload =
+                weapon.ability.extra.max_reload + 1
         end
     end,
     reward = function(card)
@@ -271,26 +270,20 @@ Debuff({ -- Slow Reload
 
 Debuff({ -- Invisible Hand
     key = "invisible_hand",
-    
+
     atlas = "othercards",
     pos = {x = 1, y = 2},
     rounds = 3,
     passive = true,
-    
+
     effect = function(card, context)
         if context.hand_drawn then
             for _, card in ipairs(G.hand.cards) do
-                if card.facing ~= "back" then
-                    card:flip()
-                end
+                if card.facing ~= "back" and pseudorandom("boira") < 0.25 then card:flip() end
             end
         end
     end,
-    reward = function(card)
-        eventify(function()
-            ease_dollars(30)
-        end)
-    end
+    reward = function(card) eventify(function() ease_dollars(30) end) end
 })
 
 Debuff({ -- Disarm
@@ -299,61 +292,47 @@ Debuff({ -- Disarm
     pos = {x = 0, y = 3},
     rounds = 0,
     passive = true,
-    
+
     add_to_deck = function(self, card, from_debuff)
-        eventify(function ()
-            SMODS.add_card({key = "c_fvb_boira"})
-        end)
-        eventify(function ()
-            SMODS.add_card({set = "Spectral"})
-        end)
-        eventify(function ()
-            card:start_dissolve()
-        end)
+        eventify(function() SMODS.add_card({key = "c_fvb_boira"}) end)
+        eventify(function() SMODS.add_card({set = "Spectral"}) end)
+        eventify(function() card:start_dissolve() end)
     end
 })
 
 Debuff({ -- Poison
     key = "poison",
-    
+
     atlas = "othercards",
     pos = {x = 4, y = 2},
     rounds = 1,
     passive = true,
-    
+
     effect = function(card, context)
         if context.individual and context.cardarea == G.play then
-            return {
-                xmult = 0.5
-            }
+            return {xmult = 0.5}
         end
     end,
-    reward = function(card)
-
-    end
+    reward = function(card) end
 })
 
 Debuff({ -- Swap Weapon
     key = "swap_weapon",
-    
+
     atlas = "othercards",
     pos = {x = 8, y = 5},
     rounds = 0,
     passive = true,
     add_to_deck = function(self, card, from_debuff)
-        eventify(function ()
+        eventify(function()
             SMODS.add_card({set = "Weapon"})
             for _, weapon in ipairs(G.weapons.cards) do
                 weapon.ability.extra.max_damage = 5
                 weapon.ability.extra.min_damage = 1
             end
         end)
-        eventify(function ()
-            SMODS.add_card({key = "c_hermit"})
-        end)
-        eventify(function ()
-            card:start_dissolve()
-        end)
+        eventify(function() SMODS.add_card({key = "c_hermit"}) end)
+        eventify(function() card:start_dissolve() end)
     end
 })
 
@@ -364,26 +343,22 @@ Debuff({ -- Empty Mag
     pos = {x = 1, y = 6},
     rounds = 0,
     passive = true,
-    
+
     add_to_deck = function(self, card, from_debuff)
         local bullets_removed = 0
         for _, weapon in ipairs(G.weapons.cards) do
-            bullets_removed = bullets_removed + weapon.curr_ammo
+            bullets_removed = bullets_removed + weapon.ability.extra.curr_ammo
         end
-        eventify(function ()
+        eventify(function()
             for _, weapon in ipairs(G.weapons.cards) do
-                eventify(function ()
+                eventify(function()
                     weapon.ability.extra.curr_ammo = 0
                     weapon.ability.extra.reloading = true
                     weapon:juice_up()
                 end)
             end
         end)
-        eventify(function ()
-            ease_dollars(bullets_removed)
-        end)
-        eventify(function ()
-            card:start_dissolve()
-        end)
+        eventify(function() ease_dollars(bullets_removed) end)
+        eventify(function() card:start_dissolve() end)
     end
 })
