@@ -26,9 +26,9 @@ function Debuff(info)
         calculate = function(self, card, context)
             if context.setting_blind then
                 sendDebugMessage("round started", "Debuffs")
-                if not info.passive then info.effect(card) end
+                if not info.passive then return info.effect(card) end
             end
-            if info.passive then info.effect(card, context) end
+            if info.passive then return info.effect(card, context) end
             if context.end_of_round and not context.individual and
                 not context.repetition then
                 sendDebugMessage("round ended", "Debuffs")
@@ -153,7 +153,7 @@ Debuff({ -- No Jump
     name = "No Jump",
     text = {
         "Beat blinds in {C:mult}one hand{} or lose",
-        "After {C:mult}#1#{} rounds gain {C:mult}+3{} hand size",
+        "After {C:mult}#1#{} rounds gain {C:mult}+2{} hand size",
         "{C:inactive}(Self destructs after)"
     },
     atlas = "othercards",
@@ -175,7 +175,6 @@ Debuff({ -- No Jump
                         G.GAME.current_round.discards_used
                     return
                 end
-                print('hi! talisman')
                 end_round()
                 return
             end
@@ -188,12 +187,11 @@ Debuff({ -- No Jump
                     G.GAME.current_round.discards_used
                 return
             end
-            print('hi! base')
             end_round()
         end
     end,
     reward = function(card)
-        eventify(function() G.hand:change_size(3) end)
+        eventify(function() G.hand:change_size(2) end)
         eventify(function() card:juice_up() end)
     end
 })
@@ -368,8 +366,8 @@ Debuff({ -- Poison
     rounds = 1,
     passive = true,
     text = {
-        "{C:mult}Each card played gives {C:white,X:mult}X0.5{} Mult",
-        "After {C:mult}#1#{} rounds make a random joker {C:negative}Negative{}",
+        "Each card played gives {C:white,X:mult}X0.5{} Mult",
+        "After {C:mult}#1#{} rounds make a random joker {C:dark_edition}Negative{}",
         "{C:inactive}(Self destructs after)"
     },
     effect = function(card, context)
@@ -381,5 +379,70 @@ Debuff({ -- Poison
     end,
     reward = function(card)
 
+    end
+})
+
+Debuff({ -- Swap Weapon
+    key = "swap_weapon",
+    name = "Swap Weapon",
+    atlas = "othercards",
+    pos = {x = 8, y = 5},
+    rounds = 0,
+    passive = true,
+    text = {
+        "Replaces weapon(s) with a",
+        "random weak {C:weapon}Weapon",
+        "Creates a {C:tarot}Hermit{} card",
+        "{C:inactive}(Self destructs after)"
+    },
+    add_to_deck = function(self, card, from_debuff)
+        eventify(function ()
+            SMODS.add_card({set = "Weapon"})
+            for _, weapon in ipairs(G.weapons.cards) do
+                weapon.ability.extra.max_damage = 5
+                weapon.ability.extra.min_damage = 1
+            end
+        end)
+        eventify(function ()
+            SMODS.add_card({key = "c_hermit"})
+        end)
+        eventify(function ()
+            card:start_dissolve()
+        end)
+    end
+})
+
+Debuff({ -- Empty Mag
+    key = "empty_mag",
+    name = "Empty Mag",
+    atlas = "othercards",
+    pos = {x = 1, y = 6},
+    rounds = 0,
+    passive = true,
+    text = {
+        "Sets {C:weapon}Weapon{} ammo to {C:mult}0",
+        "Gives {C:money}$2{} per bullet removed",
+        "{C:inactive}(Self destructs after)"
+    },
+    add_to_deck = function(self, card, from_debuff)
+        local bullets_removed = 0
+        for _, weapon in ipairs(G.weapons.cards) do
+            bullets_removed = bullets_removed + weapon.curr_ammo
+        end
+        eventify(function ()
+            for _, weapon in ipairs(G.weapons.cards) do
+                eventify(function ()
+                    weapon.ability.extra.curr_ammo = 0
+                    weapon.ability.extra.reloading = true
+                    weapon:juice_up()
+                end)
+            end
+        end)
+        eventify(function ()
+            ease_dollars(bullets_removed)
+        end)
+        eventify(function ()
+            card:start_dissolve()
+        end)
     end
 })
