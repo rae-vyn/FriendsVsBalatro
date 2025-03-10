@@ -344,7 +344,7 @@ return {
             c_fvb_invisible_hand = {
                 name = "Invisible Hand",
                 text = {
-                    "{C:green} 1 in 4{} cards in hand get flipped",
+                    "{C:green}3 in 4{} cards in hand get flipped",
                     "After {C:mult}#1#{} rounds give {C:money}$30{}",
                     "{C:inactive}(Self destructs after)"
                 },
