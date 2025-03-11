@@ -4,13 +4,6 @@ SMODS.Back({
 	key = "friends_deck",
 	atlas = "card_backs",
 	pos = { x = 7, y = 8 },
-	loc_txt = {
-		name = "Friends Deck",
-		text = {
-			"Start with a random",
-			"{C:purple,E:1,T:m_eternal}Eternal{} {C:personality}Personality{} card",
-		},
-	},
 	unlocked = true,
 	apply = function(self, back)
 		G.E_MANAGER:add_event(Event({
@@ -31,13 +24,6 @@ SMODS.Back({
 	key = "baba_deck",
 	atlas = "card_backs",
 	pos = { x = 0, y = 0 },
-	loc_txt = {
-		name = "Baba's Deck",
-		text = {
-			"Start with a deck",
-			"Of {C:attention}Gold{} {C:mult}Hearts",
-		},
-	},
 	unlocked = true,
 	apply = function(self, back)
 		G.E_MANAGER:add_event(Event({
@@ -54,13 +40,6 @@ SMODS.Back({
 
 SMODS.Back({
 	key = "siaro_deck",
-	loc_txt = {
-		name = "Siaro's Deck",
-		text = {
-			"Start with a deck",
-			"Of {C:green}Poison{} cards",
-		},
-	},
 	atlas = "card_backs",
 	pos = { x = 6, y = 4 },
 	unlocked = true,
@@ -78,13 +57,6 @@ SMODS.Back({
 
 SMODS.Back({
 	key = "schema_deck",
-	loc_txt = {
-		name = "Schema Deck",
-		text = {
-			"Get a free {C:blue,T:j_blueprint}Blueprint",
-			"every three {C:attention}Antes",
-		},
-	},
 	config = {
 		extra = {
 			ante_counter = 3,
@@ -124,13 +96,6 @@ SMODS.Back({
 
 SMODS.Back({
 	key = "champs_deck",
-	loc_txt = {
-		name = "Champ's Deck",
-		text = {
-			"Start with a deck",
-			"Of {C:gold,T:m_lucky}Lucky{} cards",
-		},
-	},
 	atlas = "card_backs",
 	pos = { x = 6, y = 6 },
 	unlocked = true,
@@ -148,14 +113,6 @@ SMODS.Back({
 
 SMODS.Back({
 	key = "abyssal_deck",
-	loc_txt = {
-		name = "Abyssal Deck",
-		text = {
-			"Every {C:attention}Joker",
-			"in the shop is {C:dark_edition,T:e_negative}Negative{}",
-			"{C:red}-1{} hand size every other Ante",
-		},
-	},
 	config = {
 		extra = {
 			ante_counter = 2,

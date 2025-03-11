@@ -1,14 +1,6 @@
 
 SMODS.Seal({
     key = "poison",
-    loc_txt = {
-        name = "Poison",
-        label = "Poison Seal",
-        text = {
-            "{C:green}1 in 2{} chance", "for {C:white,X:mult}X2{} Mult",
-            "{C:green}1 in 10{} chance", "for {C:white,X:mult}X0.5{} Mult"
-        }
-    },
     atlas = "poisoned",
     badge_colour = HEX('4F6552'),
     calculate = function(self, card, context)

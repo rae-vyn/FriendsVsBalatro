@@ -246,7 +246,7 @@ return {
             },
             c_fvb_helmet = {
                 name = "Helmet",
-                text = {"Reduce Blind size", "by {C:blue}-100"}
+                text = {"Reduce Blind size", "by {C:blue}-1000"}
             },
             c_fvb_poison_bullets = {
                 name = "Poison Bullets",
@@ -331,7 +331,7 @@ return {
                     "{C:mult}75%{} max ammo amount",
                     "After {C:mult}#1#{} rounds set ammo max to {C:red}30{}",
                     "{C:inactive}(Self destructs after)"
-                },
+                }
             },
             c_fvb_slow_reload = {
                 name = "Slow Reload",
@@ -339,7 +339,7 @@ return {
                     "{C:mult}+1{} reload time",
                     "After {C:mult}#1#{} rounds set reload time to {C:blue}2{}",
                     "{C:inactive}(Self destructs after)"
-                },
+                }
             },
             c_fvb_invisible_hand = {
                 name = "Invisible Hand",
@@ -347,7 +347,7 @@ return {
                     "{C:green}3 in 4{} cards in hand get flipped",
                     "After {C:mult}#1#{} rounds give {C:money}$30{}",
                     "{C:inactive}(Self destructs after)"
-                },
+                }
             },
             c_fvb_disarm = {
                 name = "Disarm",
@@ -355,7 +355,7 @@ return {
                     "Replaces weapon(s) with a {C:weapon}Boira",
                     "Creates a {C:spectral}Spectral{} card",
                     "{C:inactive}(Self destructs after)"
-                },
+                }
             },
             c_fvb_poison = {
                 name = "Poison",
@@ -364,16 +364,15 @@ return {
                     "After {C:mult}#1#{} rounds make a",
                     "random Joker {C:dark_edition}Negative{}",
                     "{C:inactive}(Self destructs after)"
-                },
+                }
             },
             c_fvb_swap_weapon = {
                 name = "Swap Weapon",
                 text = {
-                    "Replaces weapon(s) with a",
-                    "random weak {C:weapon}Weapon",
+                    "Replaces weapon(s) with a", "random weak {C:weapon}Weapon",
                     "Creates a {C:tarot}Hermit{} card",
                     "{C:inactive}(Self destructs after)"
-                },
+                }
             },
             c_fvb_empty_mag = {
                 name = "Empty Mag",
@@ -381,9 +380,61 @@ return {
                     "Sets {C:weapon}Weapon{} ammo to {C:mult}0",
                     "Gives {C:money}$2{} per bullet removed",
                     "{C:inactive}(Self destructs after)"
-                },
+                }
             }
 
+        },
+        Back = {
+            b_fvb_friends_deck = {
+                name = "Friends Deck",
+                text = {
+                    "Start with a random",
+                    "{C:purple,E:1,T:m_eternal}Eternal{} {C:personality}Personality{} card"
+                }
+            },
+            b_fvb_baba_deck = {
+                name = "Baba's Deck",
+                text = {
+                    "Start with a deck", "Of {C:attention}Gold{} {C:mult}Hearts"
+                }
+            },
+            b_fvb_siaro_deck = {
+                name = "Siaro's Deck",
+                text = {
+                    "Start with a deck",
+                    "Of {C:green, T:fvb_poison_seal}Poison Seal{} cards"
+                }
+            },
+            b_fvb_schema_deck = {
+                name = "Schema Deck",
+                text = {
+                    "Get a free {C:blue,T:j_blueprint}Blueprint",
+                    "every three {C:attention}Antes"
+                }
+            },
+            b_fvb_champs_deck = {
+                name = "Champ's Deck",
+                text = {
+                    "Start with a deck", "Of {C:gold,T:m_lucky}Lucky{} cards"
+                }
+            },
+            b_fvb_abyssal_deck = {
+                name = "Abyssal Deck",
+                text = {
+                    "Every {C:attention}Joker",
+                    "in the shop is {C:dark_edition,T:e_negative}Negative{}",
+                    "{C:red}-1{} hand size every other Ante"
+                }
+            },
+        },
+        Other = {
+            fvb_poison_seal = {
+                name = "Poison",
+                text = {
+                    "{C:green}1 in 2{} chance", "for {C:white,X:mult}X2{} Mult",
+                    "{C:green}1 in 10{} chance", "for {C:white,X:mult}X0.5{} Mult"
+                }
+            }
         }
     },
     misc = {
@@ -391,6 +442,9 @@ return {
             ch_c_onlyqueens = {
                 "All face cards in deck are {C:attention}Queens{}"
             }
+        },  
+        labels = {
+            fvb_poison_seal = "Poison Seal"
         }
     }
 }
