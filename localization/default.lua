@@ -271,7 +271,7 @@ return {
                     "from the {C:attention}discard pile"
                 }
             },
-            c_fvb_card_theif = {
+            c_fvb_card_thief = {
                 name = "Card Thief",
                 text = {"Create a random", "{C:buff}Buff{} card"}
             }
