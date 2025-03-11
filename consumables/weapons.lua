@@ -1,14 +1,13 @@
-
 SMODS.ConsumableType({
 	key = "Weapon",
 	primary_colour = HEX("2A2051"),
 	secondary_colour = HEX("E0569B"),
 	default = "c_boira",
 	loc_txt = {
-		name = "Weapon",
+
 		collection = "Weapons",
 		undiscovered = {
-			name = "Undiscovered Weapon",
+
 			text = {
 				"Find this weapon",
 				"in a pack to unlock",
@@ -32,20 +31,20 @@ function calcWeapon(self, card, context)
 			return {
 				message = "Missed!",
 				message_card = context.other_card,
-                func = function()
-                    SMODS.calculate_context({ weapon_missed = true, other_card = context.other_card })
-                    sendDebugMessage("sent weapon missed context", "ContextCheck")
-                end
+				func = function()
+					SMODS.calculate_context({ weapon_missed = true, other_card = context.other_card })
+					sendDebugMessage("sent weapon missed context", "ContextCheck")
+				end,
 			}
 		end
 		sendDebugMessage("Ammo left: " .. card.ability.extra.curr_ammo)
 		return {
 			mult = chosen_mult,
 			card = card,
-            func = function()
-                SMODS.calculate_context({ weapon_hit = true, other_card = context.other_card })
-                sendDebugMessage("sent weapon missed context", "ContextCheck")
-            end
+			func = function()
+				SMODS.calculate_context({ weapon_hit = true, other_card = context.other_card })
+				sendDebugMessage("sent weapon missed context", "ContextCheck")
+			end,
 		}
 	elseif card.ability.extra.reloading and context.after then
 		if card.ability.extra.reload_countdown > 0 then
@@ -83,16 +82,6 @@ local function Weapon(info)
 			},
 		},
 		pools = { "fvb_cards", "Weapon" },
-		loc_txt = {
-			name = info.name,
-			text = {
-				info.tagline or "A weapon.",
-				"{C:mult}+#1#-#2#{} Mult",
-				"{C:green}#3#%{} chance to miss",
-				"{C:blue}#5#{} round reload time",
-				"{C:inactive}(Ammo: #4#)",
-			},
-		},
 		loc_vars = function(self, info_queue, card)
 			local curr_ammo = ""
 			if card.ability.extra.reloading then
@@ -111,7 +100,7 @@ local function Weapon(info)
 					card.ability.extra.max_damage,
 					card.ability.extra.miss_chance,
 					curr_ammo,
-					card.ability.extra.max_reload
+					card.ability.extra.max_reload,
 				},
 			}
 		end,
@@ -155,9 +144,9 @@ end
 
 Weapon({
 	key = "boomstick",
-	name = "Boomstick",
+
 	pos = { x = 0, y = 0 },
-	tagline = "Close-range clutch!",
+
 	min_damage = 9,
 	max_damage = 9 * 6,
 	miss_chance = 45,
@@ -167,9 +156,9 @@ Weapon({
 
 Weapon({
 	key = "albatross",
-	name = "Albatross 21",
+
 	pos = { x = 1, y = 0 },
-	tagline = "Newton says hello!",
+
 	min_damage = 50,
 	max_damage = 90,
 	miss_chance = 20,
@@ -179,9 +168,9 @@ Weapon({
 
 Weapon({
 	key = "boira",
-	name = "Boira 9",
+
 	atlas = "boira",
-	tagline = "The classic.",
+
 	min_damage = 5,
 	max_damage = 13,
 	miss_chance = 25,
@@ -191,9 +180,9 @@ Weapon({
 
 Weapon({
 	key = "brasshopper",
-	name = "Brasshopper",
+
 	pos = { x = 2, y = 0 },
-	tagline = "A bit of the Raver flavour.",
+
 	min_damage = 8,
 	max_damage = 12,
 	miss_chance = 32,
@@ -203,9 +192,9 @@ Weapon({
 
 Weapon({
 	key = "laika",
-	name = "Laika",
+
 	pos = { x = 0, y = 1 },
-	tagline = "You had it coming.",
+
 	min_damage = 40,
 	max_damage = 45,
 	miss_chance = 35,
@@ -215,9 +204,9 @@ Weapon({
 
 Weapon({
 	key = "fk",
-	name = "FK-82",
+
 	pos = { x = 1, y = 1 },
-	tagline = "Friends of high caliber.",
+
 	min_damage = 12,
 	max_damage = 20,
 	miss_chance = 30,
@@ -227,9 +216,9 @@ Weapon({
 
 Weapon({
 	key = "gld_boira",
-	name = "Golden Boira",
+
 	pos = { x = 2, y = 1 },
-	tagline = "The gold standard.",
+
 	min_damage = 15,
 	max_damage = 21,
 	miss_chance = 15,
@@ -239,9 +228,9 @@ Weapon({
 
 Weapon({
 	key = "punchr",
-	name = "Punch-R",
+
 	pos = { x = 0, y = 2 },
-	tagline = "Lars' specialty.",
+
 	min_damage = 40,
 	max_damage = 60,
 	max_ammo = 4,
@@ -251,9 +240,9 @@ Weapon({
 
 Weapon({
 	key = "katana",
-	name = "Katana",
+
 	pos = { x = 1, y = 2 },
-	tagline = "A gift from Sable.",
+
 	min_damage = 35,
 	max_damage = 45,
 	max_ammo = 8,

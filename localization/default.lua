@@ -435,6 +435,98 @@ return {
                     "{C:green}1 in 10{} chance", "for {C:white,X:mult}X0.5{} Mult"
                 }
             }
+        },
+        Weapon = {
+            c_fvb_boira = {
+                name = "Boira 9",
+			    text = {
+				    "The Classic",
+				    "{C:mult}+#1#-#2#{} Mult",
+				    "{C:green}#3#%{} chance to miss",
+				    "{C:blue}#5#{} round reload time",
+				    "{C:inactive}(Ammo: #4#)",
+			    },
+            },
+            c_fvb_boomstick = {
+                name = "Boomstick",
+			    text = {
+				    "Close-range clutch!",
+				    "{C:mult}+#1#-#2#{} Mult",
+				    "{C:green}#3#%{} chance to miss",
+				    "{C:blue}#5#{} round reload time",
+				    "{C:inactive}(Ammo: #4#)",
+			    },
+            },
+            c_fvb_albatross = {
+                name = "Albatross 21",
+			    text = {
+				    "Newton says hello!",
+				    "{C:mult}+#1#-#2#{} Mult",
+				    "{C:green}#3#%{} chance to miss",
+				    "{C:blue}#5#{} round reload time",
+				    "{C:inactive}(Ammo: #4#)",
+			    },
+            },
+            c_fvb_brasshopper = {
+                name = "Brasshopper",
+			    text = {
+				    "A bit of the Raver flavour.",
+				    "{C:mult}+#1#-#2#{} Mult",
+				    "{C:green}#3#%{} chance to miss",
+				    "{C:blue}#5#{} round reload time",
+				    "{C:inactive}(Ammo: #4#)",
+			    },
+            },
+            c_fvb_laika = {
+                name = "Laika",
+			    text = {
+				    "You had it coming.",
+				    "{C:mult}+#1#-#2#{} Mult",
+				    "{C:green}#3#%{} chance to miss",
+				    "{C:blue}#5#{} round reload time",
+				    "{C:inactive}(Ammo: #4#)",
+			    },
+            },
+            c_fvb_fk = {
+                name = "FK-82",
+			    text = {
+				    "Friends of high caliber.",
+				    "{C:mult}+#1#-#2#{} Mult",
+				    "{C:green}#3#%{} chance to miss",
+				    "{C:blue}#5#{} round reload time",
+				    "{C:inactive}(Ammo: #4#)",
+			    },
+            },
+            c_fvb_gld_boira = {
+                name = "Golden Boira",
+			    text = {
+				    "The gold standard.",
+				    "{C:mult}+#1#-#2#{} Mult",
+				    "{C:green}#3#%{} chance to miss",
+				    "{C:blue}#5#{} round reload time",
+				    "{C:inactive}(Ammo: #4#)",
+			    },
+            },
+            c_fvb_punchr = {
+                name = "Punch-R",
+			    text = {
+				    "Lars' specialty.",
+				    "{C:mult}+#1#-#2#{} Mult",
+				    "{C:green}#3#%{} chance to miss",
+				    "{C:blue}#5#{} round reload time",
+				    "{C:inactive}(Ammo: #4#)",
+			    },
+            },
+            c_fvb_katana = {
+                name = "Katana",
+			    text = {
+				    "A gift from Sable.",
+				    "{C:mult}+#1#-#2#{} Mult",
+				    "{C:green}#3#%{} chance to miss",
+				    "{C:blue}#5#{} round reload time",
+				    "{C:inactive}(Ammo: #4#)",
+			    },
+            }
         }
     },
     misc = {
@@ -442,7 +534,7 @@ return {
             ch_c_onlyqueens = {
                 "All face cards in deck are {C:attention}Queens{}"
             }
-        },  
+        },
         labels = {
             fvb_poison_seal = "Poison Seal"
         }
