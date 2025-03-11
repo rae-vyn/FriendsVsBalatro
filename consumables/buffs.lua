@@ -1,4 +1,3 @@
-SMODS.Atlas({ key = "othercards", px = 71, py = 95, path = "othercards.png" })
 
 SMODS.ConsumableType({
 	key = "Buff",

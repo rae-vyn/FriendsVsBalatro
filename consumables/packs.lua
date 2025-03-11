@@ -1,16 +1,4 @@
-SMODS.Atlas({
-    key = "basicpack",
-    px = 71,
-    py = 95,
-    path = "basicpack.png"
-})
 
-SMODS.Atlas({
-    key = "goldpack",
-    px = 71,
-    py = 95,
-    path = "goldpack.png"
-})
 
 SMODS.ObjectType({
     key = "fvb_cards",

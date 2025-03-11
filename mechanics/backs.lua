@@ -1,9 +1,4 @@
-SMODS.Atlas({
-	key = "card_backs",
-	px = 71,
-	py = 95,
-	path = "backs_sheet.png",
-})
+
 
 SMODS.Back({
 	key = "friends_deck",

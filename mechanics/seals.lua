@@ -1,9 +1,4 @@
-SMODS.Atlas({
-    key = "poisoned",
-    px = 71,
-    py = 95,
-    path = "poisoned.png"
-})
+
 SMODS.Seal({
     key = "poison",
     loc_txt = {

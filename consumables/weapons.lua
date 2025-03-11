@@ -1,5 +1,4 @@
-SMODS.Atlas({ key = "weapons", px = 71, py = 95, path = "Weapons.png" })
-SMODS.Atlas({ key = "boira", px = 71, py = 95, path = "Boira.png" })
+
 SMODS.ConsumableType({
 	key = "Weapon",
 	primary_colour = HEX("2A2051"),

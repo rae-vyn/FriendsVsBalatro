@@ -1,9 +1,4 @@
-SMODS.Atlas({
-    key = "personalities",
-    px = 71,
-    py = 95,
-    path = "personalities.png"
-})
+
 
 SMODS.Rarity({
     key = "personality",
