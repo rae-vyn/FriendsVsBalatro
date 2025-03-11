@@ -7,13 +7,15 @@ function Game:start_run(args)
     self.weapons = CardArea(0, 0, G.CARD_W * 1.1, G.CARD_H, {
         card_limit = self.GAME.starting_params.weapon_slots,
         type = "joker", -- set this to joker to properly handle use/sell buttons
-        highlight_limit = 1
+        highlight_limit = 1,
+        view_deck = true
     })
 
     self.debuffs = CardArea(0, 0, G.CARD_W * 0.5, G.CARD_H * 0.5, {
         card_limit = self.GAME.starting_params.debuff_slots,
         type = "joker", -- set this to joker to properly handle use/sell buttons
-        highlight_limit = 1
+        highlight_limit = 1,
+        view_deck = true
     })
     -- this need to be before the start_run_ref call
     -- or cards in your area won't be loadedmmmmm
