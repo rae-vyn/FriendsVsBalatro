@@ -1,0 +1,8 @@
+SMODS.Atlas({key = "othercards", px = 71, py = 95, path = "othercards.png"})
+SMODS.Atlas({key = "basicpack", px = 71, py = 95, path = "basicpack.png"})
+SMODS.Atlas({key = "goldpack", px = 71, py = 95, path = "goldpack.png"})
+SMODS.Atlas({key = "weapons", px = 71, py = 95, path = "Weapons.png"})
+SMODS.Atlas({key = "boira", px = 71, py = 95, path = "Boira.png"})
+SMODS.Atlas({key = "personalities", px = 71, py = 95, path = "personalities.png"})
+SMODS.Atlas({key = "card_backs", px = 71, py = 95, path = "backs_sheet.png"})
+SMODS.Atlas({key = "poisoned", px = 71, py = 95, path = "poisoned.png"})

@@ -1,5 +1,6 @@
 --- assert(SMODS.load_file('jokers/buffs.lua'))()
 assert(SMODS.load_file('util/overrides.lua'))()
+assert(SMODS.load_file('util/atlases.lua'))()
 assert(SMODS.load_file('mechanics/weaponslot.lua'))()
 assert(SMODS.load_file('mechanics/seals.lua'))()
 assert(SMODS.load_file('mechanics/backs.lua'))()
