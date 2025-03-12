@@ -5,11 +5,6 @@ SMODS.ConsumableType({
     default = "c_fvb_big_head",
     loc_txt = {
         name = "Debuff",
-        collection = "Debuffs",
-        undiscovered = {
-            name = "Undiscovered Debuff",
-            text = {"Find this debuff", "in a pack to unlock"}
-        }
     }
 })
 function Debuff(info)

@@ -5,11 +5,6 @@ SMODS.ConsumableType({
     default = "c_fvb_small_head",
     loc_txt = {
         name = "Buff",
-        collection = "Buffs",
-        undiscovered = {
-            name = "Undiscovered Buff",
-            text = {"Find this buff", "in a pack to unlock"}
-        }
     }
 })
 
@@ -295,21 +290,18 @@ Buff({
 
     use = function(self, card, area, copier)
         eventify(function()
-			G.GAME.blind.chips = G.GAME.blind.chips - 1000
-			G.GAME.blind.chip_text =
-				number_format(G.GAME.blind.chips)
+            G.GAME.blind.chips = G.GAME.blind.chips - 1000
+            G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 
-			local chips_UI = G.hand_text_area.blind_chips
-			G.FUNCS
-				.blind_chip_UI_scale(G.hand_text_area.blind_chips)
-			G.HUD_blind:recalculate()
-			chips_UI:juice_up()
+            local chips_UI = G.hand_text_area.blind_chips
+            G.FUNCS.blind_chip_UI_scale(G.hand_text_area.blind_chips)
+            G.HUD_blind:recalculate()
+            chips_UI:juice_up()
 
-			play_sound("chips2")
-		end)
+            play_sound("chips2")
+        end)
     end,
-    can_use = function(self, card)
-        return G.GAME.blind.chips > G.GAME.chips end
+    can_use = function(self, card) return G.GAME.blind.chips > G.GAME.chips end
 })
 Buff({
     key = "poison_bullets",
