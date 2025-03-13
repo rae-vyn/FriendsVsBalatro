@@ -489,7 +489,7 @@ return {
                 text = {
                     "The Classic", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
-                    "{C:blue}#5#{} round reload time", "{C:inactive}(Ammo: #4#)"
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
             c_fvb_boomstick = {
@@ -497,7 +497,7 @@ return {
                 text = {
                     "Close-range clutch!", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
-                    "{C:blue}#5#{} round reload time", "{C:inactive}(Ammo: #4#)"
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
             c_fvb_albatross = {
@@ -505,7 +505,7 @@ return {
                 text = {
                     "Newton says hello!", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
-                    "{C:blue}#5#{} round reload time", "{C:inactive}(Ammo: #4#)"
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
             c_fvb_brasshopper = {
@@ -513,7 +513,7 @@ return {
                 text = {
                     "A bit of the Raver flavour.", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
-                    "{C:blue}#5#{} round reload time", "{C:inactive}(Ammo: #4#)"
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
             c_fvb_laika = {
@@ -521,7 +521,7 @@ return {
                 text = {
                     "You had it coming.", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
-                    "{C:blue}#5#{} round reload time", "{C:inactive}(Ammo: #4#)"
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
             c_fvb_fk = {
@@ -529,7 +529,7 @@ return {
                 text = {
                     "Friends of high caliber.", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
-                    "{C:blue}#5#{} round reload time", "{C:inactive}(Ammo: #4#)"
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
             c_fvb_gld_boira = {
@@ -537,7 +537,7 @@ return {
                 text = {
                     "The gold standard.", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
-                    "{C:blue}#5#{} round reload time", "{C:inactive}(Ammo: #4#)"
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
             c_fvb_punchr = {
@@ -545,7 +545,7 @@ return {
                 text = {
                     "Lars' specialty.", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
-                    "{C:blue}#5#{} round reload time", "{C:inactive}(Ammo: #4#)"
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
             c_fvb_katana = {
@@ -553,7 +553,7 @@ return {
                 text = {
                     "A gift from Sable.", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
-                    "{C:blue}#5#{} round reload time", "{C:inactive}(Ammo: #4#)"
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             }
         }
