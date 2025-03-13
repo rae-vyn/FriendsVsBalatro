@@ -293,7 +293,7 @@ SMODS.Joker({
         end
         if context.end_of_round and context.cardarea == G.jokers then
             card.ability.extra.xmult_gain = card.ability.extra.xmult_gain + 1
-            return {message = localize('k_fvb_accelerating')}
+            return {message = localize('k_fvb_accel')}
         end
     end
 })

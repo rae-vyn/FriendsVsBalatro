@@ -571,7 +571,7 @@ return {
             b_buff_cards = "Buffs",
             b_debuff_cards = "Debuffs",
             b_weapon_cards = "Weapons",
-
+            b_hotcard_cards = "Hot Cards",
             k_fvb_again = "Again!",
             k_fvb_accel = "Accelerating",
             k_fvb_upgraded = "Upgraded!",
@@ -585,14 +585,14 @@ return {
             k_fvb_reloading = "Reloading...",
             k_fvb_reloaded = "Reloaded!",
             k_fvb_currently = "Currently",
-            k_fvb_until_reload = " hand(s) until reload"
-
+            k_fvb_until_reload = " hand(s) until reload",
+            k_buff = "Buff",
+            k_debuff = "Debuff",
+            k_weapon = "Weapon",
+            k_hotcard = "Hot Card"
         },
         labels = {
             fvb_poison_seal = "Poison Seal",
-            fvb_buff = "Buff",
-            fvb_debuff = "Debuff",
-            fvb_weapon = "Weapon"
         }
     }
 }
