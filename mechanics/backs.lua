@@ -29,7 +29,7 @@ SMODS.Back({
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				for _, card in ipairs(G.playing_cards) do
-					SMODS.change_base(card, "Hearts")
+					assert(SMODS.change_base(card, "Hearts"))
 					card:set_ability(G.P_CENTERS.m_gold)
 				end
 				return true
