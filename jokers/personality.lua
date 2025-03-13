@@ -24,7 +24,7 @@ SMODS.Joker({
             not context.blueprint then
             if context.other_card:get_id() == 12 then
                 card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_gain
-                return {message = "Upgraded!", message_card = card}
+                return {message = localize('k_fvb_upgraded'), message_card = card}
             end
         end
         if context.joker_main then
@@ -91,7 +91,7 @@ SMODS.Joker({
                         weapon.ability.extra.max_damage + 20
                     weapon:juice_up()
                 end
-                return {message = "Buffed!"}
+                return {message = localize('k_fvb_buffed')}
             end
         end
     end
@@ -174,7 +174,7 @@ SMODS.Joker({
                 end
                 weapon:juice_up()
             end
-            return {message = "Buffed!"}
+            return {message = localize('k_fvb_buffed')}
         end
     end
 })
@@ -197,7 +197,7 @@ SMODS.Joker({
             card.ability.extra.skip_count = 0
             card.ability.extra.pow = card.ability.extra.pow + 1
             card.ability.extra.xmult = 2 ^ card.ability.extra.pow
-            return {message = "Buffed!", message_card = card}
+            return {message = localize('k_fvb_buffed'), message_card = card}
         elseif context.skip_blind then
             card.ability.extra.skip_count = card.ability.extra.skip_count + 1
         end
@@ -261,7 +261,7 @@ SMODS.Joker({
             not context.repetition and not context.individual then
             card.ability.extra.blind_reduction =
                 card.ability.extra.blind_reduction - card.ability.extra.decrease_amount
-            return {message = "Buffed!"}
+            return {message = localize('k_fvb_buffed')}
         end
     end
 })
@@ -282,18 +282,18 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.skip_blind then
             card.ability.extra.xmult_gain = 1
-            return {message = "Reset!"}
+            return {message = localize('k_fvb_reset')}
         end
         if context.setting_blind and not context.blueprint then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_gain
-			return {message = "Upgraded!"}
+			return {message = localize('k_fvb_upgraded')}
         end
         if context.joker_main then
             return {xmult = card.ability.extra.xmult}
         end
         if context.end_of_round and context.cardarea == G.jokers then
             card.ability.extra.xmult_gain = card.ability.extra.xmult_gain + 1
-            return {message = "Accelerating!"}
+            return {message = localize('k_fvb_accelerating')}
         end
     end
 })
@@ -366,7 +366,7 @@ SMODS.Joker({
                     chips_UI:juice_up()
 
                     play_sound('chips2')
-                    return {message = "Reduced!"}
+                    return {message = localize('k_fvb_reduced')}
                 end
             end
         end
@@ -394,14 +394,14 @@ SMODS.Joker({
                 if context.other_card:get_id() == 14 then
                     card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
                     return {
-                        message = "Upgraded!",
+                        message = localize('k_fvb_upgraded'),
                         message_card = card,
                         repetitions = 1,
                         card = context.other_card
                     }
                 end
                 return {
-                    message = "Again!",
+                    message = localize('k_fvb_again'),
                     message_card = card,
                     repetitions = 1,
                     card = context.other_card
@@ -593,7 +593,7 @@ SMODS.Joker({
         if context.before and not context.blueprint then
             if G.GAME.chips / G.GAME.blind.chips >= card.ability.extra.score_req then
                 G.GAME.chips = G.GAME.blind.chips
-                return {message = "Won!"}
+                return {message = localize('k_fvb_won')}
             end
         end
     end

@@ -3,17 +3,6 @@ SMODS.ConsumableType({
 	primary_colour = HEX("2A2051"),
 	secondary_colour = HEX("E0569B"),
 	default = "c_boira",
-	loc_txt = {
-
-		collection = "Weapons",
-		undiscovered = {
-
-			text = {
-				"Find this weapon",
-				"in a pack to unlock",
-			},
-		},
-	},
 })
 
 function calcWeapon(self, card, context)
@@ -29,7 +18,7 @@ function calcWeapon(self, card, context)
 		end
 		if pseudorandom("boira") < card.ability.extra.miss_chance / 100 then
 			return {
-				message = "Missed!",
+				message = localize('k_fvb_missed'),
 				message_card = context.other_card,
 				func = function()
 					SMODS.calculate_context({ weapon_missed = true, other_card = context.other_card })
@@ -50,14 +39,14 @@ function calcWeapon(self, card, context)
 		if card.ability.extra.reload_countdown > 0 then
 			card.ability.extra.reload_countdown = card.ability.extra.reload_countdown - 1
 			return {
-				message = "Reloading...",
+				message = localize('k_fvb_reloading'),
 			}
 		end
 		card.ability.extra.reloading = false
 		card.ability.extra.curr_ammo = card.ability.extra.max_ammo
 		card.ability.extra.reload_countdown = card.ability.extra.max_reload
 		return {
-			message = "Reloaded!",
+			message = localize('k_fvb_reloaded'),
 		}
 	end
 end
@@ -86,11 +75,7 @@ local function Weapon(info)
 			local curr_ammo = ""
 			if card.ability.extra.reloading then
 				local rel = card.ability.extra.reload_countdown
-				if card.ability.extra.reload_countdown > 1 then
-					curr_ammo = rel + 1 .. " hands until reload"
-				else
-					curr_ammo = rel + 1 .. " hand until reload"
-				end
+				curr_ammo = rel + 1 .. localize('k_fvb_until_reload')
 			else
 				curr_ammo = card.ability.extra.curr_ammo .. "/" .. card.ability.extra.max_ammo
 			end

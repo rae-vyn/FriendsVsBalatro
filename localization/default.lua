@@ -1,5 +1,27 @@
 return {
     descriptions = {
+        Mod = {
+            FriendsVsBalatro = {
+                name = "Friends Vs. Balatro",
+                text = {
+                    "Adds {C:personality}Friends Vs Friends{} mechanics to Balatro."
+                }
+            }
+        },
+        HotCard = {
+            c_fvb_green_herb = {
+                name = "Green Herb",
+                text = {"Gives {C:blue}+20{} Chips", "to each card in hand"}
+            },
+            c_fvb_dither = {
+                name = "Dither",
+                text = {"Gives {C:blue}+20{} Chips", "to each card in hand"}
+            },
+            c_fvb_banding = {
+                name = "Banding",
+                text = {"{C:green}1 in 2{} chance", "to turns each card in hand", "into a {C:mult}Mult{} Card"}
+            },
+        },
         Joker = {
             j_fvb_donnie_b = {
                 name = "Donnie B",
@@ -428,6 +450,18 @@ return {
             }
         },
         Other = {
+            p_fvb_basic_pack = {
+                name = "Basic Pack",
+                text = {"Contains 5", "Friends Vs. Friends cards"}
+            },
+            p_fvb_gold_pack = {
+                name = "Gold Pack",
+                text = {
+                    "Contains 5", "Friends Vs. Friends cards",
+                    "One is a {C:attention}Polychrome{} {C:weapon}Weapon"
+                }
+
+            },
             fvb_poison_seal = {
                 name = "Poison",
                 text = {
@@ -443,6 +477,10 @@ return {
             undiscovered_debuff = {
                 name = "Undiscovered Debuff",
                 text = {"Find this debuff", "in a pack to unlock"}
+            },
+            undiscovered_weapon = {
+                name = "Undiscovered Weapon",
+                text = {"Find this weapon", "in a pack to unlock"}
             }
         },
         Weapon = {
@@ -521,6 +559,9 @@ return {
         }
     },
     misc = {
+        challenge_names = {
+            c_fvb_the_trio = "The Trio"
+        },
         v_text = {
             ch_c_onlyqueens = {
                 "All face cards in deck are {C:attention}Queens{}"
@@ -529,8 +570,29 @@ return {
         dictionary = {
             b_buff_cards = "Buffs",
             b_debuff_cards = "Debuffs",
-            b_weapon_cards = "Weapons"
+            b_weapon_cards = "Weapons",
+
+            k_fvb_again = "Again!",
+            k_fvb_accel = "Accelerating",
+            k_fvb_upgraded = "Upgraded!",
+            k_fvb_buffed = "Buffed!",
+            k_fvb_reduced = "Reduced!",
+            k_fvb_reset = "Reset!",
+            k_fvb_won = "Won!",
+            k_fvb_gains = "Gains",
+            k_fvb_hit = "Hit!",
+            k_fvb_missed = "Missed!",
+            k_fvb_reloading = "Reloading...",
+            k_fvb_reloaded = "Reloaded!",
+            k_fvb_currently = "Currently",
+            k_fvb_until_reload = " hand(s) until reload"
+
         },
-        labels = {fvb_poison_seal = "Poison Seal"}
+        labels = {
+            fvb_poison_seal = "Poison Seal",
+            fvb_buff = "Buff",
+            fvb_debuff = "Debuff",
+            fvb_weapon = "Weapon"
+        }
     }
 }

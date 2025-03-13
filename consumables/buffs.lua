@@ -3,9 +3,6 @@ SMODS.ConsumableType({
     primary_colour = HEX("009B84"),
     secondary_colour = HEX("009B84"),
     default = "c_fvb_small_head",
-    loc_txt = {
-        name = "Buff",
-    }
 })
 
 function use_buff(self, card, area, copier)

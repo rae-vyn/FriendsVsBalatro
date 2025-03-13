@@ -3,9 +3,6 @@ SMODS.ConsumableType({
     primary_colour = HEX("CE2256"),
     secondary_colour = HEX("CE2256"),
     default = "c_fvb_big_head",
-    loc_txt = {
-        name = "Debuff",
-    }
 })
 function Debuff(info)
     SMODS.Consumable({

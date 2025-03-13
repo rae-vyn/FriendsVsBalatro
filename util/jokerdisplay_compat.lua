@@ -75,7 +75,7 @@ jd["j_fvb_haru"] = {
 	},
 	reminder_text = {
 		{
-			text = "(Gains ",
+			text = "(" .. localize('k_fvb_gains') .. " ",
 		},
 		{
 			border_nodes = {
@@ -101,7 +101,7 @@ jd["j_fvb_little_lars"] = {
 jd["j_fvb_dooper"] = {
 	text = {
 		{
-			{ text = "Currently" },
+			{ text = localize('k_fvb_currently') },
 			border_nodes = {
 				{ ref_table = "card.joker_display_values", ref_value = "multype" },
 				{ ref_table = "card.ability.extra", ref_value = "mult" },
