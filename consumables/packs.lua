@@ -21,14 +21,6 @@ SMODS.ObjectType({
 SMODS.Booster({
     key = "basic_pack",
     atlas = "basicpack",
-    loc_txt = {
-        name = "Basic Pack",
-        group_name = "Basic Pack",
-        text = {
-            "Contains 5",
-            "Friends Vs. Friends cards",
-        }
-    },
     config = {
         extra = 5,
         choose = 5
@@ -53,15 +45,7 @@ SMODS.Booster({
 SMODS.Booster({
     key = "gold_pack",
     atlas = "goldpack",
-    loc_txt = {
-        name = "Gold Pack",
-        group_name = "Gold Pack",
-        text = {
-            "Contains 5",
-            "Friends Vs. Friends cards",
-            "One is a {C:attention}Polychrome{} {C:weapon}Weapon"
-        }
-    },
+    
     config = {
         extra = 5,
         choose = 5
