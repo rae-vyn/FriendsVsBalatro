@@ -151,3 +151,42 @@ SMODS.Back({
 		end
 	end,
 })
+
+SMODS.Back({
+	key = "fossil_deck",
+	atlas = "card_backs",
+	pos = { x = 1, y = 8 },
+	config = {
+		extra = {
+			odds = 4
+		}
+	},
+	loc_vars = function(self, info_queue, card)
+		return {vars = {(G.GAME.probabilities.normal or 1), self.config.extra.odds}}
+	end,
+	calculate = function(self, card, context)
+		if context.weapon_hit and
+			SMODS.has_enhancement(context.other_card, 'm_stone') then
+				if pseudorandom('fossil') < G.GAME.probabilities.normal / self.config.extra.odds then 
+					context.other_card.ability.was_hit = true
+				end
+				eventify(function() context.other_card:set_ability(G.P_CENTERS.c_base) end)
+		end
+		if context.destroy_card and context.cardarea == G.play then
+			if context.destroying_card.ability.was_hit then
+				if #G.deck.cards > 0 then G.deck.cards[1]:juice_up() end
+				return {remove = true}
+			end
+		end
+	end,
+	apply = function(self, back)
+		G.E_MANAGER:add_event(Event({
+			func = function()
+				for _, card in ipairs(G.playing_cards) do
+					card:set_ability(G.P_CENTERS.m_stone, true, true)
+				end
+				return true
+			end,
+		}))
+	end,
+})

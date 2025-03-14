@@ -447,6 +447,16 @@ return {
                     "in the shop is {C:dark_edition,T:e_negative}Negative{}",
                     "{C:red}-1{} hand size every other Ante"
                 }
+            },
+            b_fvb_fossil_deck = {
+                name = "Fossil Deck",
+                text = {
+                    "Start with a deck",
+                    "of {C:inactive,T:m_stone}Stone{} cards;",
+                    "Each {C:mult}hit{} removes",
+                    "the {C:inactive,T:m_stone}Stone{}",
+                    "{C:green}#1# in #2#{} chance to {C:mult}destroy{} card"
+                }
             }
         },
         Other = {
