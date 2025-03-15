@@ -481,6 +481,10 @@ return {
             undiscovered_weapon = {
                 name = "Undiscovered Weapon",
                 text = {"Find this weapon", "in a pack to unlock"}
+            },
+            undiscovered_hotcard = {
+                name = "Undiscovered Hot Card",
+                text = {"Generate this Hot Card to unlock"}
             }
         },
         Weapon = {
@@ -589,7 +593,9 @@ return {
             k_buff = "Buff",
             k_debuff = "Debuff",
             k_weapon = "Weapon",
-            k_hotcard = "Hot Card"
+            k_hotcard = "Hot Card",
+            k_personality = "Personality",
+
         },
         labels = {
             fvb_poison_seal = "Poison Seal",
