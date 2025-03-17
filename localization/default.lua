@@ -459,6 +459,16 @@ return {
                 }
             }
         },
+        Edition = {
+            e_fvb_poison_ed = {
+                name = "Poison",
+                text = {
+                    "{C:green}#1# in #2#{} chance", "for {C:white,X:mult}X2{} Mult",
+                    "{C:green}#1# in #3#{} chance",
+                    "for {C:white,X:mult}X0.5{} Mult"
+                }
+            },
+        },
         Other = {
             p_fvb_basic_pack = {
                 name = "Basic Pack",
@@ -609,6 +619,7 @@ return {
         },
         labels = {
             fvb_poison_seal = "Poison Seal",
+            fvb_poison_ed = "Poison"
         }
     }
 }

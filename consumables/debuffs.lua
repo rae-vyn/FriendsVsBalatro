@@ -305,7 +305,13 @@ Debuff({ -- Poison
             return {xmult = 0.5}
         end
     end,
-    reward = function(card) end
+    reward = function(card) 
+        local joker = pseudorandom_element(G.jokers.cards, pseudoseed("poison"))
+        while not (joker.edition == nil) do
+            joker = pseudorandom_element(G.jokers.cards, pseudoseed("poison"))
+        end
+        joker:set_edition({negative = true}, true)
+    end
 })
 
 Debuff({ -- Swap Weapon

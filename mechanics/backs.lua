@@ -47,7 +47,7 @@ SMODS.Back({
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				for _, card in ipairs(G.playing_cards) do
-					card:set_seal("fvb_poison", true, true)
+					card:set_edition({fvb_poison_ed = true}, true)
 				end
 				return true
 			end,
