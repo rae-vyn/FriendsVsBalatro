@@ -46,15 +46,22 @@ SMODS.Consumable({
     key = "banding",
     set = "HotCard",
     atlas = "othercards",
+    config = {
+        extra = {
+            odds = 4,
+        }
+    },
     pos = {x = 3, y = 9},
     unlocked = true,
-
+    loc_vars = function(self, info_queue, card) 
+        return { vars = {(G.GAME.probabilities.normal or 1), card.ability.extra.odds}}
+    end,
     calculate = function(self, card, context)
         if context.end_of_round then card:start_dissolve() end
     end,
     use = function(self, card, area, copier)
         for _, _card in ipairs(G.hand.cards) do
-            if pseudorandom('banding') < 0.5 then
+            if pseudorandom('banding') < G.GAME.probabilities.normal / self.config.extra.odds then
                 eventify(function()
                     eventify(function() _card:flip() delay(0.5) end)
                     eventify(function() _card:set_ability(G.P_CENTERS.m_mult) end)
