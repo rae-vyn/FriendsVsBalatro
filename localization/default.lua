@@ -19,7 +19,7 @@ return {
             },
             c_fvb_banding = {
                 name = "Banding",
-                text = {"{C:green}1 in 2{} chance", "to turns each card in hand", "into a {C:mult}Mult{} Card"}
+                text = {"{C:green}#1# in #2#{} chance", "to turns each card in hand", "into a {C:mult}Mult{} Card"}
             },
         },
         Joker = {
@@ -475,8 +475,8 @@ return {
             fvb_poison_seal = {
                 name = "Poison",
                 text = {
-                    "{C:green}1 in 2{} chance", "for {C:white,X:mult}X2{} Mult",
-                    "{C:green}1 in 10{} chance",
+                    "{C:green}#1# in #2#{} chance", "for {C:white,X:mult}X2{} Mult",
+                    "{C:green}#1# in #3#{} chance",
                     "for {C:white,X:mult}X0.5{} Mult"
                 }
             },
