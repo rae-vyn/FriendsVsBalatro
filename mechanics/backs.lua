@@ -43,15 +43,10 @@ SMODS.Back({
 	atlas = "card_backs",
 	pos = { x = 6, y = 4 },
 	unlocked = true,
-	apply = function(self, back)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				for _, card in ipairs(G.playing_cards) do
-					card:set_edition({fvb_poison_ed = true}, true)
-				end
-				return true
-			end,
-		}))
+	calculate = function(self, card, context)
+		if context.weapon_hit then
+			eventify(function() context.other_card:set_edition({fvb_poison_ed = true}, true) end)
+		end
 	end,
 })
 
