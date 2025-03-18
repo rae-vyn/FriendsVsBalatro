@@ -457,6 +457,16 @@ return {
                     "the {C:inactive,T:m_stone}Stone{}",
                     "{C:green}#1# in #2#{} chance to {C:mult}destroy{} card"
                 }
+            },
+            b_fvb_fortune_deck = {
+                name = "Fortune's Deck",
+                text = {
+                    "{C:tarot,T:c_wheel_of_fortune}Wheel Of Fortune{}",
+                    "gives {C:white,X:mult}X#3#{} while held,",
+                    "After each round",
+                    "{C:green}#1# in #2#{} chance to",
+                    "make a {C:dark_edition,T:e_negative}Negative{} {C:tarot}Wheel{}"
+                }
             }
         },
         Edition = {

@@ -185,3 +185,33 @@ SMODS.Back({
 		}))
 	end,
 })
+
+SMODS.Back({
+	key = "fortune_deck",
+	atlas = "fortune_deck",
+	config = {
+		extra = {
+			mult = 1.5,
+			odds = 8
+		}
+	},
+	loc_vars = function(self, info_queue, card)
+		return {vars = {(G.GAME.probabilities.normal or 1), self.config.extra.odds, self.config.extra.mult}}
+	end,
+	calculate = function (self, back, context)
+		if context.other_consumeable then
+			if context.other_consumeable.config.center_key == "c_wheel_of_fortune" then
+				SMODS.calculate_effect({
+					xmult = self.config.extra.mult
+				}, context.other_consumeable)
+				return
+			end
+		end
+		if context.end_of_round and context.game_over == false and pseudorandom('fortune') < G.GAME.probabilities.normal / self.config.extra.odds then
+			SMODS.add_card({
+				key = "c_wheel_of_fortune",
+				edition = "e_negative"
+			})
+		end
+	end
+})
