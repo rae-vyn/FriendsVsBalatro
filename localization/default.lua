@@ -483,7 +483,7 @@ return {
 
             },
             fvb_poison_seal = {
-                name = "Poison",
+                name = "Poison Seal",
                 text = {
                     "{C:green}#1# in #2#{} chance", "for {C:white,X:mult}X2{} Mult",
                     "{C:green}#1# in #3#{} chance",
