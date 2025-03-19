@@ -19,6 +19,6 @@ SMODS.Voucher({
     key = "friends",
     atlas = "friends",
     redeem = function (self, voucher)
-        G.GAME['fvb_personality_mod'] = 2
+        G.FVB.personalities_in_store = true
     end
 })
