@@ -1,10 +1,7 @@
-
-
 SMODS.Rarity({
     key = "personality",
     loc_txt = {name = "Personality"},
     badge_colour = HEX("E7680D"),
-    default_weight = 1
 })
 
 SMODS.Joker({
@@ -32,9 +29,7 @@ SMODS.Joker({
             return {chips = card.ability.extra.chips}
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -69,9 +64,7 @@ SMODS.Joker({
             end
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -102,9 +95,7 @@ SMODS.Joker({
             end
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -139,9 +130,7 @@ SMODS.Joker({
             end
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -162,9 +151,7 @@ SMODS.Joker({
             card:juice_up()
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -193,9 +180,7 @@ SMODS.Joker({
             return {message = localize('k_fvb_buffed')}
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -224,9 +209,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.xmult}
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -251,9 +234,7 @@ SMODS.Joker({
             end
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -289,9 +270,7 @@ SMODS.Joker({
             return {message = localize('k_fvb_buffed')}
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -324,9 +303,7 @@ SMODS.Joker({
             return {message = localize('k_fvb_accel')}
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -348,9 +325,7 @@ SMODS.Joker({
             card:juice_up()
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -372,9 +347,7 @@ SMODS.Joker({
             SMODS.add_card({set = "Joker", rarity = "fvb_personality"})
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -408,9 +381,7 @@ SMODS.Joker({
             end
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -452,9 +423,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.mult}
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -483,9 +452,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.mult}
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -503,9 +470,7 @@ SMODS.Joker({
             context.other_card:juice_up()
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -529,9 +494,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.mult}
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -574,9 +537,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.mult}
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -607,9 +568,7 @@ SMODS.Joker({
             end
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -632,9 +591,7 @@ SMODS.Joker({
             context.other_card:juice_up()
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
 
 SMODS.Joker({
@@ -658,7 +615,5 @@ SMODS.Joker({
             end
         end
     end,
-    in_pool = function (self, args)
-        return G.FVB.personalities_in_store
-    end
+    
 })
