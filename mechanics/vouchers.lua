@@ -14,3 +14,11 @@ SMODS.Voucher({
         G.FVB.debuff_in_store = true
     end
 })
+
+SMODS.Voucher({
+    key = "friends",
+    atlas = "friends",
+    redeem = function (self, voucher)
+        G.GAME['fvb_personality_mod'] = 2
+    end
+})

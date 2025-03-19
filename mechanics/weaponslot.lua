@@ -5,7 +5,8 @@ function Game:start_run(args)
     self.is_fvb = true
     self.FVB = {
         buff_in_store = false,
-        debuff_in_store = false
+        debuff_in_store = false,
+        personalities_in_store = false
     }
 
     self.weapons = CardArea(0, 0, G.CARD_W * 1.1, G.CARD_H, {

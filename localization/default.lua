@@ -491,6 +491,12 @@ return {
                 text = {
                     "{C:debuff}Debuffs{} now appear in the shop"
                 }
+            },
+            v_fvb_friends = {
+                name = "Friends!",
+                text = {
+                    "{C:personality}Personality{} cards now appear in the shop"
+                }
             }
         },
         Other = {
