@@ -2,7 +2,7 @@ SMODS.ConsumableType({
     key = "Buff",
     primary_colour = HEX("009B84"),
     secondary_colour = HEX("009B84"),
-    default = "c_fvb_small_head",
+    shop_rate = 10,
 })
 
 function use_buff(self, card, area, copier)
@@ -57,7 +57,10 @@ function Buff(info)
         calculate = info.calculate or nil,
         use = info.use or use_buff,
         can_use = info.can_use or can_use_buff,
-        unlocked = true
+        unlocked = true,
+        in_pool = function (self, args)
+            return G.FVB.buff_in_store
+        end
     })
     table.insert(FVB.cards, "c_fvb_" .. info.key)
 end

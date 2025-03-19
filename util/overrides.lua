@@ -7,6 +7,7 @@ function Game:init_item_prototypes()
 	G.C.SECONDARY_SET.Buff = HEX("009B84")
 	G.C.SECONDARY_SET.FVB_PR = HEX("2A2051")
 	G.C.SECONDARY_SET.FVB_SC = HEX("E0569B")
+	G.C.SECONDARY_SET.Debuff = HEX("CE2256")
 end
 
 function add_card_to_title(use_key)
@@ -67,6 +68,7 @@ function loc_colour(_c, _default)
 	G.ARGS.LOC_COLOURS['buff'] = HEX("009B84")
 	G.ARGS.LOC_COLOURS['fvb_pr'] = HEX("2A2051")
 	G.ARGS.LOC_COLOURS['fvb_sc'] = HEX("E0569B")
+	G.ARGS.LOC_COLOURS['debuff'] = HEX("CE2256")
     return G.ARGS.LOC_COLOURS[_c] or _default or G.C.UI.TEXT_DARK -- recalculate result
 end
 

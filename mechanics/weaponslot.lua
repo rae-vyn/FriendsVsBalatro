@@ -3,6 +3,10 @@ function Game:start_run(args)
     self.GAME.starting_params.weapon_slots = 1 -- limiting how many cards can be in this area
     self.GAME.starting_params.debuff_slots = 1
     self.is_fvb = true
+    self.FVB = {
+        buff_in_store = false,
+        debuff_in_store = false
+    }
 
     self.weapons = CardArea(0, 0, G.CARD_W * 1.1, G.CARD_H, {
         card_limit = self.GAME.starting_params.weapon_slots,
@@ -18,7 +22,7 @@ function Game:start_run(args)
         view_deck = true
     })
     -- this need to be before the start_run_ref call
-    -- or cards in your area won't be loadedmmmmm
+    -- or cards in your area won't be loaded
     start_run_ref(self, args)
 
 

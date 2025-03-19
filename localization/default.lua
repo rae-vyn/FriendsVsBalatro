@@ -479,6 +479,20 @@ return {
                 }
             },
         },
+        Voucher = {
+            v_fvb_cash_out = {
+                name = "Cash Out",
+                text = {
+                    "{C:buff}Buffs{} now appear in the shop"
+                }
+            },
+            v_fvb_mo_money = {
+                name = "Mo' Money",
+                text = {
+                    "{C:debuff}Debuffs{} now appear in the shop"
+                }
+            }
+        },
         Other = {
             p_fvb_basic_pack = {
                 name = "Basic Pack",

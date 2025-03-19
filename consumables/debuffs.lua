@@ -2,7 +2,7 @@ SMODS.ConsumableType({
     key = "Debuff",
     primary_colour = HEX("CE2256"),
     secondary_colour = HEX("CE2256"),
-    default = "c_fvb_big_head",
+    shop_rate = 10,
 })
 function Debuff(info)
     SMODS.Consumable({
@@ -38,7 +38,10 @@ function Debuff(info)
             card.T.w = card.T.w * 0.5
             card.T.h = card.T.h * 0.5
         end,
-        add_to_deck = info.add_to_deck
+        add_to_deck = info.add_to_deck,
+        in_pool = function (self, args)
+            return G.FVB.debuff_in_store
+        end
     })
     table.insert(FVB.cards, "c_fvb_" .. info.key)
 end
