@@ -51,7 +51,7 @@ SMODS.Joker({
         if context.setting_blind and not context.blueprint then
             -- Set GB reload
             for _, weapon in ipairs(G.weapons.cards) do
-                if weapon.config.center_key == "c_fvb_golden_boira" then
+                if weapon.config.center_key == "c_fvb_gld_boira" then
                     weapon.ability.extra.reloading = false
                     weapon.ability.extra.curr_ammo =
                         weapon.ability.extra.max_ammo
