@@ -2,7 +2,6 @@ SMODS.Rarity({
     key = "personality",
     loc_txt = {name = "Personality"},
     badge_colour = HEX("E7680D"),
-    default_weight = 0.02,--[[
     pools = {
         ["Joker"] = true,
     },
@@ -13,7 +12,7 @@ SMODS.Rarity({
         else
             return 0
         end
-    end]]
+    end
 })
 
 SMODS.Joker({
@@ -41,7 +40,7 @@ SMODS.Joker({
             return {chips = card.ability.extra.chips}
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -76,7 +75,7 @@ SMODS.Joker({
             end
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -107,7 +106,7 @@ SMODS.Joker({
             end
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -142,7 +141,7 @@ SMODS.Joker({
             end
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -163,7 +162,7 @@ SMODS.Joker({
             card:juice_up()
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -192,7 +191,7 @@ SMODS.Joker({
             return {message = localize('k_fvb_buffed')}
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -221,7 +220,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.xmult}
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -246,7 +245,7 @@ SMODS.Joker({
             end
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -282,7 +281,7 @@ SMODS.Joker({
             return {message = localize('k_fvb_buffed')}
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -315,7 +314,7 @@ SMODS.Joker({
             return {message = localize('k_fvb_accel')}
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -337,7 +336,7 @@ SMODS.Joker({
             card:juice_up()
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -359,7 +358,7 @@ SMODS.Joker({
             SMODS.add_card({set = "Joker", rarity = "fvb_personality"})
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -393,7 +392,7 @@ SMODS.Joker({
             end
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -435,7 +434,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.mult}
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -464,7 +463,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.mult}
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -482,7 +481,7 @@ SMODS.Joker({
             context.other_card:juice_up()
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -506,7 +505,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.mult}
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -549,7 +548,7 @@ SMODS.Joker({
             return {xmult = card.ability.extra.mult}
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -580,7 +579,7 @@ SMODS.Joker({
             end
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -603,7 +602,7 @@ SMODS.Joker({
             context.other_card:juice_up()
         end
     end,
-    
+
 })
 
 SMODS.Joker({
@@ -627,5 +626,5 @@ SMODS.Joker({
             end
         end
     end,
-    
+
 })
