@@ -3,6 +3,7 @@ SMODS.Voucher({
     atlas = "money",
     redeem = function (self, voucher)
         G.FVB.buff_in_store = true
+        G.GAME['buff_rate'] = 10
     end
 })
 
@@ -12,6 +13,7 @@ SMODS.Voucher({
     requires = {'v_fvb_cash_out'},
     redeem = function (self, voucher)
         G.FVB.debuff_in_store = true
+        G.GAME['debuff_rate'] = 10
     end
 })
 

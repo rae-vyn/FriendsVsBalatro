@@ -2,7 +2,7 @@ SMODS.ConsumableType({
     key = "Debuff",
     primary_colour = HEX("CE2256"),
     secondary_colour = HEX("CE2256"),
-    shop_rate = 10,
+    shop_rate = 0,
 })
 function Debuff(info)
     SMODS.Consumable({
@@ -39,9 +39,9 @@ function Debuff(info)
             card.T.h = card.T.h * 0.5
         end,
         add_to_deck = info.add_to_deck,
-        in_pool = function (self, args)
+        --[[in_pool = function (self, args)
             return G.FVB.debuff_in_store
-        end
+        end]]
     })
     table.insert(FVB.cards, "c_fvb_" .. info.key)
 end
@@ -308,7 +308,7 @@ Debuff({ -- Poison
             return {xmult = 0.5}
         end
     end,
-    reward = function(card) 
+    reward = function(card)
         local joker = pseudorandom_element(G.jokers.cards, pseudoseed("poison"))
         while not (joker.edition == nil) do
             joker = pseudorandom_element(G.jokers.cards, pseudoseed("poison"))
