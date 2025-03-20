@@ -8,7 +8,7 @@ SMODS.ConsumableType({
 function calcWeapon(self, card, context)
 	if context.individual and context.cardarea == G.play and not card.ability.extra.reloading then
 		local damage_range = { 0 }
-		for i = 1, (card.ability.extra.max_damage - card.ability.extra.min_damage) do
+		for i = card.ability.extra.min_damage, card.ability.extra.max_damage do
 			damage_range[#damage_range + 1] = i
 		end
 		local chosen_mult = card.ability.extra.min_damage + pseudorandom_element(damage_range, pseudoseed("boira")) -- Roll Damage
