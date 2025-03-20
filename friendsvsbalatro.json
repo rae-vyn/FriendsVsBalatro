@@ -10,6 +10,6 @@
 	"badge_text_colour": "E0569B",
 	"version": "0.4.0-beta",
 	"dependencies": [
-        "Steamodded (>=1.0.0~BETA-0315b)"
+        "Steamodded (>=1.0.0~BETA-0312b)"
     ]
 }
