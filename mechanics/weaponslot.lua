@@ -3,7 +3,7 @@ function Game:start_run(args)
     self.GAME.starting_params.weapon_slots = 1 -- limiting how many cards can be in this area
     self.GAME.starting_params.debuff_slots = 1
     self.is_fvb = true
-    self.GAME.FVB = {
+    self.FVB = {
         buff_in_store = false,
         debuff_in_store = false,
         personalities_in_store = false

@@ -7,7 +7,7 @@ SMODS.Rarity({
     },
     default_weight = 0.003,
     get_weight = function (self, weight, object_type)
-        if G.GAME.FVB.personalities_in_store then
+        if G.FVB.personalities_in_store then
             return 0.02
         else
             return 0
