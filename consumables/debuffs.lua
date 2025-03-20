@@ -359,7 +359,7 @@ Debuff({ -- Empty Mag
                 end)
             end
         end)
-        eventify(function() ease_dollars(bullets_removed) end)
+        eventify(function() ease_dollars(bullets_removed * 2) end)
         eventify(function() card:start_dissolve() end)
     end
 })
