@@ -2,6 +2,17 @@ SMODS.Rarity({
     key = "personality",
     loc_txt = {name = "Personality"},
     badge_colour = HEX("E7680D"),
+    pools = {
+        ["Joker"] = true,
+    },
+    default_weight = 0,
+    get_weight = function (self, weight, object_type)
+        if G.FVB.personalities_in_store then
+            return 0.02
+        else
+            return 0
+        end
+    end
 })
 
 SMODS.Joker({
