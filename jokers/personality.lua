@@ -5,7 +5,7 @@ SMODS.Rarity({
     pools = {
         ["Joker"] = true,
     },
-    default_weight = 0.003,
+    default_weight = 0,
     get_weight = function (self, weight, object_type)
         if G.FVB.personalities_in_store then
             return 0.02
