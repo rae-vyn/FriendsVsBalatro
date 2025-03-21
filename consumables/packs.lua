@@ -21,6 +21,7 @@ SMODS.ObjectType({
 SMODS.Booster({
     key = "basic_pack",
     atlas = "basicpack",
+    group_key = "k_booster_group_friends",
     config = {
         extra = 5,
         choose = 5
@@ -45,7 +46,7 @@ SMODS.Booster({
 SMODS.Booster({
     key = "gold_pack",
     atlas = "goldpack",
-    
+    group_key = "k_booster_group_friends",
     config = {
         extra = 5,
         choose = 5

@@ -640,11 +640,13 @@ return {
             k_fvb_reloaded = "Reloaded!",
             k_fvb_currently = "Currently",
             k_fvb_until_reload = " hand(s) until reload",
+            k_fvb_personality = "Personality",
             k_buff = "Buff",
             k_debuff = "Debuff",
             k_weapon = "Weapon",
             k_hotcard = "Hot Card",
             k_personality = "Personality",
+            k_booster_group_friends = "Friends Pack"
 
         },
         labels = {
