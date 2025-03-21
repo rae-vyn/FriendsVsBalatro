@@ -7,6 +7,4 @@ SMODS.Atlas({key = "personalities", px = 71, py = 95, path = "personalities.png"
 SMODS.Atlas({key = "card_backs", px = 71, py = 95, path = "backs_sheet.png"})
 SMODS.Atlas({key = "poisoned", px = 71, py = 95, path = "poisoned.png"})
 SMODS.Atlas({key = "fortune_deck", px = 71, py = 95, path = "fortune_back.png"})
-SMODS.Atlas({key = "money", px = 71, py = 95, path = "moneyvoucher.png"})
-SMODS.Atlas({key = "momoney", px = 71, py = 95, path = "momoney.png"})
-SMODS.Atlas({key = "friends", px = 71, py = 95, path = "friends.png"})
+SMODS.Atlas({key = "voucher", px = 71, py = 95, path = "vouchers.png"})
