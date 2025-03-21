@@ -70,7 +70,7 @@ position = "before"
 payload = '''
 elseif card.ability.set == 'Debuff' then
     card:add_to_deck()
-    G.weapons:emplace(card)
+    G.debuffs:emplace(card)
     play_sound('card1', 0.8, 0.6)
     play_sound('generic1')
     dont_dissolve = true
@@ -112,26 +112,6 @@ position = "after"
 payload = '''
 FVB_PR = HEX("2A2051"),
 FVB_SC = HEX("E0569B"),
-'''
-match_indent = true
-times = 1
-
-
-[[patches]]
-[patches.pattern]
-target = "globals.lua"
-pattern = '''
-if next(SMODS.find_card('j_mxms_microwave')) and pseudorandom('eggsplode' .. G.GAME.round_resets.ante, 1, 20) == 1 then
-'''
-position = "after"
-payload = '''
-return {
-    message = "Saved!"
-    colour = G.C.MONEY
-    func = function() 
-        ease_dollars(self.sell_cost)
-    end
-}
 '''
 match_indent = true
 times = 1

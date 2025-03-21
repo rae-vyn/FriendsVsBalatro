@@ -72,6 +72,15 @@ function loc_colour(_c, _default)
     return G.ARGS.LOC_COLOURS[_c] or _default or G.C.UI.TEXT_DARK -- recalculate result
 end
 
+local check_buy_ref = G.FUNCS.check_for_buy_space
+G.FUNCS.check_for_buy_space = function(card)
+	if not (card.ability.set == 'Debuff' and #G.debuffs.cards < G.debuffs.config.card_limit) then
+		alert_no_space(card, G.debuffs)
+		return false
+	end
+	return check_buy_ref(card)
+end
+
 function eventify(fun)
     G.E_MANAGER:add_event(Event({
         trigger = "immediate",
