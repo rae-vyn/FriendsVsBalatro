@@ -11,7 +11,7 @@ function calcWeapon(self, card, context)
 		for i = card.ability.extra.min_damage, card.ability.extra.max_damage do
 			damage_range[#damage_range + 1] = i
 		end
-		local chosen_mult = card.ability.extra.min_damage + pseudorandom_element(damage_range, pseudoseed("boira")) -- Roll Damage
+		local chosen_mult = pseudorandom_element(damage_range, pseudoseed("boira")) -- Roll Damage
 		card.ability.extra.curr_ammo = card.ability.extra.curr_ammo - 1 -- Take away ammo
 		if card.ability.extra.curr_ammo <= 0 then
 			card.ability.extra.reloading = true
