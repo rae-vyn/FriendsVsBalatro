@@ -25,6 +25,6 @@ SMODS.Voucher({
     pos = { x=3, y=0},
     redeem = function (self, voucher)
         G.FVB.personalities_in_store = true
-        G.GAME['fvb_personality_mod'] = 0.2
+        G.GAME['fvb_personality_mod'] = 1
     end
 })
