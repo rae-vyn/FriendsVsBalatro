@@ -134,7 +134,7 @@ Weapon({
 
 	min_damage = 9,
 	max_damage = 9 * 6,
-	miss_chance = 45,
+	miss_chance = 60,
 	max_ammo = 8,
 	reload_time = 1,
 })
@@ -144,8 +144,8 @@ Weapon({
 
 	pos = { x = 1, y = 0 },
 
-	min_damage = 50,
-	max_damage = 90,
+	min_damage = 25,
+	max_damage = 50,
 	miss_chance = 20,
 	max_ammo = 6,
 	reload_time = 6,
@@ -156,8 +156,8 @@ Weapon({
 
 	atlas = "boira",
 
-	min_damage = 5,
-	max_damage = 13,
+	min_damage = 1,
+	max_damage = 8,
 	miss_chance = 25,
 	max_ammo = 12,
 	reload_time = 3,
@@ -168,8 +168,8 @@ Weapon({
 
 	pos = { x = 2, y = 0 },
 
-	min_damage = 8,
-	max_damage = 12,
+	min_damage = 2,
+	max_damage = 10,
 	miss_chance = 32,
 	max_ammo = 35,
 	reload_time = 1,
@@ -192,8 +192,8 @@ Weapon({
 
 	pos = { x = 1, y = 1 },
 
-	min_damage = 12,
-	max_damage = 20,
+	min_damage = 10,
+	max_damage = 18,
 	miss_chance = 30,
 	max_ammo = 31,
 	reload_time = 2,
