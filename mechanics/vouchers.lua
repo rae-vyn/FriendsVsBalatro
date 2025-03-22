@@ -4,7 +4,7 @@ SMODS.Voucher({
     pos = { x=0, y=0},
     redeem = function (self, voucher)
         G.FVB.buff_in_store = true
-        G.GAME['buff_rate'] = 10
+        G.GAME['buff_rate'] = 5
     end
 })
 
@@ -15,7 +15,7 @@ SMODS.Voucher({
     requires = {'v_fvb_cash_out'},
     redeem = function (self, voucher)
         G.FVB.debuff_in_store = true
-        G.GAME['debuff_rate'] = 10
+        G.GAME['debuff_rate'] = 5
     end
 })
 
@@ -25,6 +25,6 @@ SMODS.Voucher({
     pos = { x=3, y=0},
     redeem = function (self, voucher)
         G.FVB.personalities_in_store = true
-        G.GAME['fvb_personality_mod'] = 10
+        G.GAME['fvb_personality_mod'] = 0.2
     end
 })
