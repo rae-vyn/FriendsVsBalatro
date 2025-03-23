@@ -49,3 +49,22 @@ SMODS.Challenge({
         }
     }
 })
+SMODS.Challenge({
+    key = "sacrifices",
+    loc_txt = {name = "Sacrifices"},
+    jokers = {
+        {id = "j_fvb_dingo", eternal = true},
+        {id = "j_certificate", eternal = true}
+    },
+
+    deck = {
+        type = "Challenge Deck",
+        cards = {
+            {s = "S", r = "2"}, {s = "S", r = "3"}, {s = "S", r = "4"},
+            {s = "S", r = "5"}, {s = "S", r = "6"}, {s = "S", r = "7"},
+            {s = "S", r = "8"}, {s = "S", r = "9"}, {s = "S", r = "T"},
+            {s = "S", r = "Q"}, {s = "S", r = "J"}, {s = "S", r = "K"},
+            {s = "S", r = "A"}
+        }
+    }
+})
