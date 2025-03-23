@@ -49,7 +49,7 @@ SMODS.Joker({
     pos = {x = 2, y = 3},
     config = {extra = {damage_gain = 5}},
     loc_vars = function (self, info_queue, card)
-        info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_golden_boira
+        info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_gld_boira
         return {vars = {card.ability.extra.damage_gain}}
     end,
     rarity = "fvb_personality",
@@ -323,6 +323,10 @@ SMODS.Joker({
     pos = {x = 4, y = 1},
     rarity = "fvb_personality",
     blueprint_compat = false,
+    loc_vars = function (self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_dither
+        info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_banding
+    end,
     check_for_unlock = function(self, args)
         if args.fvf_char == self.config.center_key then return true end
     end,
@@ -514,6 +518,7 @@ SMODS.Joker({
     pos = {x = 0, y = 2},
     config = {extra = {mult = 1, mult_gain = 0.5}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_laika
         return {vars = {card.ability.extra.mult, card.ability.extra.mult_gain}}
     end,
     rarity = "fvb_personality",

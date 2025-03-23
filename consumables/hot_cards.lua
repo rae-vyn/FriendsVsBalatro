@@ -53,7 +53,8 @@ SMODS.Consumable({
     },
     pos = {x = 3, y = 9},
     unlocked = true,
-    loc_vars = function(self, info_queue, card) 
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_mult
         return { vars = {(G.GAME.probabilities.normal or 1), card.ability.extra.odds}}
     end,
     calculate = function(self, card, context)
