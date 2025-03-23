@@ -10,9 +10,11 @@ This mod adds the cards from the fantatic arena shooter Friends Vs Friends to th
 - Two new card slots: the Weapon slot and another special slot...
 - 21 new Jokers
 - 43 new Consumables
-- 6 new decks
-- 1 new challenge
+- 8 new decks
+- 2 new challenges
 - 1 seal
+- 1 edition
+- 3 vouchers
 - 2 booster packs
 
 ## Installation
