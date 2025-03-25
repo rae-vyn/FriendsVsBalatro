@@ -539,7 +539,7 @@ vec4 fire_col(vec2 _st, number _time) {
     // Domain distortion
     vec3 q = vec3( fbm( p + vec3(0.0,0.0, time)),
                 fbm( p + vec3(0.3, 1.3, time) ), time );
-    return fbm(p + q * .1) * 20.0 * vec4(0.9451, 0.3843, 0.1608, 1.0);
+    return fbm(p + q * .1) * 5.0 * vec4(0.9451, 0.3843, 0.1608, 1.0);
 }
 
 vec4 lighten(vec4 base, vec4 blend){
@@ -565,11 +565,11 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
     // For all vectors (vec2, vec3, vec4), .rgb is equivalent of .xyz, so uv.y == uv.g
     // .a is last parameter for vec4 (usually the alpha channel - transparency)
-    tex.rgb = 1.4 - tex.rgb;
+    tex.rgb = 1.3 - vec3((tex.r + tex.g + tex.b) / 3.0);
     vec4 fire_color = fire_col(uv, -fire.g);
 
     vec4 out_colour = lighten(fire_color, tex);
-    out_colour.a = tex.a * max(fire.r, 1.0);
+    out_colour.a = min(1.0, tex.a);
 
     // required
     return dissolve_mask(out_colour, texture_coords, uv);
