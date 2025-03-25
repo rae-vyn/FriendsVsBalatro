@@ -3,11 +3,11 @@
 
         * lygia/generative/fbm.glsl
 
-    LYGIA is dual-licensed under the [Prosperity License](https://prosperitylicense.com/versions/3.0.0) 
-    and the [Patron License](https://lygia.xyz/license) for [sponsors](https://github.com/sponsors/patriciogonzalezvivo) 
+    LYGIA is dual-licensed under the [Prosperity License](https://prosperitylicense.com/versions/3.0.0)
+    and the [Patron License](https://lygia.xyz/license) for [sponsors](https://github.com/sponsors/patriciogonzalezvivo)
     and [contributors](https://github.com/patriciogonzalezvivo/lygia/graphs/contributors).
 
-    Those are automatically added to the [Patron License](https://lygia.xyz/license) and they (only they) 
+    Those are automatically added to the [Patron License](https://lygia.xyz/license) and they (only they)
     can ignore and any non-commercial rule of the [Prosperity License](https://prosperitylicense.com/versions/3.0.0)
     software (please take a look at the exceptions).
 
@@ -32,7 +32,7 @@ extern PRECISION vec2 fire;
 extern PRECISION number dissolve;
 extern PRECISION number time;
 // [Note] sprite_pos_x _y is not a pixel position!
-//        To get pixel position, you need to multiply  
+//        To get pixel position, you need to multiply
 //        it by sprite_width _height (look flipped.fs)
 // (sprite_pos_x, sprite_pos_y, sprite_width, sprite_height) [not normalized]
 extern PRECISION vec4 texture_details;
@@ -42,7 +42,7 @@ extern bool shadow;
 extern PRECISION vec4 burn_colour_1;
 extern PRECISION vec4 burn_colour_2;
 
-// [Required] 
+// [Required]
 // Apply dissolve effect (when card is being "burnt", e.g. when consumable is used)
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
 
@@ -294,7 +294,7 @@ vec2 random2(vec3 p3) {
 vec3 random3(number p) {
     vec3 p3 = fract(vec3(p) * RANDOM_SCALE.xyz);
     p3 += dot(p3, p3.yzx + 19.19);
-    return fract((p3.xxy + p3.yzz) * p3.zyx); 
+    return fract((p3.xxy + p3.yzz) * p3.zyx);
 }
 vec3 random3(vec2 p) {
     vec3 p3 = fract(vec3(p.xyx) * RANDOM_SCALE.xyz);
@@ -309,7 +309,7 @@ vec3 random3(vec3 p) {
 vec4 random4(number p) {
     vec4 p4 = fract(p * RANDOM_SCALE);
     p4 += dot(p4, p4.wzxy + 19.19);
-    return fract((p4.xxyz + p4.yzzw) * p4.zywx);   
+    return fract((p4.xxyz + p4.yzzw) * p4.zywx);
 }
 vec4 random4(vec2 p) {
     vec4 p4 = fract(p.xyxy * RANDOM_SCALE);
@@ -363,7 +363,7 @@ vec3 srandom3(in vec3 p, const in number tileLength) {
 }
 #endif
 #ifndef FNC_CUBIC
-#define FNC_CUBIC 
+#define FNC_CUBIC
 number cubic(const in number v) { return v*v*(3.0-2.0*v); }
 vec2  cubic(const in vec2 v)  { return v*v*(3.0-2.0*v); }
 vec3  cubic(const in vec3 v)  { return v*v*(3.0-2.0*v); }
@@ -402,7 +402,7 @@ vec4 cubic(const in vec4 v, in number slope0, in number slope1) {
 }
 #endif
 #ifndef FNC_QUINTIC
-#define FNC_QUINTIC 
+#define FNC_QUINTIC
 number quintic(const in number v) { return v*v*v*(v*(v*6.0-15.0)+10.0); }
 vec2  quintic(const in vec2 v)  { return v*v*v*(v*(v*6.0-15.0)+10.0); }
 vec3  quintic(const in vec3 v)  { return v*v*v*(v*(v*6.0-15.0)+10.0); }
@@ -413,7 +413,7 @@ vec4  quintic(const in vec4 v)  { return v*v*v*(v*(v*6.0-15.0)+10.0); }
 number gnoise(number x) {
     number i = floor(x);
     number f = fract(x);
-    return mix(random(i), random(i + 1.0), smoothstep(0.,1.,f)); 
+    return mix(random(i), random(i + 1.0), smoothstep(0.,1.,f));
 }
 number gnoise(vec2 st) {
     vec2 i = floor(st);
@@ -431,26 +431,26 @@ number gnoise(vec3 p) {
     vec3 i = floor(p);
     vec3 f = fract(p);
     vec3 u = quintic(f);
-    return -1.0 + 2.0 * mix( mix( mix( random(i + vec3(0.0,0.0,0.0)), 
+    return -1.0 + 2.0 * mix( mix( mix( random(i + vec3(0.0,0.0,0.0)),
                                         random(i + vec3(1.0,0.0,0.0)), u.x),
-                                mix( random(i + vec3(0.0,1.0,0.0)), 
+                                mix( random(i + vec3(0.0,1.0,0.0)),
                                         random(i + vec3(1.0,1.0,0.0)), u.x), u.y),
-                            mix( mix( random(i + vec3(0.0,0.0,1.0)), 
+                            mix( mix( random(i + vec3(0.0,0.0,1.0)),
                                         random(i + vec3(1.0,0.0,1.0)), u.x),
-                                mix( random(i + vec3(0.0,1.0,1.0)), 
+                                mix( random(i + vec3(0.0,1.0,1.0)),
                                         random(i + vec3(1.0,1.0,1.0)), u.x), u.y), u.z );
 }
 number gnoise(vec3 p, number tileLength) {
     vec3 i = floor(p);
     vec3 f = fract(p);
     vec3 u = quintic(f);
-    return mix( mix( mix( dot( srandom3(i + vec3(0.0,0.0,0.0), tileLength), f - vec3(0.0,0.0,0.0)), 
+    return mix( mix( mix( dot( srandom3(i + vec3(0.0,0.0,0.0), tileLength), f - vec3(0.0,0.0,0.0)),
                             dot( srandom3(i + vec3(1.0,0.0,0.0), tileLength), f - vec3(1.0,0.0,0.0)), u.x),
-                    mix( dot( srandom3(i + vec3(0.0,1.0,0.0), tileLength), f - vec3(0.0,1.0,0.0)), 
+                    mix( dot( srandom3(i + vec3(0.0,1.0,0.0), tileLength), f - vec3(0.0,1.0,0.0)),
                             dot( srandom3(i + vec3(1.0,1.0,0.0), tileLength), f - vec3(1.0,1.0,0.0)), u.x), u.y),
-                mix( mix( dot( srandom3(i + vec3(0.0,0.0,1.0), tileLength), f - vec3(0.0,0.0,1.0)), 
+                mix( mix( dot( srandom3(i + vec3(0.0,0.0,1.0), tileLength), f - vec3(0.0,0.0,1.0)),
                             dot( srandom3(i + vec3(1.0,0.0,1.0), tileLength), f - vec3(1.0,0.0,1.0)), u.x),
-                    mix( dot( srandom3(i + vec3(0.0,1.0,1.0), tileLength), f - vec3(0.0,1.0,1.0)), 
+                    mix( dot( srandom3(i + vec3(0.0,1.0,1.0), tileLength), f - vec3(0.0,1.0,1.0)),
                             dot( srandom3(i + vec3(1.0,1.0,1.0), tileLength), f - vec3(1.0,1.0,1.0)), u.x), u.y), u.z );
 }
 vec3 gnoise3(vec3 x) {
@@ -586,7 +586,7 @@ vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv)
 	number t = time * 10.0 + 2003.;
 	vec2 floored_uv = (floor((uv*texture_details.ba)))/max(texture_details.b, texture_details.a);
     vec2 uv_scaled_centered = (floored_uv - 0.5) * 2.3 * max(texture_details.b, texture_details.a);
-	
+
 	vec2 field_part1 = uv_scaled_centered + 50.*vec2(sin(-t / 143.6340), cos(-t / 99.4324));
 	vec2 field_part2 = uv_scaled_centered + 50.*vec2(cos( t / 53.1532),  cos( t / 61.4532));
 	vec2 field_part3 = uv_scaled_centered + 50.*vec2(sin(-t / 87.53218), sin(-t / 49.0000));
