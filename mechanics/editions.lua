@@ -51,9 +51,7 @@ SMODS.Edition({
             return {x_mult = self.config.extra.x_mult}
         end
         if context.destroying_card then
-            if pseudorandom('fire') < G.GAME.probabilities.normal / self.config.extra.odds then
-                return {remove = true}
-            end
+            return {remove = true}
         end
     end
 })

@@ -481,9 +481,8 @@ return {
             e_fvb_fire = {
                 name = "Fire",
                 text = {
-                    "Gaines {C:mult}X#3#{} Mult when played",
-                    "{C:green}#1# in #2#{} chance",
-                    "to {C:mult}self-destruct{} after scoring"
+                    "{C:white,X:mult}X#3#{} Mult",
+                    "{C:mult}Self-destructs{} after scoring"
                 }
             },
         },
