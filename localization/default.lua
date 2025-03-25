@@ -478,6 +478,14 @@ return {
                     "for {C:white,X:mult}X0.5{} Mult"
                 }
             },
+            e_fvb_fire = {
+                name = "Fire",
+                text = {
+                    "Gaines {C:mult}X#3#{} Mult when played",
+                    "{C:green}#1# in #2#{} chance",
+                    "to {C:mult}self-destruct{} after scoring"
+                }
+            },
         },
         Voucher = {
             v_fvb_cash_out = {
@@ -651,7 +659,8 @@ return {
         },
         labels = {
             fvb_poison_seal = "Poison Seal",
-            fvb_poison_ed = "Poison"
+            fvb_poison_ed = "Poison",
+            fvb_fire = "Fire"
         }
     }
 }

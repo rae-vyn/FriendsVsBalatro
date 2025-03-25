@@ -27,3 +27,33 @@ SMODS.Shader({
     key = 'poison',
     path = "poison.fs"
 })
+
+SMODS.Shader({
+    key = 'fire',
+    path = "fire.fs"
+})
+
+SMODS.Edition({
+    key = "fire",
+    shader = "fire",
+    disable_base_shader = true,
+    config = {
+        extra = {
+            odds = 2,
+            x_mult = 3,
+        }
+    },
+    loc_vars = function(self, info_queue, card) 
+        return { vars = {(G.GAME.probabilities.normal or 1), self.config.extra.odds, self.config.extra.x_mult}}
+    end,
+    calculate = function (self, card, context)
+        if context.main_scoring and context.cardarea == G.play then
+            return {x_mult = self.config.extra.x_mult}
+        end
+        if context.destroying_card then
+            if pseudorandom('fire') < G.GAME.probabilities.normal / self.config.extra.odds then
+                return {remove = true}
+            end
+        end
+    end
+})
