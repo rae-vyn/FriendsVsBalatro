@@ -482,7 +482,8 @@ return {
                 name = "Fire",
                 text = {
                     "{C:white,X:mult}X#3#{} Mult",
-                    "{C:mult}Self-destructs{} after scoring"
+                    "{C:mult}Self-destructs{}", 
+                    "after scoring"
                 }
             },
         },
@@ -614,6 +615,15 @@ return {
                 text = {
                     "A gift from Sable.", "{C:mult}+#1#-#2#{} Mult",
                     "{C:green}#3#%{} chance to miss",
+                    "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
+                }
+            },
+            c_fvb_deep_fryer = {
+                name = "Deep Fryer",
+                text = {
+                    "Things are heating up!",
+                    "{C:mult}Does no damage",
+                    "{C:green}#6# in #3#{} chance to {C:personality}ignite{} cards",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             }

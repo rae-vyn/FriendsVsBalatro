@@ -182,7 +182,7 @@ SMODS.Joker({
         if context.setting_blind and not context.blueprint then
             for _, weapon in ipairs(G.weapons.cards) do
                 weapon.ability.extra.miss_chance =
-                    weapon.ability.extra.miss_chance - card.ability.extra.miss_reduction
+                    weapon.ability.extra.miss_chance - ((weapon.config.center_key ~= "c_fvb_deep_fryer" and card.ability.extra.miss_reduction) or 1)
                 if weapon.ability.extra.miss_chance <= 0 then
                     weapon.ability.extra.miss_chance = 0
                 end

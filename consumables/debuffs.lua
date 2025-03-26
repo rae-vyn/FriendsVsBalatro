@@ -179,15 +179,14 @@ Debuff({ -- Less Accuracy
         eventify(function()
             for _, weapon in ipairs(G.weapons.cards) do
                 weapon.ability.extra.miss_chance =
-                    weapon.ability.extra.miss_chance + 10
-                weapon:juice_up()
+                    weapon.ability.extra.miss_chance + ((weapon.config.center_key ~= "c_fvb_deep_fryer" and 10) or 1)
             end
         end)
     end,
     reward = function(card)
         eventify(function()
             for _, weapon in ipairs(G.weapons.cards) do
-                weapon.ability.extra.miss_chance = 25
+                weapon.ability.extra.miss_chance = 2
                 weapon:juice_up()
             end
         end)

@@ -189,8 +189,9 @@ Buff({
 
     use = function(self, card, area, copier)
         for _, weapon in ipairs(G.weapons.cards) do
+            
             weapon.ability.extra.miss_chance =
-                weapon.ability.extra.miss_chance - 10
+                weapon.ability.extra.miss_chance - ((weapon.config.center_key ~= "c_fvb_deep_fryer" and 10) or 1)
             if weapon.ability.extra.miss_chance <= 0 then
                 weapon.ability.extra.miss_chance = 0
             end

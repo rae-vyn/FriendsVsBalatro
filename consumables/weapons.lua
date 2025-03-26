@@ -16,7 +16,7 @@ function calcWeapon(self, card, context)
 		if card.ability.extra.curr_ammo <= 0 then
 			card.ability.extra.reloading = true
 		end
-		if pseudorandom("boira") < card.ability.extra.miss_chance / 100 then
+		if pseudorandom("boira") <= card.ability.extra.miss_chance / 100 then
 			return {
 				message = localize('k_fvb_missed'),
 				message_card = context.other_card,
@@ -234,3 +234,5 @@ Weapon({
 	miss_chance = 10,
 	reload_time = 3,
 })
+
+assert(SMODS.load_file("consumables/deepfryer.lua"))()
