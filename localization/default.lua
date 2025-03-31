@@ -183,6 +183,14 @@ return {
                     "if hand is played with", "{C:attention}#1#%{} of the",
                     "required chips scored"
                 }
+            },
+            j_fvb_cash_card = {
+                name = "Cash's Card",
+                text = {
+                    "Earn {C:money}$#1#{} per Consumable held",
+                    "at end of round",
+                    "{C:inactive}(Currently{} {C:money}$#2#{}{C:inactive}){}"
+                }
             }
         },
         Buff = {

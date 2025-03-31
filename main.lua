@@ -13,7 +13,7 @@ assert(SMODS.load_file('consumables/buffs.lua'))()
 assert(SMODS.load_file('consumables/debuffs.lua'))()
 assert(SMODS.load_file('consumables/hot_cards.lua'))()
 assert(SMODS.load_file('jokers/personality.lua'))()
-
+assert(SMODS.load_file('jokers/standard.lua'))()
 if next(SMODS.find_mod('Talisman')) then
     assert(SMODS.load_file('util/talisman_compat.lua'))()
 end
