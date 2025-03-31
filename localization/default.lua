@@ -187,7 +187,8 @@ return {
             j_fvb_cash_card = {
                 name = "Cash's Card",
                 text = {
-                    "Earn {C:money}$#1#{} per Consumable held",
+                    "Earn {C:money}$#1#{} per round",
+                    "with max Consumables held",
                     "at end of round",
                     "{C:inactive}(Currently{} {C:money}$#2#{}{C:inactive}){}"
                 }
