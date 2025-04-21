@@ -317,7 +317,7 @@ return {
             c_fvb_health_down = {
                 name = "Health Down",
                 text = {
-                    "Removes {C:chips}-1{} Chip from each card",
+                    "Removes {C:chips}-1{} Chip from each scoring card",
                     "After {C:mult}#1#{} rounds gain {C:chips}+1{} hand",
                     "{C:inactive}(Self destructs after)"
                 }
