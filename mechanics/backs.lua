@@ -25,16 +25,17 @@ SMODS.Back({
 	atlas = "card_backs",
 	pos = { x = 0, y = 0 },
 	unlocked = true,
-	apply = function(self, back)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				for _, card in ipairs(G.playing_cards) do
-					assert(SMODS.change_base(card, "Hearts"))
-					card:set_ability(G.P_CENTERS.m_gold)
+	calculate = function (self, back, context)
+		if context.weapon_hit then
+			return {
+				func = function()
+					eventify(function ()
+						G.deck.cards[1]:juice_up()
+						context.other_card:set_ability(G.P_CENTERS.m_gold)
+					end)
 				end
-				return true
-			end,
-		}))
+			}
+		end
 	end,
 })
 

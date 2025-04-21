@@ -424,7 +424,7 @@ return {
             b_fvb_baba_deck = {
                 name = "Baba's Deck",
                 text = {
-                    "Start with a deck", "Of {C:attention}Gold{} {C:mult}Hearts"
+                    "Every card {C:mult}hit", "becomes {C:money,T:m_gold}Gold{}"
                 }
             },
             b_fvb_siaro_deck = {
