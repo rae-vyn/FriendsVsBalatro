@@ -91,9 +91,10 @@ function eventify(fun)
     }))
 end
 
-SMODS.Keybind({
-    key_pressed = "delete",
-    action = function (self)
-        SMODS.restart_game()
-    end
-})
+local set_cost_ref = Card.set_cost
+function Card:set_cost()
+	set_cost_ref(self)
+	if next(SMODS.find_card('j_fvb_cash_card')) and self.ability.set == "Booster" and self.ability.name:find("fvb") then
+		self.cost = math.floor(self.cost / 2)
+	end
+end

@@ -187,10 +187,8 @@ return {
             j_fvb_cash_card = {
                 name = "Cash's Card",
                 text = {
-                    "Earn {C:money}$#1#{} per round",
-                    "with max Consumables held",
-                    "at end of round",
-                    "{C:inactive}(Currently{} {C:money}$#2#{}{C:inactive}){}"
+                    "All {C:personality}Friends{} Packs",
+                    "in the shop are {C:attention}half off",
                 }
             }
         },
@@ -518,11 +516,11 @@ return {
         },
         Other = {
             p_fvb_basic_pack = {
-                name = "Basic Pack",
+                name = "Basic Friends Pack",
                 text = {"Contains 5", "Friends Vs. Friends cards"}
             },
             p_fvb_gold_pack = {
-                name = "Gold Pack",
+                name = "Gold Friends Pack",
                 text = {
                     "Contains 5", "Friends Vs. Friends cards",
                     "One is a {C:attention}Polychrome{} {C:weapon}Weapon"
