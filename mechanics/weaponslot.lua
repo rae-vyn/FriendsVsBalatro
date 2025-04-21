@@ -46,9 +46,6 @@ function Game:start_run(args)
             return true
         end,
     }))
-    if G.consumeables.config.card_limit == 2 then
-        G.consumeables:change_size(5)
-    end
 end
 
 local set_screen_positions_ref = set_screen_positions
