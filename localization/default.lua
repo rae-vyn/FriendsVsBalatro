@@ -374,6 +374,7 @@ return {
                 name = "Invisible Hand",
                 text = {
                     "{C:green}3 in 4{} cards in hand get flipped",
+                    "when a hand is played",
                     "After {C:mult}#1#{} rounds give {C:money}$30{}",
                     "{C:inactive}(Self destructs after)"
                 }
