@@ -30,7 +30,7 @@ SMODS.Joker({
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
-            not context.blueprint then
+            context.no_blueprint then
             if context.other_card:get_id() == 12 then
                 card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_gain
                 return {message = localize('k_fvb_upgraded'), message_card = card}
@@ -58,7 +58,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
+        if context.setting_blind and context.no_blueprint then
             -- Set GB reload
             for _, weapon in ipairs(G.weapons.cards) do
                 if weapon.config.center_key == "c_fvb_gld_boira" then
@@ -93,7 +93,7 @@ SMODS.Joker({
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
-            not context.blueprint then
+            context.no_blueprint then
             if context.other_card:get_id() == 14 then
                 for _, weapon in ipairs(G.weapons.cards) do
                     weapon.ability.extra.min_damage =
@@ -124,7 +124,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
+        if context.setting_blind and context.no_blueprint then
             -- Set GB reload
             for _, weapon in ipairs(G.weapons.cards) do
                 if weapon.config.center_key == "c_fvb_katana" then
@@ -149,7 +149,7 @@ SMODS.Joker({
     atlas = "personalities",
     pos = {x = 0, y = 1},
     rarity = "fvb_personality",
-    blueprint_compat = false,
+    blueprint_compat = true,
     loc_vars = function (self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.c_fvb_green_herb
     end,
@@ -157,7 +157,10 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
+        if context.setting_blind then
+            if not (#G.consumeables.cards < G.consumeables.config.card_limit) then
+                return
+            end
             SMODS.add_card({key = "c_fvb_green_herb"})
             card:juice_up()
         end
@@ -179,7 +182,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
+        if context.setting_blind and context.no_blueprint then
             for _, weapon in ipairs(G.weapons.cards) do
                 weapon.ability.extra.miss_chance =
                     weapon.ability.extra.miss_chance - ((weapon.config.center_key ~= "c_fvb_deep_fryer" and card.ability.extra.miss_reduction) or 1)
@@ -208,12 +211,12 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.skip_blind and card.ability.extra.skip_count == 1 then
+        if context.skip_blind and card.ability.extra.skip_count == 1 and context.no_blueprint then
             card.ability.extra.skip_count = 0
             card.ability.extra.pow = card.ability.extra.pow + 1
             card.ability.extra.xmult = 2 ^ card.ability.extra.pow
             return {message = localize('k_fvb_buffed'), message_card = card}
-        elseif context.skip_blind then
+        elseif context.skip_blind and context.no_blueprint then
             card.ability.extra.skip_count = card.ability.extra.skip_count + 1
         end
         if context.joker_main then
@@ -236,7 +239,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
+        if context.setting_blind and context.no_blueprint then
             for _, weapon in ipairs(G.weapons.cards) do
                 if weapon.config.center_key == "c_fvb_brasshopper" then
                     weapon.ability.extra.max_ammo =
@@ -263,7 +266,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.first_hand_drawn and not context.blueprint then
+        if context.first_hand_drawn and context.no_blueprint then
             G.GAME.blind.chips = math.floor(G.GAME.blind.chips * 0.75)
             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 
@@ -274,7 +277,7 @@ SMODS.Joker({
 
             play_sound("chips2")
         end
-        if context.end_of_round and G.GAME.blind.boss and not context.blueprint and
+        if context.end_of_round and G.GAME.blind.boss and context.no_blueprint and
             not context.repetition and not context.individual then
             card.ability.extra.blind_reduction =
                 card.ability.extra.blind_reduction - card.ability.extra.decrease_amount
@@ -302,7 +305,7 @@ SMODS.Joker({
             card.ability.extra.xmult_gain = 1
             return {message = localize('k_fvb_reset')}
         end
-        if context.setting_blind and not context.blueprint then
+        if context.setting_blind and context.no_blueprint then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_gain
 			return {message = localize('k_fvb_upgraded')}
         end
@@ -331,7 +334,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
+        if context.setting_blind and context.no_blueprint then
             if not (#G.consumeables.cards < G.consumeables.config.card_limit - 2) then
                 return
             end
@@ -354,7 +357,7 @@ SMODS.Joker({
     end,
     calculate = function(self, card, context)
         if context.before and next(context.poker_hands["Straight Flush"]) and
-            not context.blueprint then
+            context.no_blueprint then
             if not (#G.jokers.cards < G.jokers.config.card_limit) then
                 return
             end
@@ -375,7 +378,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.joker_main and not context.blueprint then
+        if context.joker_main and context.no_blueprint then
             if next(context.poker_hands["Flush"]) then
                 local suit = context.scoring_hand[1].base.suit
                 if suit == "Hearts" then return {xmult = 10} end
@@ -455,7 +458,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.discard and context.cardarea == G.hand then
+        if context.discard and context.no_blueprint then
             if not SMODS.has_no_rank(context.other_card) then
                 card.ability.extra.mult =
                     card.ability.extra.mult + card.ability.extra.mult_gain
@@ -480,7 +483,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
+        if context.individual and context.cardarea == G.play and context.no_blueprint then
             context.other_card:set_seal('fvb_poison', true, true)
             context.other_card:juice_up()
         end
@@ -502,7 +505,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.weapon_missed and not context.blueprint then
+        if context.weapon_missed and context.no_blueprint then
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
         end
         if context.joker_main then
@@ -527,14 +530,14 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.weapon_hit and not context.blueprint then
+        if context.weapon_hit and context.no_blueprint then
             for _, weapon in ipairs(G.weapons.cards) do
                 if weapon.config.center_key == "c_fvb_laika" then
                     card.ability.extra.mult = card.ability.extra.mult + 1
                 end
             end
         end
-        if context.setting_blind and not context.blueprint then
+        if context.setting_blind and context.no_blueprint then
             for _, weapon in ipairs(G.weapons.cards) do
                 if weapon.config.center_key == "c_fvb_laika" then
                     if weapon.config.center_key == "c_fvb_laika" then
@@ -571,7 +574,7 @@ SMODS.Joker({
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
-            not context.blueprint then
+            context.no_blueprint then
             if context.other_card.base.suit == "Hearts" then
                 card.ability.extra.mult = card.ability.extra.mult + 5
             end
@@ -596,12 +599,12 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.chip_gain}}
     end,
-    blueprint_compat = false,
+    blueprint_compat = true,
     check_for_unlock = function(self, args)
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.individual and not context.blueprint then
+        if context.individual then
             context.other_card.ability.perma_bonus =
                 (context.other_card.ability.perma_bonus or 0) + card.ability.extra.chip_gain
             context.other_card:juice_up()
@@ -624,7 +627,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.before and not context.blueprint then
+        if context.before and context.no_blueprint then
             if G.GAME.chips / G.GAME.blind.chips >= card.ability.extra.score_req then
                 G.GAME.chips = G.GAME.blind.chips
                 return {message = localize('k_fvb_won')}
