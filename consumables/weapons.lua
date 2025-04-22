@@ -29,7 +29,7 @@ function calcWeapon(self, card, context)
 		sendDebugMessage("Ammo left: " .. card.ability.extra.curr_ammo)
 		return {
 			mult = chosen_mult,
-			card = card,
+			-- card = card,
 			func = function()
 				SMODS.calculate_context({ weapon_hit = true, other_card = context.other_card })
 				sendDebugMessage("sent weapon missed context", "ContextCheck")
