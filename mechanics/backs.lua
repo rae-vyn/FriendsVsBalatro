@@ -55,7 +55,7 @@ SMODS.Back({
 	key = "schema_deck",
 	config = {
 		extra = {
-			ante_counter = 3,
+			ante_counter = 2,
 			last_ante = 1,
 		},
 	},
