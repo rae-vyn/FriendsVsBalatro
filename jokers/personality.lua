@@ -455,7 +455,7 @@ SMODS.Joker({
         if args.fvf_char == self.config.center_key then return true end
     end,
     calculate = function(self, card, context)
-        if context.discard then
+        if context.discard and context.cardarea == G.hand then
             if not SMODS.has_no_rank(context.other_card) then
                 card.ability.extra.mult =
                     card.ability.extra.mult + card.ability.extra.mult_gain
