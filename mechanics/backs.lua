@@ -222,7 +222,7 @@ SMODS.Back({
     calculate = function(self, back, context)
         if context.weapon_hit and pseudorandom('mystical') <
             G.GAME.probabilities.normal / self.config.extra.odds and
-            #G.consumeables.cards >= G.consumeables.config.card_limit then
+            #G.consumeables.cards < G.consumeables.config.card_limit then
             return {
                 message = localize("k_fvb_hit"),
                 func = function()
