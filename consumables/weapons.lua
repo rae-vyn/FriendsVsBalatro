@@ -87,6 +87,13 @@ local function Weapon(info)
 					curr_ammo,
 					card.ability.extra.max_reload,
 				},
+				main_end = {
+                    {n=G.UIT.C, config={align = "bm", minh = 0.4}, nodes={
+                        {n=G.UIT.C, config={ref_table = self, align = "m", colour = G.C.GREEN, r = 0.05, padding = 0.06}, nodes={
+                            {n=G.UIT.T, config={text = ' '..localize('k_fvb_no_oops')..' ',colour = G.C.UI.TEXT_LIGHT, scale = 0.32*0.9}},
+                        }}
+                    }}
+                }
 			}
 		end,
 		calculate = info.calculate or calcWeapon,

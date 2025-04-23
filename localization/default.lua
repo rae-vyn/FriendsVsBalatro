@@ -475,6 +475,15 @@ return {
                     "{C:green}#1# in #2#{} chance to",
                     "make a {C:dark_edition,T:e_negative}Negative{} {C:tarot}Wheel{}"
                 }
+            },
+            b_fvb_mystical_deck = {
+                name = "Mystical Deck",
+                text = {
+                    "Each shot {C:mult}hit",
+                    "has a {C:green}#1# in #2#{} chance",
+                    "to make a Suit {C:tarot}Tarot{}",
+                    "(e.x. {C:tarot,T:c_moon}The Moon{})",
+                }
             }
         },
         Edition = {
@@ -671,7 +680,8 @@ return {
             k_weapon = "Weapon",
             k_hotcard = "Hot Card",
             k_personality = "Personality",
-            k_booster_group_friends = "Friends Pack"
+            k_booster_group_friends = "Friends Pack",
+            k_fvb_no_oops = "Not Oops! Compatible"
 
         },
         labels = {
