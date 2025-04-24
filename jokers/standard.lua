@@ -20,3 +20,29 @@ SMODS.Joker({
             return true end }))
     end,
 })
+
+SMODS.Joker({
+    key = "friends_movie",
+    atlas = "card_backs",
+    pos = { x = 6, y = 7},
+    config = {
+        extra = {
+            repetitions = 1
+        }
+    },
+    loc_vars = function (self, info_queue, card)
+        return { vars = {card.ability.extra.repetitions}}
+    end,
+    rarity = 3,
+    cost = 8,
+    blueprint_compat = false,
+    calculate = function (self, card, context)
+        if context.cardarea == G.weapons and context.repetition then
+            return {
+                message = localize("k_fvb_again"),
+                --repetitions = card.ability.extra.repetitions,
+                retrigger_joker = context.other_card
+            }
+        end
+    end
+})

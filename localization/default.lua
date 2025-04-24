@@ -193,6 +193,12 @@ return {
                     "All {C:personality}Friends{} Packs",
                     "in the shop are {C:attention}half off"
                 }
+            },
+            j_fvb_friends_movie = {
+                name = "Friends: The Movie",
+                text = {
+                    "Retrigger all {C:weapon}Weapons{}",
+                }
             }
         },
         Buff = {
