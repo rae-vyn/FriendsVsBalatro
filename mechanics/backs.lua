@@ -23,6 +23,10 @@ SMODS.Back({
     atlas = "card_backs",
     pos = {x = 0, y = 0},
     unlocked = true,
+    config = {
+        no_interest = true,
+        extra_hand_bonus = 0,
+    },
     calculate = function(self, back, context)
         if context.weapon_hit then
             return {
@@ -221,16 +225,17 @@ SMODS.Back({
     end,
     calculate = function(self, back, context)
         if context.weapon_hit and pseudorandom('mystical') <
-            G.GAME.probabilities.normal / self.config.extra.odds and
-            #G.consumeables.cards < G.consumeables.config.card_limit then
+            G.GAME.probabilities.normal / self.config.extra.odds then
             return {
                 message = localize("k_fvb_hit"),
                 func = function()
                     eventify(function()
-                        local tarot = pseudorandom_element({
-                            "c_moon", "c_sun", "c_world", "c_lovers", "c_star"
-                        }, pseudoseed("mystic"))
-                        SMODS.add_card({key = tarot})
+                        if #G.consumeables.cards < G.consumeables.config.card_limit then
+                            local tarot = pseudorandom_element({
+                                "c_moon", "c_sun", "c_world", "c_lovers", "c_star"
+                            }, pseudoseed("mystic"))
+                            SMODS.add_card({key = tarot})
+                        end
                     end)
                 end
             }

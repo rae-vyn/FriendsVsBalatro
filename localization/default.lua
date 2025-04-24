@@ -19,8 +19,11 @@ return {
             },
             c_fvb_banding = {
                 name = "Banding",
-                text = {"{C:green}#1# in #2#{} chance", "to turns each card in hand", "into a {C:mult}Mult{} Card"}
-            },
+                text = {
+                    "{C:green}#1# in #2#{} chance",
+                    "to turns each card in hand", "into a {C:mult}Mult{} Card"
+                }
+            }
         },
         Joker = {
             j_fvb_donnie_b = {
@@ -188,7 +191,7 @@ return {
                 name = "Cash's Card",
                 text = {
                     "All {C:personality}Friends{} Packs",
-                    "in the shop are {C:attention}half off",
+                    "in the shop are {C:attention}half off"
                 }
             }
         },
@@ -425,7 +428,10 @@ return {
             b_fvb_baba_deck = {
                 name = "Baba's Deck",
                 text = {
-                    "Every card {C:mult}hit", "becomes {C:money,T:m_gold}Gold{}"
+                    "Every card {C:mult}hit",
+                    "becomes {C:money,T:m_gold}Gold{}",
+                    "Earn no {C:attention}interest",
+                    "or money from {C:blue}extra hands"
                 }
             },
             b_fvb_siaro_deck = {
@@ -471,8 +477,7 @@ return {
                 text = {
                     "{C:tarot,T:c_wheel_of_fortune}Wheel Of Fortune{}",
                     "gives {C:white,X:mult}X#3#{} while held,",
-                    "After each round",
-                    "{C:green}#1# in #2#{} chance to",
+                    "After each round", "{C:green}#1# in #2#{} chance to",
                     "make a {C:dark_edition,T:e_negative}Negative{} {C:tarot}Wheel{}"
                 }
             },
@@ -482,7 +487,7 @@ return {
                     "Each shot {C:mult}hit",
                     "has a {C:green}#1# in #2#{} chance",
                     "to make a Suit {C:tarot}Tarot{}",
-                    "(e.x. {C:tarot,T:c_moon}The Moon{})",
+                    "(e.x. {C:tarot,T:c_moon}The Moon{})"
                 }
             }
         },
@@ -490,7 +495,8 @@ return {
             e_fvb_poison_ed = {
                 name = "Poison",
                 text = {
-                    "{C:green}#1# in #2#{} chance", "for {C:white,X:mult}X2{} Mult",
+                    "{C:green}#1# in #2#{} chance",
+                    "for {C:white,X:mult}X2{} Mult",
                     "{C:green}#1# in #3#{} chance",
                     "for {C:white,X:mult}X0.5{} Mult"
                 }
@@ -498,24 +504,19 @@ return {
             e_fvb_fire = {
                 name = "Fire",
                 text = {
-                    "{C:white,X:mult}X#3#{} Mult",
-                    "{C:mult}Self-destructs{}", 
+                    "{C:white,X:mult}X#3#{} Mult", "{C:mult}Self-destructs{}",
                     "after scoring"
                 }
-            },
+            }
         },
         Voucher = {
             v_fvb_cash_out = {
                 name = "Cash Out",
-                text = {
-                    "{C:buff}Buffs{} now appear in the shop"
-                }
+                text = {"{C:buff}Buffs{} now appear in the shop"}
             },
             v_fvb_mo_money = {
                 name = "Mo' Money",
-                text = {
-                    "{C:debuff}Debuffs{} now appear in the shop"
-                }
+                text = {"{C:debuff}Debuffs{} now appear in the shop"}
             },
             v_fvb_friends = {
                 name = "Friends!",
@@ -540,7 +541,8 @@ return {
             fvb_poison_seal = {
                 name = "Poison Seal",
                 text = {
-                    "{C:green}#1# in #2#{} chance", "for {C:white,X:mult}X2{} Mult",
+                    "{C:green}#1# in #2#{} chance",
+                    "for {C:white,X:mult}X2{} Mult",
                     "{C:green}#1# in #3#{} chance",
                     "for {C:white,X:mult}X0.5{} Mult"
                 }
@@ -638,8 +640,7 @@ return {
             c_fvb_deep_fryer = {
                 name = "Deep Fryer",
                 text = {
-                    "Things are heating up!",
-                    "{C:mult}Does no damage",
+                    "Things are heating up!", "{C:mult}Does no damage",
                     "{C:green}#6# in #3#{} chance to {C:personality}ignite{} cards",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
@@ -647,9 +648,7 @@ return {
         }
     },
     misc = {
-        challenge_names = {
-            c_fvb_the_trio = "The Trio"
-        },
+        challenge_names = {c_fvb_the_trio = "The Trio"},
         v_text = {
             ch_c_onlyqueens = {
                 "All face cards in deck are {C:attention}Queens{}"
