@@ -487,7 +487,9 @@ return {
                     "Each shot {C:mult}hit",
                     "has a {C:green}#1# in #2#{} chance",
                     "to make a Suit {C:tarot}Tarot{}",
-                    "(e.x. {C:tarot,T:c_moon}The Moon{})"
+                    "(e.x. {C:tarot,T:c_moon}The Moon{})",
+                    "Start with {C:planet,T:v_planet_merchant}Planet Merchant",
+                    "and {C:planet,T:v_planet_tycoon}Planet Tycoon"
                 }
             }
         },
