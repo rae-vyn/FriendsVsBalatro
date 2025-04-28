@@ -37,11 +37,10 @@ SMODS.Joker({
     cost = 8,
     blueprint_compat = false,
     calculate = function (self, card, context)
-        if context.cardarea == G.weapons and context.repetition then
+        if context.retrigger_joker_check and context.other_context.cardarea == G.weapons then
+            print("we made it")
             return {
-                message = localize("k_fvb_again"),
-                --repetitions = card.ability.extra.repetitions,
-                retrigger_joker = context.other_card
+                repetitions = 1
             }
         end
     end

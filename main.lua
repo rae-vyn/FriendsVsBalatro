@@ -27,3 +27,12 @@ end
 if next(SMODS.find_mod('Maximus')) then
     assert(SMODS.load_file('util/maximus_compat.lua'))()
 end
+
+SMODS.current_mod.optional_features = function()
+    return {
+        retrigger_joker = true,
+        cardareas = {
+            weapons = true,
+        },
+    }
+end

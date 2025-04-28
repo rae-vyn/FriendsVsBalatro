@@ -6,7 +6,7 @@ SMODS.ConsumableType({
 })
 
 function calcWeapon(self, card, context)
-	if context.individual and context.cardarea == G.play and not card.ability.extra.reloading then
+	if ((context.individual and context.cardarea == G.play) or context.friends_movie) and not card.ability.extra.reloading then
 		local damage_range = { 0 }
 		for i = card.ability.extra.min_damage, card.ability.extra.max_damage do
 			damage_range[#damage_range + 1] = i
@@ -32,7 +32,7 @@ function calcWeapon(self, card, context)
 			-- card = card,
 			func = function()
 				SMODS.calculate_context({ weapon_hit = true, other_card = context.other_card })
-				sendDebugMessage("sent weapon missed context", "ContextCheck")
+				sendDebugMessage("sent weapon hit context", "ContextCheck")
 			end,
 		}
 	elseif card.ability.extra.reloading and context.after then
