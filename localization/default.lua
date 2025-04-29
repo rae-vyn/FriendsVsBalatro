@@ -653,13 +653,13 @@ return {
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             }
-        }
-    },
-    Blind = {
-        bl_fvb_the_jam = {
-            name = "The Jam",
-            text = { "All Weapons are debuffed"}
-        }
+        },
+        Blind = {
+            bl_fvb_the_jam = {
+                name = "The Jam",
+                text = { "All Weapons are debuffed"}
+            }
+        },
     },
     misc = {
         challenge_names = {c_fvb_the_trio = "The Trio"},
