@@ -3,8 +3,10 @@ SMODS.Blind({
     atlas = "the_jam",
     boss = { min = 2 },
     boss_colour = HEX("E0569B"),
+    discovered = true,
     recalc_debuff = function (self, card, from_blind)
         if (card.area == G.weapons) and not G.GAME.blind.disabled then
+            print("hi")
 			return true
 		end
     end,
