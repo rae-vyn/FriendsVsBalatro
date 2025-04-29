@@ -195,7 +195,7 @@ return {
                 }
             },
             j_fvb_friends_movie = {
-                name = "Friends: The Movie",
+                name = "Friends Genesis Evangelion",
                 text = {
                     "Retrigger all {C:weapon}Weapons{}",
                 }
