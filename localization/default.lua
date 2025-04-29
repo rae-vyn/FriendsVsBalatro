@@ -656,7 +656,7 @@ return {
         }
     },
     Blind = {
-        bl_the_jam = {
+        bl_fvb_the_jam = {
             name = "The Jam",
             text = { "All Weapons are debuffed"}
         }
