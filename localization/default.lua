@@ -655,6 +655,12 @@ return {
             }
         }
     },
+    Blind = {
+        bl_the_jam = {
+            name = "The Jam",
+            text = { "All Weapons are debuffed"}
+        }
+    },
     misc = {
         challenge_names = {c_fvb_the_trio = "The Trio"},
         v_text = {
