@@ -658,6 +658,10 @@ return {
             bl_fvb_the_jam = {
                 name = "The Jam",
                 text = { "All Weapons", "are debuffed"}
+            },
+            bl_fvb_the_laundry = {
+                name = "The Laundry",
+                text = { "Every shot hit", "costs $1"}
             }
         },
     },
