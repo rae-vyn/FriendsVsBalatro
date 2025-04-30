@@ -474,7 +474,7 @@ return {
                     "Start with a deck",
                     "of {C:inactive,T:m_stone}Stone{} cards;",
                     "Each {C:mult}hit{} removes",
-                    "the {C:inactive,T:m_stone}Stone{}",
+                    "the {C:inactive}Stone{}",
                     "{C:green}#1# in #2#{} chance to {C:mult}destroy{} card"
                 }
             },
