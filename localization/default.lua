@@ -199,11 +199,20 @@ return {
                 text = {
                     "Retrigger all {C:weapon}Weapons{}",
                 }
+            },
+            j_fvb_ressurector = {
+                name = "Death's Embrace",
+                text = {
+                    "{C:red}Destroys{} a random card",
+                    "{C:inactive,S:0.7}(any card)",
+                    "every {C:blue}hand{} played",
+                    "and gives {C:money}$25"
+                }
             }
         },
         Buff = {
             c_fvb_medkit = {
-                name = "Medkit",
+                name = "Medkit",    
                 text = {"Add {C:blue}+50{} Chips", "to every card in hand"}
             },
             c_fvb_small_head = {
