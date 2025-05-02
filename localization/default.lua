@@ -545,12 +545,12 @@ return {
         Other = {
             p_fvb_basic_pack = {
                 name = "Basic Friends Pack",
-                text = {"Contains 5", "Friends Vs. Friends cards"}
+                text = {"Contains 5", "{C:personality,E:2}Friends Vs. Friends{} cards"}
             },
             p_fvb_gold_pack = {
                 name = "Gold Friends Pack",
                 text = {
-                    "Contains 5", "Friends Vs. Friends cards",
+                    "Contains 5", "{C:personality,E:2}Friends Vs. Friends{} cards",
                     "One is a {C:attention}Polychrome{} {C:weapon}Weapon"
                 }
 

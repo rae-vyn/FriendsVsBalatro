@@ -15,7 +15,7 @@ function add_card_to_title(use_key)
 		set = "Joker",
 		area = G.title_top,
 		key = use_key,
-		no_edition = true
+		no_edition = true,
 	})
 	-- recenter the title
 	newcard:start_materialize({ G.C.WHITE, G.C.SECONDARY_SET.Personality }, true, 2.5)
