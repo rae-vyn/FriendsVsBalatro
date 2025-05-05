@@ -66,7 +66,7 @@ return {
             j_fvb_dj_newton = {
                 name = "DJ Newton",
                 text = {
-                    "{C:green}Miss Chance{}", "reduced by {C:green}#1#%",
+                    "All weapons' {C:green}#2#{}", "#3# {C:green}#1#%",
                     "every round"
                 }
             },
@@ -586,7 +586,7 @@ return {
                 name = "Boira 9",
                 text = {
                     "The Classic", "{C:mult}+#1#-#2#{} Mult",
-                    "{C:green}#3#%{} chance to miss",
+                    "{C:green}#3#%{} #6#",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
@@ -594,7 +594,7 @@ return {
                 name = "Boomstick",
                 text = {
                     "Close-range clutch!", "{C:mult}+#1#-#2#{} Mult",
-                    "{C:green}#3#%{} chance to miss",
+                    "{C:green}#3#%{} #6#",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
@@ -602,7 +602,7 @@ return {
                 name = "Albatross 21",
                 text = {
                     "Newton says hello!", "{C:mult}+#1#-#2#{} Mult",
-                    "{C:green}#3#%{} chance to miss",
+                    "{C:green}#3#%{} #6#",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
@@ -610,7 +610,7 @@ return {
                 name = "Brasshopper",
                 text = {
                     "A bit of the Raver flavour.", "{C:mult}+#1#-#2#{} Mult",
-                    "{C:green}#3#%{} chance to miss",
+                    "{C:green}#3#%{} #6#",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
@@ -618,7 +618,7 @@ return {
                 name = "Laika",
                 text = {
                     "You had it coming.", "{C:mult}+#1#-#2#{} Mult",
-                    "{C:green}#3#%{} chance to miss",
+                    "{C:green}#3#%{} #6#",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
@@ -626,7 +626,7 @@ return {
                 name = "FK-82",
                 text = {
                     "Friends of high caliber.", "{C:mult}+#1#-#2#{} Mult",
-                    "{C:green}#3#%{} chance to miss",
+                    "{C:green}#3#%{} #6#",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
@@ -634,7 +634,7 @@ return {
                 name = "Golden Boira",
                 text = {
                     "The gold standard.", "{C:mult}+#1#-#2#{} Mult",
-                    "{C:green}#3#%{} chance to miss",
+                    "{C:green}#3#%{} #6#",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
@@ -642,7 +642,7 @@ return {
                 name = "Punch-R",
                 text = {
                     "Lars' specialty.", "{C:mult}+#1#-#2#{} Mult",
-                    "{C:green}#3#%{} chance to miss",
+                    "{C:green}#3#%{} #6#",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
@@ -650,7 +650,7 @@ return {
                 name = "Katana",
                 text = {
                     "A gift from Sable.", "{C:mult}+#1#-#2#{} Mult",
-                    "{C:green}#3#%{} chance to miss",
+                    "{C:green}#3#%{} #6#",
                     "{C:blue}#5#{} hand reload time", "{C:inactive}(Ammo: #4#)"
                 }
             },
@@ -707,8 +707,12 @@ return {
             k_hotcard = "Hot Card",
             k_personality = "Personality",
             k_booster_group_friends = "Friends Pack",
-            k_fvb_no_oops = "Not Oops! Compatible"
-
+            k_fvb_no_oops = "Not Oops! Compatible",
+            fvb_show_acc = "Show Accuracy",
+            fvb_show_acc_desc = {
+                "Show weapon Accuracy",
+                "instead of Miss Chance",
+            }
         },
         labels = {
             fvb_poison_seal = "Poison Seal",

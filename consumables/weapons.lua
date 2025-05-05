@@ -79,13 +79,15 @@ local function Weapon(info)
 			else
 				curr_ammo = card.ability.extra.curr_ammo .. "/" .. card.ability.extra.max_ammo
 			end
+			local acc = FVB.content.config.accuracy_toggle
 			return {
 				vars = {
 					card.ability.extra.min_damage,
 					card.ability.extra.max_damage,
-					card.ability.extra.miss_chance,
+					(acc and 100 - card.ability.extra.miss_chance) or card.ability.extra.miss_chance,
 					curr_ammo,
 					card.ability.extra.max_reload,
+					(acc and "accuracy") or "chance to miss"
 				},
 				main_end = {
                     {n=G.UIT.C, config={align = "bm", minh = 0.4}, nodes={

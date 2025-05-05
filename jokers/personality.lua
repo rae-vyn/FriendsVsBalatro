@@ -176,7 +176,12 @@ SMODS.Joker({
     blueprint_compat = false,
     config = {extra = {miss_reduction = 5}},
     loc_vars = function (self, info_queue, card)
-        return {vars = {card.ability.extra.miss_reduction}}
+        local acc = FVB.content.config.accuracy_toggle
+        return {vars = {
+            card.ability.extra.miss_reduction,
+            (acc and "Accuracy") or "Miss Chance",
+            (acc and "increased by") or "reduced by"
+        }}
     end,
     check_for_unlock = function(self, args)
         if args.fvf_char == self.config.center_key then return true end

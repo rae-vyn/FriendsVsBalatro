@@ -81,18 +81,6 @@ match_indent = true
 # Add Pool and Global Object
 [[patches]]
 [patches.pattern]
-target = "main.lua"
-pattern = '''function love.load()'''
-position = "before"
-payload = '''
-FVB = {}
-FVB.cards = {}
-'''
-match_indent = true
-
-# Add Pool and Global Object
-[[patches]]
-[patches.pattern]
 target = "functions/UI_definitions.lua"
 pattern = '''if (v.type == 'Base' or v.type == 'Enhanced') and G.GAME.used_vouchers["v_illusion"] and pseudorandom(pseudoseed('illusion')) > 0.8 then '''
 position = "before"
