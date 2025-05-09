@@ -452,8 +452,8 @@ return {
             b_fvb_siaro_deck = {
                 name = "Siaro's Deck",
                 text = {
-                    "Start with a deck",
-                    "Of {C:green, T:fvb_poison_seal}Poison Seal{} cards"
+                    "Every card {C:weapon}hit{}",
+                    "gains the {C:green,T:e_fvb_poison_ed}Poison{} edition"
                 }
             },
             b_fvb_schema_deck = {
